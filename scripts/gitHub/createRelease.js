@@ -2,14 +2,17 @@ const { execSync } = require("child_process");
 
 createRelease = (
   tag,
-  dir = "../dist/*",
+  files = "*.tgz",
   title = `Release ${tag}`,
   notes = "This is an automated release.",
 ) => {
+  if(Array.isArray(files)) {
+    files = files.join(`" "`);
+  }
   try {
     // brew install gh
     execSync(
-      `gh release create "${tag}" "${dir}" --title "${title}" --notes "${notes}" --draft=false --prerelease=false`,
+      `gh release create "${tag}" "${files}" --title "${title}" --notes "${notes}" --draft=false --prerelease=false`,
     );
     console.log("released on github.");
   } catch (error) {
