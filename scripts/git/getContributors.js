@@ -1,3 +1,5 @@
+const { execSync } = require('child_process');
+
 const getContributors = () => {
   const gitLog = execSync('git log --format="%aN <%aE>"').toString();
   return Array.from(new Set(gitLog.trim().split('\n'))).map(asContributor);
