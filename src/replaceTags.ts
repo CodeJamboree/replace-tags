@@ -4,10 +4,13 @@ import ReplaceTagsOptions from "./ReplaceTagsOptions";
 
 const replaceTags = (
   text: string,
-  values: object,
+  values: object | string,
   options?: Partial<ReplaceTagsOptions>,
 ): string => {
   if (typeof text !== "string") return text;
+  if (typeof values === "string") {
+    values = JSON.parse(values) as object;
+  }
   const {
     tagPattern = DoubleCurlyBraces.tagPattern,
     tagStartPattern = DoubleCurlyBraces.tagStartPattern,
