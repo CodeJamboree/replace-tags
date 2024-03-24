@@ -135,7 +135,7 @@ console.log(replacedText);
 Replaces tags in the provided text with values from the values object.
 
 - `text`: The text string containing tags to replace.
-- `values`: An object containing values to replace the tags.
+- `values`: An object or JSON object containing values to replace the tags.
 - `options` (optional): An object specifying options for tag parsing. Default is DoubleCurlyBraces. It can include the following properties:
   - `tagPattern` (optional): A regular expression pattern to find tags in the text. Default is DoubleCurlyBraces.tagPattern.
   - `tagStartPattern` (optional): A regular expression pattern to find the start of a tag. Default is DoubleCurlyBraces.tagStartPattern.
@@ -173,6 +173,26 @@ const data = {
   },
 };
 const text = "Hello, {{user.name}}, you are {{user.getAge}} years old!";
+```
+
+## Passing Values as JSON
+
+You may pass a JSON string as the values to be evaluated.
+
+```js
+const replaceTags, { PercentSigns } = require("@codejamboree/replace-tags");
+
+// Define your text containing tags
+const text = "Hello %{user.name}%!";
+
+// Define a JSON string with values to replace the tags
+const values = `{"user": {"name": "Lewis Moten"}}`;
+
+// Replace the tags in the text with values from the object
+const replacedText = replaceTags(text, values);
+
+console.log(replacedText);
+// Output: Hello Lewis Moten!
 ```
 
 ## Find Value By Path
