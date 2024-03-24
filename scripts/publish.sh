@@ -38,6 +38,12 @@ git push --tags
 # Build dev version
 npm run build:dev
 
+# Build production version
+npm run build
+
+# Publish to NPM
+npm publish --access public
+
 # Create tarball
 PACK_OUTPUT=$(npm pack)
 
@@ -46,11 +52,5 @@ TARBALL=$(echo "$PACK_OUTPUT" | grep -E '[^[:space:]]+\.tgz')
 # Create release on Github
 gh release create "v$VERSION" "$TARBALL" --title "Release v$VERSION" --notes "This is an automated release." --draft=false --prerelease=false
 
-# Remove tarballs
+# Remove tarball
 rm -f "$TARBALL"
-
-# Build production version
-npm run build
-
-# Publish to NPM
-npm publish --access public
