@@ -4,6 +4,10 @@
   "description": "Replaces {{tag.paths}} in templates",
   "main": "dist/replace-tags.min.js",
   "devMain": "dist-dev/replace-tags.js",
+  "files": [
+    "dist",
+    "dist-dev"
+  ],
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development"
