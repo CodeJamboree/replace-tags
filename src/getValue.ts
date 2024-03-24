@@ -15,7 +15,8 @@ const getValue = (
     } else {
       value = (source as KeyedObject)[key];
     }
-    if (typeof value === "function") value = value(key, currentPath, fullPath);
+    if (typeof value === "function")
+      value = value.call(source, key, currentPath, fullPath);
     return value;
   } else {
     return undefined;

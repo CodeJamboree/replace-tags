@@ -45,6 +45,17 @@ describe("replace tags", () => {
       const values = { user: () => ({ name: () => "John Doe" }) };
       expect(replaceTags(text, values)).toBe("Hello John Doe!");
     });
+    it("functions have context", () => {
+      const text = "Hello {{getFullName}}!";
+      const values = {
+        first: "John",
+        last: "Doe",
+        getFullName: function () {
+          return `${this.first} ${this.last}`;
+        },
+      };
+      expect(replaceTags(text, values)).toBe("Hello John Doe!");
+    });
     it("passes current key to the function as argument 1", () => {
       const text = "Hello {{user.name}}!";
       const nameCallback = jest.fn().mockReturnValue("John Doe");
