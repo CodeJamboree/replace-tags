@@ -24,8 +24,10 @@ npm version patch
 # Push the new tags or package.json commit
 node ./scripts/git/pushTags
 
-# Build
-npm run build
+# Build dev version
 npm run build:dev
+
+# Build production version
+npm run build
 
 npm publish --access public
