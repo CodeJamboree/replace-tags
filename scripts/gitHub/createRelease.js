@@ -8,7 +8,7 @@ createRelease = (
 ) => {
   // brew install gh
   execSync(
-    `gh release create "${tag}" "${dir}" --title "${title}" --notes "${notes} --draft=false --prerelease=false`,
+    `gh release create "${tag}" "${dir}" --title "${title}" --notes "${notes}" --draft=false --prerelease=false`,
   );
   console.log("released on github.");
 };
