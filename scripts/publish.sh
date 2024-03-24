@@ -32,7 +32,10 @@ npm version patch
 # Get package version
 VERSION=$(node -p "require('./package.json').version")
 
-# Push the new tag and local commits
+# Push local commits
+git push
+
+# Push local tags
 git push --tags
 
 # Build dev version
