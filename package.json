@@ -64,10 +64,5 @@
     "webpack-cli": "^5.1.4"
   },
   "contributors": [
-    {
-      "name": "Lewis Moten",
-      "url": "https://github.com/Lewis-Moten",
-      "email": "lewis.moten@codejamboree.com"
-    }
   ]
 }
