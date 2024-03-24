@@ -19,6 +19,11 @@ describe("replace tags", () => {
     const values = { name: "World" };
     expect(replaceTags(text, values)).toBe("Hello World!");
   });
+  it("recognizes values as JSON", () => {
+    const text = "Hello {{name}}!";
+    const values = JSON.stringify({ name: "World" });
+    expect(replaceTags(text, values)).toBe("Hello World!");
+  });
   it("replaces nested properties", () => {
     const text = "Hello {{user.name}}!";
     const values = { user: { name: "John Doe" } };
