@@ -1,16 +1,18 @@
+import DoubleCurlyBraces from "./styles/DoubleCurlyBraces";
 import findValueByPath from "./findValueByPath";
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
 
 const replaceTags = (
   text: string,
   values: object,
-  options?: ReplaceTagsOptions
+  options?: Partial<ReplaceTagsOptions>
 ): string => {
+  if (typeof text !== 'string') return text;
   const {
-    tagPattern = /\{\{([^}]+)\}\}/g,
-    tagStartPattern = /^\{\{/,
-    tagEndPattern = /\}\}$/
-  } = options || {};
+    tagPattern = DoubleCurlyBraces.tagPattern,
+    tagStartPattern = DoubleCurlyBraces.tagStartPattern,
+    tagEndPattern = DoubleCurlyBraces.tagEndPattern
+  } = options ?? DoubleCurlyBraces;
 
   const replaceTag = (match: string): string => {
     const path = match.replace(tagStartPattern, "").replace(tagEndPattern, "");
