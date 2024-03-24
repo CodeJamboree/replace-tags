@@ -1,3 +1,4 @@
+import findValueByPath from "./findValueByPath";
 import replaceTags from "./replaceTags";
 import AngleBrackets from "./styles/AngleBrackets";
 import AngleBracketsWithPercentSigns from "./styles/AngleBracketsWithPercentSigns";
@@ -34,6 +35,7 @@ export default replaceTags;
 export {
   version,
   replaceTags,
+  findValueByPath,
   AngleBrackets,
   AngleBracketsWithPercentSigns,
   Backticks,

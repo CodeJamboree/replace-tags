@@ -175,6 +175,29 @@ const data = {
 const text = "Hello, {{user.name}}, you are {{user.getAge}} years old!";
 ```
 
+## Find Value By Path
+
+A method is also provided for you to retrieve the resolved path values.
+
+### `findValueByPath(source: object, path: string): unknown`
+
+```js
+const { findValueByPath } = require("@codejamboree/replace-tags");
+
+// Define an object with values to find the value
+const source = {
+  user: {
+    name: "Lewis Moten",
+  },
+};
+
+// Find the value in the object
+const value = findValueByPath(source, "user.name");
+
+console.log(value);
+// Output: Lewis Moten
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
