@@ -9,28 +9,27 @@ assertCommitted();
 
 packageJson.contributors = packageJson.contributors ?? [];
 
-const gitContributors = getContributors();
+const isNewContributor = (contributor) => !packageJson.contributors.some(isMatch(contributor));
 
-const newNames = [];
+const isMatch = ({ name, email }) =>
+  ({ name: otherName, email: otherEmail }) =>
+    name === otherName && email === otherEmail;
 
-const isMatch = ({ name, email, url }) => 
-  ({ name: name2, email: email2, url: url2 }) => {
-    name === name2 && (email === email2 || url === url2);
-}
-gitContributors.forEach(contributor => {
+const newContributors = getContributors()
+  .filter(isNewContributor);
 
-  if (!packageJson.contributors.some(isMatch(contributor))) {
+packageJson.contributors = newContributors
+  .reduce((contributors, contributor) => {
     console.log(`New contributor found: ${contributor.name}`);
-    newNames.push(contributor.name);
-    packageJson.contributors.push(contributor);
-  }
-});
+    return [...contributors, contributor];
+  }, packageJson.contributors);
 
-if (newNames.length !== 0) {
-  fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
+if (newContributors.length !== 0) {
+  fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n');
   console.log('package.json updated with new contributors.');
-  let message = `Added contributors: ${newNames.join(', ')}`;
-  if(message.length > 50) message = `Added contributors: ${newNames.length}`;
+  const names = newContributors.map(({ name }) => name).join(', ');
+  let message = `Added contributors: ${names}`;
+  if (message.length > 50) message = `Added contributors: ${newContributors.length}`;
   commit('package.json', message);
 } else {
   console.log('No additional contributors found.');
