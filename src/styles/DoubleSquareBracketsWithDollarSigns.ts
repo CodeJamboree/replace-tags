@@ -4,7 +4,7 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
 const DoubleSquareBracketsWithDollarSigns: ReplaceTagsOptions = {
   tagPattern: /\[\[\$([^\$]+)\$\]\]/g,
   tagStartPattern: /^\[\[\$/,
-  tagEndPattern: /\$\]\]$/
+  tagEndPattern: /\$\]\]$/,
 };
 
 export default DoubleSquareBracketsWithDollarSigns;

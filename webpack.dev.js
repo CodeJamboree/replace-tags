@@ -5,7 +5,6 @@ const chunkFilename = ({ chunk: { id } }) =>
   /^vendors-/.test(id) ? "vendors/[contenthash:8].js" : "[name].js";
 
 module.exports = (env, argv) => {
-
   let config = common(env, argv);
 
   return {

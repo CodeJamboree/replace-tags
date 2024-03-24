@@ -4,7 +4,7 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
 const DoubleUnderscores: ReplaceTagsOptions = {
   tagPattern: /__[^_]+__/g,
   tagStartPattern: /^__/,
-  tagEndPattern: /__$/
+  tagEndPattern: /__$/,
 };
 
 export default DoubleUnderscores;

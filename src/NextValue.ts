@@ -1,7 +1,7 @@
 interface NextValue {
-  fullPath: string,
-  currentPath?: string,
-  value: unknown
+  fullPath: string;
+  currentPath?: string;
+  value: unknown;
 }
 
 export default NextValue;

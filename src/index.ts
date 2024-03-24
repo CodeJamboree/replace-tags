@@ -30,7 +30,7 @@ import TripleCurlyBraces from "./styles/TripleCurlyBraces";
 
 const version = __VERSION__;
 export default replaceTags;
-export { 
+export {
   version,
   replaceTags,
   AngleBrackets,
@@ -60,5 +60,5 @@ export {
   SquareBrackets,
   SquareBracketsWithColons,
   SquareBracketsWithDashes,
-  TripleCurlyBraces
+  TripleCurlyBraces,
 };

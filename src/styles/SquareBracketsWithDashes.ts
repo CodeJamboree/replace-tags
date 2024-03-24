@@ -4,7 +4,7 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
 const SquareBracketsWithDashes: ReplaceTagsOptions = {
   tagPattern: /\[\-([^\-]+)\-\]/g,
   tagStartPattern: /^\[\-/,
-  tagEndPattern: /\-\]$/
+  tagEndPattern: /\-\]$/,
 };
 
 export default SquareBracketsWithDashes;

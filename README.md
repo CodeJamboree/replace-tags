@@ -13,6 +13,7 @@ npm install @codejamboree/replace-tags
 ```
 
 Or using yarn:
+
 ```bash
 yarn add @codejamboree/replace-tags
 ```
@@ -20,17 +21,17 @@ yarn add @codejamboree/replace-tags
 ## Usage
 
 ```js
-const replaceTags = require('@codejamboree/replace-tags');
+const replaceTags = require("@codejamboree/replace-tags");
 
 // Define your text containing tags
-const text = 'Hello {{user.name}}, welcome to {{website}}!';
+const text = "Hello {{user.name}}, welcome to {{website}}!";
 
 // Define an object with values to replace the tags
 const values = {
   user: {
-    name: 'Lewis Moten',
+    name: "Lewis Moten",
   },
-  website: 'CodeJamboree.com',
+  website: "CodeJamboree.com",
 };
 
 // Replace the tags in the text with values from the object
@@ -38,22 +39,22 @@ const replacedText = replaceTags(text, values);
 
 console.log(replacedText);
 // Output: Hello Lewis Moten, welcome to CodeJamboree.com!
-
 ```
 
 ## Usage with Custom Tag Patterns
+
 ```js
-const replaceTags = require('@codejamboree/replace-tags');
+const replaceTags = require("@codejamboree/replace-tags");
 
 // Define your text containing custom tags
-const text = 'Hello %{user.name}%, welcome to %{website}%!';
+const text = "Hello %{user.name}%, welcome to %{website}%!";
 
 // Define an object with values to replace the tags
 const values = {
   user: {
-    name: 'Lewis Moten',
+    name: "Lewis Moten",
   },
-  website: 'CodeJamboree.com',
+  website: "CodeJamboree.com",
 };
 
 // Define custom options for tag parsing

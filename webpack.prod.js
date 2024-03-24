@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     devtool: "source-map",
     optimization: {
       minimize: true,
-      minimizer: [new TerserPlugin()]
+      minimizer: [new TerserPlugin()],
     },
     module: {
       ...config.module,
