@@ -38,20 +38,19 @@ git push --tags
 # Build dev version
 npm run build:dev
 
+# Create tarball
+PACK_OUTPUT=$(npm pack)
+
+TARBALL=$(echo "$PACK_OUTPUT" | grep -E '[^[:space:]]+\.tgz')
+
+# Create release on Github
+gh release create "v$VERSION" "$TARBALL" --title "Release v$VERSION" --notes "This is an automated release." --draft=false --prerelease=false
+
+# Remove tarballs
+rm -f "$TARBALL"
+
 # Build production version
 npm run build
 
 # Publish to NPM
 npm publish --access public
-
-# Remove old tarballs
-rm -f *.tgz
-
-# Create new tarball
-npm pack
-
-# Create release on Github
-gh release create "v$VERSION" "*.tgz" --title "Release v$VERSION" --notes "This is an automated release." --draft=false --prerelease=false
-
-# Remove tarballs
-rm -f *.tgz
