@@ -130,7 +130,7 @@ console.log(replacedText);
 
 ## API
 
-### `replaceTags(text: string, values: object, options?: object): string`
+### `replaceTags(text: string, values: object, options?: ReplaceTagsOptions): string`
 
 Replaces tags in the provided text with values from the values object.
 
