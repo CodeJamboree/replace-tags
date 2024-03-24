@@ -12,6 +12,14 @@ npm run lint
 # Check for unused or outdated dependencies
 npm run depcheck
 
+# Check if there are any uncommitted changes
+if git diff-index --quiet HEAD --; then
+    echo "No uncommitted changes found."
+else
+    echo "Error: There are uncommitted changes in the repository."
+    exit 1
+fi
+
 # Update package.json with any new contributors to the repository
 node ./scripts/update-contributors
 
@@ -21,8 +29,11 @@ npm run test
 # Increment the version number
 npm version patch
 
-# Push the new tags or package.json commit
-node ./scripts/push-tags
+# Get package version
+VERSION=$(node -p "require('./package.json').version")
+
+# Push the new tag and local commits
+git push --tags
 
 # Build dev version
 npm run build:dev
@@ -30,4 +41,21 @@ npm run build:dev
 # Build production version
 npm run build
 
+# Publish to NPM
 npm publish --access public
+
+# Publish to GitHub
+npm config set repository https://github.com/CodeJamboree/replace-tags.git
+npm publish --access public
+
+# Remove old tarballs
+rm -f *.tgz
+
+# Create new tarball
+npm pack
+
+# Create release on Github
+gh release create "v$VERSION" "*.tgz" --title "Release v$VERSION" --notes "This is an automated release." --draft=false --prerelease=false
+
+# Remove tarballs
+rm -f *.tgz
