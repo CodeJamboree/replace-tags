@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "webpack --mode production",
-    "build:dev": "webpack --mode development"
+    "build:dev": "webpack --mode development",
+    "update-contributors": "node scripts/update-contributors"
   },
   "repository": {
     "type": "git",
