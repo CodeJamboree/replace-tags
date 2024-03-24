@@ -20,5 +20,6 @@
     "strict": true
   },
   "include": ["src"],
+  "exclude": ["**/*.test.ts"],
   "typeRoots": ["./src/@types", "./node_modules/@types"]
 }
