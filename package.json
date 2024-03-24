@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/CodeJamboree/replace-tags/issues"
   },
-  "homepage": "https://github.com/CodeJamboree/replace-tags#readme"
+  "homepage": "https://github.com/CodeJamboree/replace-tags#readme",
+  "devDependencies": {
+    "webpack": "^5.91.0"
+  }
 }
