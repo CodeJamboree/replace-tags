@@ -1,4 +1,4 @@
-import replaceTags from "../../dist/replace-tags.min.js";
+import replaceTags from "../../dist/index.min.js";
 
 describe("dist", () => {
   it("replaces tag", () => {

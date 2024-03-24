@@ -12,7 +12,6 @@ module.exports = (env, argv) => {
 
   const dist = `./dist${isProduction ? "" : "-dev"}`;
   const jsExtension = isProduction ? ".min.js" : ".js";
-  const unscopedName = packageJson.name.split("/").pop();
   const config = {
     entry: "./src/index.ts",
     output: {
@@ -21,7 +20,7 @@ module.exports = (env, argv) => {
       library: packageJson.name,
       libraryTarget: "umd",
       path: path.resolve(__dirname, dist),
-      filename: `${unscopedName}${jsExtension}`,
+      filename: `index${jsExtension}`,
       sourceMapFilename: "[file].map",
       chunkFilename: `[name]${jsExtension}`,
       globalObject: "this",
