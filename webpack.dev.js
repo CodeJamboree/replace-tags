@@ -33,16 +33,5 @@ module.exports = (env, argv) => {
       ...config.output,
       chunkFilename,
     },
-    devServer: {
-      compress: true,
-      historyApiFallback: true,
-      open: true,
-      client: {
-        overlay: true,
-        logging: "info",
-        progress: true,
-        reconnect: true,
-      },
-    },
   };
 };
