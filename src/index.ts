@@ -10,6 +10,7 @@ import DoubleAngle from "./styles/DoubleAngle";
 import DoubleAtSigns from "./styles/DoubleAtSigns";
 import DoubleCaretsWithBraces from "./styles/DoubleCaretsWithBraces";
 import DoubleColonsWithBraces from "./styles/DoubleColonsWithBraces";
+import DoubleCurlyBraces from "./styles/DoubleCurlyBraces";
 import DoubleCurlyBracesWithPercentSign from "./styles/DoubleCurlyBracesWithPercentSigns";
 import DoubleQuestionMarks from "./styles/DoubleQuestionMarks";
 import DoubleSquareBrackets from "./styles/DoubleSquareBrackets";
@@ -44,6 +45,7 @@ export {
   DoubleAtSigns,
   DoubleCaretsWithBraces,
   DoubleColonsWithBraces,
+  DoubleCurlyBraces,
   DoubleCurlyBracesWithPercentSign,
   DoubleQuestionMarks,
   DoubleSquareBrackets,
