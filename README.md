@@ -96,37 +96,37 @@ console.log(replacedText);
 
 ## Tag Styles
 
-| Style                                 | Template                                |
-| ------------------------------------- | --------------------------------------- |
-| AngleBrackets                         | `Hello << user.name >>`                 |
-| AngleBracketsWithPercentSigns         | `Hello <% user.name %>`                 |
-| Backticks                             | `Hello &#96;&#96; user.name &#96;&#96;` |
-| CurlyBracesWithDollarSigns            | `Hello {$ user.name $}`                 |
-| CurlyBracesWithPoundSigns             | `Hello {# user.name #}`                 |
-| DollarSigns                           | `Hello $[ user.name ]$`                 |
-| DollarSignWithCurlyBraces             | `Hello ${ user.name }`                  |
-| DoubleAngle                           | `Hello « user.name »`                   |
-| DoubleAtSigns                         | `Hello @@ user.name @@`                 |
-| DoubleCaretsWithBraces                | `Hello ^^{ user.name }^^`               |
-| DoubleColonsWithBraces                | `Hello ::{ user.name }::`               |
-| DoubleCurlyBraces _(default)_         | `Hello {{ user.name }}`                 |
-| DoubleCurlyBracesWithPercentSign      | `Hello {{% user.name %}}`               |
-| DoubleQuestionMarks                   | `Hello ?? user.name ??`                 |
-| DoubleSquareBrackets                  | `Hello [[ user.name ]]`                 |
-| DoubleSquareBracketsWithDollarSigns   | `Hello [[$ user.name $]]`               |
-| DoubleUnderscores                     | `Hello __ user.name __`                 |
-| ExclamationMarks                      | `Hello !{ user.name }!`                 |
-| HashSymbolsWithCurlyBraces            | `Hello #{ user.name }#`                 |
-| HTMLComments                          | `Hello <!-- user.name --!>`             |
-| Parentheses                           | `Hello ( user.name )`                   |
-| PercentSigns                          | `Hello %{ user.name }%`                 |
-| PipeSymbols                           | `Hello \| user.name \|`                 |
-| PointingHands                         | `Hello 👉 user.name 👈`                 |
-| SingleCurlyBracesWithExclamationMarks | `Hello {! user.name !}`                 |
-| SquareBrackets                        | `Hello [ user.name ]`                   |
-| SquareBracketsWithColons              | `Hello [: user.name :]`                 |
-| SquareBracketsWithDashes              | `Hello [- user.name -]`                 |
-| TripleCurlyBraces                     | `Hello {{{ user.name }}}`               |
+| Style                                 | Template                    |
+| ------------------------------------- | --------------------------- |
+| AngleBrackets                         | `Hello << user.name >>`     |
+| AngleBracketsWithPercentSigns         | `Hello <% user.name %>`     |
+| Backticks                             | `Hello \`\` user.name \`\`` |
+| CurlyBracesWithDollarSigns            | `Hello {$ user.name $}`     |
+| CurlyBracesWithPoundSigns             | `Hello {# user.name #}`     |
+| DollarSigns                           | `Hello $[ user.name ]$`     |
+| DollarSignWithCurlyBraces             | `Hello ${ user.name }`      |
+| DoubleAngle                           | `Hello « user.name »`       |
+| DoubleAtSigns                         | `Hello @@ user.name @@`     |
+| DoubleCaretsWithBraces                | `Hello ^^{ user.name }^^`   |
+| DoubleColonsWithBraces                | `Hello ::{ user.name }::`   |
+| DoubleCurlyBraces _(default)_         | `Hello {{ user.name }}`     |
+| DoubleCurlyBracesWithPercentSign      | `Hello {{% user.name %}}`   |
+| DoubleQuestionMarks                   | `Hello ?? user.name ??`     |
+| DoubleSquareBrackets                  | `Hello [[ user.name ]]`     |
+| DoubleSquareBracketsWithDollarSigns   | `Hello [[$ user.name $]]`   |
+| DoubleUnderscores                     | `Hello __ user.name __`     |
+| ExclamationMarks                      | `Hello !{ user.name }!`     |
+| HashSymbolsWithCurlyBraces            | `Hello #{ user.name }#`     |
+| HTMLComments                          | `Hello <!-- user.name --!>` |
+| Parentheses                           | `Hello ( user.name )`       |
+| PercentSigns                          | `Hello %{ user.name }%`     |
+| PipeSymbols                           | `Hello \| user.name \|`     |
+| PointingHands                         | `Hello 👉 user.name 👈`     |
+| SingleCurlyBracesWithExclamationMarks | `Hello {! user.name !}`     |
+| SquareBrackets                        | `Hello [ user.name ]`       |
+| SquareBracketsWithColons              | `Hello [: user.name :]`     |
+| SquareBracketsWithDashes              | `Hello [- user.name -]`     |
+| TripleCurlyBraces                     | `Hello {{{ user.name }}}`   |
 
 ## API
 
