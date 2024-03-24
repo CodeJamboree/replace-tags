@@ -2,9 +2,11 @@
   "name": "@codejamboree/replace-tags",
   "version": "1.0.0",
   "description": "Replaces {{tag.paths}} in templates",
-  "main": "dist/index.js",
+  "main": "dist/replace-tags.min.js",
+  "devMain": "dist-dev/replace-tags.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development"
   },
   "repository": {
     "type": "git",

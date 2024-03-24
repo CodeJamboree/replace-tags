@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "esnext"],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "module": "commonjs",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "include": ["src"],
+  "typeRoots": ["./src/@types", "./node_modules/@types"]
+}
