@@ -1,7 +1,7 @@
 {
   "name": "@codejamboree/replace-tags",
   "version": "1.0.0",
-  "description": "Replaces {{tag.paths}} in templates",
+  "description": "Effortlessly replace placeholders with dynamic content using this powerful text manipulation toolkit.",
   "main": "dist/replace-tags.min.js",
   "devMain": "dist-dev/replace-tags.js",
   "files": [
@@ -17,10 +17,39 @@
     "url": "git+https://github.com/CodeJamboree/replace-tags.git"
   },
   "keywords": [
-    "templates",
-    "tags"
+    "Custom tag parsing",
+    "Pattern-based replacement",
+    "Tag replacement",
+    "Variable interpolation",
+    "Placeholder substitution",
+    "Data substitution",
+    "Dynamic content rendering",
+    "String templating",
+    "Content transformation",
+    "Text interpolation",
+    "String manipulation",
+    "Data-driven text processing",
+    "Dynamic text rendering",
+    "Template",
+    "Templating engine",
+    "String formatting",
+    "Value injection",
+    "Token replacement",
+    "Inline variable interpretation",
+    "Text parsing",
+    "Flexible tag interpretation",
+    "Token expansion",
+    "Data injection",
+    "Text tokenization",
+    "Text templating engine",
+    "Text content customization",
+    "Tags"
   ],
-  "author": "Code Jamboree LLC",
+  "author": {
+    "name": "Code Jamboree LLC",
+    "email": "info@codejamboree.com",
+    "url": "https://www.codejamboree.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/CodeJamboree/replace-tags/issues"
@@ -31,5 +60,12 @@
     "ts-loader": "^9.5.1",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Lewis Moten",
+      "url": "https://github.com/Lewis-Moten",
+      "email": "lewis.moten@codejamboree.com"
+    }
+  ]
 }
