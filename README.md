@@ -43,7 +43,7 @@ console.log(replacedText);
 
 ## Usage with Custom Tag Patterns
 ```js
-const { replaceTags } = require('@codejamboree/replace-tags');
+const replaceTags = require('@codejamboree/replace-tags');
 
 // Define your text containing custom tags
 const text = 'Hello %{user.name}%, welcome to %{website}%!';
