@@ -13,6 +13,7 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "test": "jest",
+    "lint": "npx eslint src/",
     "format": "npm run pretty",
     "pretty": "prettier --write . --list-different --ignore-path .prettierignore",
     "update-contributors": "node scripts/update-contributors"
@@ -62,6 +63,7 @@
   "homepage": "https://github.com/CodeJamboree/replace-tags#readme",
   "devDependencies": {
     "@types/jest": "^29.5.12",
+    "eslint": "^8.57.0",
     "jest": "^29.7.0",
     "prettier": "^3.2.5",
     "terser-webpack-plugin": "^5.3.10",
