@@ -9,7 +9,7 @@
     "dist-dev"
   ],
   "scripts": {
-    "publish": "npm run update-contributors && npm run test && npm version patch && npm run build && npm publish --access public",
+    "publish:npm": "npm run update-contributors && npm run test && npm version patch && npm run build && npm publish --access public",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "test": "jest",
