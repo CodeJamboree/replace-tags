@@ -22,7 +22,7 @@ npm run test
 npm version patch
 
 # Push the new tags or package.json commit
-node ./scripts/git/pushTags
+node ./scripts/push-tags
 
 # Build dev version
 npm run build:dev
