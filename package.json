@@ -9,12 +9,12 @@
     "dist-dev"
   ],
   "scripts": {
-    "publish:npm": "node ./scripts/publish.js",
+    "publish:npm": "./scripts/publish.sh",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "test": "jest",
     "depcheck": "npm-check --unused",
-    "lint": "npx eslint src/",
+    "lint": "eslint src",
     "format": "npm run pretty",
     "pretty": "prettier --write . --list-different --ignore-path .prettierignore"
   },
@@ -63,6 +63,8 @@
   "homepage": "https://github.com/CodeJamboree/replace-tags#readme",
   "devDependencies": {
     "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
     "eslint": "^8.57.0",
     "jest": "^29.7.0",
     "npm-check": "^6.0.1",

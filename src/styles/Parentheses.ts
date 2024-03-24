@@ -2,7 +2,7 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
 
 // "Hello (variable)"
 const Parentheses: ReplaceTagsOptions = {
-  tagPattern: /\(([^\)]+)\)/g,
+  tagPattern: /\(([^)]+)\)/g,
   tagStartPattern: /^\(/,
   tagEndPattern: /\)$/,
 };

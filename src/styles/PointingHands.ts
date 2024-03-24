@@ -2,9 +2,9 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
 
 // "Hello 👉variable👈"
 const PointingHands: ReplaceTagsOptions = {
-  tagPattern: /👉([^👈]+)👈/g,
-  tagStartPattern: /^👉/,
-  tagEndPattern: /👈$/,
+  tagPattern: /👉([^👈]+)👈/gu,
+  tagStartPattern: /^👉/u,
+  tagEndPattern: /👈$/u,
 };
 
 export default PointingHands;
