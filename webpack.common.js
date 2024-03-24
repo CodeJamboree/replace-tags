@@ -1,6 +1,7 @@
 /* eslint-env node */
 const path = require("path");
 const packageJson = require("./package.json");
+const webpack = require('webpack');
 
 module.exports = (env, argv) => {
   // load up production values
@@ -22,6 +23,11 @@ module.exports = (env, argv) => {
       sourceMapFilename: "[file].map",
       chunkFilename: `[name]${jsExtension}`,
     },
+    plugins: [
+      new webpack.DefinePlugin({
+        '__VERSION__': JSON.stringify(packageJson.version)
+      })
+    ],
     module: {
       rules: [
         { test: /\.tsx?/, use: "ts-loader", exclude: /node_modules/ },
