@@ -44,10 +44,6 @@ npm run build
 # Publish to NPM
 npm publish --access public
 
-# Publish to GitHub
-npm config set repository https://github.com/CodeJamboree/replace-tags.git
-npm publish --access public
-
 # Remove old tarballs
 rm -f *.tgz
 
