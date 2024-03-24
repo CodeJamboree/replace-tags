@@ -4,7 +4,7 @@ const pushTags = require("./git/pushTags");
 const createRelease = require("./gitHub/createRelease");
 
 const tagName = `v${packageJson.version}`;
-const targetDir = "./dist/*";
+const targetDir = "../dist/*";
 const title = `Release ${tagName}`;
 const notes = "This is an automated release.";
 

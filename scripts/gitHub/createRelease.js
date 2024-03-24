@@ -2,7 +2,7 @@ const { execSync } = require("child_process");
 
 createRelease = (
   tag,
-  dir = "./dist/*",
+  dir = "../dist/*",
   title = `Release ${tag}`,
   notes = "This is an automated release.",
 ) => {
