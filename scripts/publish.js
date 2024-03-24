@@ -4,7 +4,7 @@ const commands = [
   "node ./scripts/update-contributors",
   "npm run test",
   "npm version patch",
-  "node ./scripts/pushTags",
+  "node ./scripts/git/pushTags",
   "npm run build",
   "npm publish --access public",
 ];
