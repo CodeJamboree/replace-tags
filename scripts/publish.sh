@@ -23,26 +23,26 @@ fi
 # Update package.json with any new contributors to the repository
 node ./scripts/update-contributors
 
-# Enusure tests pass
-npm run test
-
 # Increment the version number
 npm version patch
 
 # Get package version
 VERSION=$(node -p "require('./package.json').version")
 
-# Push local commits
-git push
-
-# Push local tags
-git push --tags
-
 # Build dev version
 npm run build:dev
 
 # Build production version
 npm run build
+
+# Enusure tests pass (Tests depend on build output, so we test after build)
+npm run test
+
+# Push local commits
+git push
+
+# Push local tags
+git push --tags
 
 # Publish to NPM
 npm publish --access public

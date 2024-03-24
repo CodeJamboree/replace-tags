@@ -24,6 +24,7 @@ module.exports = (env, argv) => {
       filename: `${unscopedName}${jsExtension}`,
       sourceMapFilename: "[file].map",
       chunkFilename: `[name]${jsExtension}`,
+      globalObject: 'this'
     },
     plugins: [
       new webpack.DefinePlugin({
