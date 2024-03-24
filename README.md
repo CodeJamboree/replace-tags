@@ -100,7 +100,7 @@ console.log(replacedText);
 | ------------------------------------- | --------------------------- |
 | AngleBrackets                         | `Hello << user.name >>`     |
 | AngleBracketsWithPercentSigns         | `Hello <% user.name %>`     |
-| Backticks                             | Hello `\`\` user.name \`\`  |
+| Backticks                             | Hello \`\` user.name \`\`   |
 | CurlyBracesWithDollarSigns            | `Hello {$ user.name $}`     |
 | CurlyBracesWithPoundSigns             | `Hello {# user.name #}`     |
 | DollarSigns                           | `Hello $[ user.name ]$`     |
