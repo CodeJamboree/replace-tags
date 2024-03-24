@@ -15,7 +15,7 @@ const replaceTags = (
   } = options ?? DoubleCurlyBraces;
 
   const replaceTag = (match: string): string => {
-    const path = match.replace(tagStartPattern, "").replace(tagEndPattern, "");
+    const path = match.replace(tagStartPattern, "").replace(tagEndPattern, "").trim();
     const value = findValueByPath(values, path);
     return value !== undefined ? `${value}` : match;
   };

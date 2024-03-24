@@ -9,6 +9,11 @@ describe("replace tags", () => {
     const values = {name: 'Works'};
     expect(replaceTags(text, values)).toBe('Tag 1: Works Tag 2: Works');
   });
+  it('trims white-space inside tag', () => {
+    const text = 'Hello {{ name }}!';
+    const values = {name: 'World'};
+    expect(replaceTags(text, values)).toBe('Hello World!');
+  });
   it('replaces top-level properties', () => {
     const text = 'Hello {{name}}!';
     const values = {name: 'World'};
