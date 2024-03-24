@@ -9,15 +9,14 @@
     "dist-dev"
   ],
   "scripts": {
-    "publish:npm": "npm run update-contributors && npm run test && npm version patch && npm run build && npm publish --access public",
+    "publish:npm": "node ./scripts/publish.js",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "test": "jest",
     "depcheck": "npm-check --unused",
     "lint": "npx eslint src/",
     "format": "npm run pretty",
-    "pretty": "prettier --write . --list-different --ignore-path .prettierignore",
-    "update-contributors": "node scripts/update-contributors"
+    "pretty": "prettier --write . --list-different --ignore-path .prettierignore"
   },
   "repository": {
     "type": "git",
