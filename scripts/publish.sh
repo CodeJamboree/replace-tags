@@ -33,6 +33,9 @@ npm version patch
 # Get package version
 VERSION=$(node -p "require('./package.json').version")
 
+# Add gitmoji to the commit
+git commit --amend -m ":bookmark: v$VERSION"
+
 # Build dev version
 npm run build:dev
 
