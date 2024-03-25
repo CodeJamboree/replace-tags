@@ -17,7 +17,7 @@ const findNextValue = (
   let { value, currentPath } = result;
   const { fullPath } = result;
   if (value === undefined) return result;
-  if (arrayPattern.test(segment)) {
+  if (new RegExp(arrayPattern).test(segment)) {
     value = getArrayValue(value, segment, currentPath, fullPath);
     currentPath = appendPath(currentPath, segment);
   } else {
