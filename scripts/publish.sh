@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./create-release-notes.sh
+./scripts/create-release-notes.sh
 
 exit 1
 
