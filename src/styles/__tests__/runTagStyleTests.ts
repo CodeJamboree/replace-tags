@@ -13,8 +13,8 @@ const runTagStyleTests = (
       child: "Child Value",
     },
     array: ["Array 0 Value"],
-    __underscore: "Underscore Value",
-    $$dollar: "Dollar Value",
+    _underscore_: "Underscore Value",
+    $dollar$: "Dollar Value",
     nestedArray: [["Nested 0 0 Value"]],
     "0": ["Root Array 0 Value"],
   };
@@ -25,13 +25,13 @@ const runTagStyleTests = (
       expect(replaceTags(text, values, tagStyle)).toBe("Key Value");
     });
     it("replaces underscore key", () => {
-      const text = `${tagStart}__underscore${tagEnd}`;
+      const text = `${tagStart}_underscore_${tagEnd}`;
       expect(replaceTags(text, values, tagStyle)).toBe(
         "Underscore Value",
       );
     });
     it("replaces dollar key", () => {
-      const text = `${tagStart}$$dollar${tagEnd}`;
+      const text = `${tagStart}$dollar$${tagEnd}`;
       expect(replaceTags(text, values, tagStyle)).toBe(
         "Dollar Value",
       );
