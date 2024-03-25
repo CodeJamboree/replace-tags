@@ -11,6 +11,8 @@ const runTagStyleTests = (name: string, tagStart: string, tagEnd: string, tagSty
     array: [
       "Array 0 Value"
     ],
+    __underscore: "Underscore Value",
+    $$dollar: "Dollar Value",
     nestedArray: [
       [
         "Nested 0 0 Value"
@@ -21,12 +23,25 @@ const runTagStyleTests = (name: string, tagStart: string, tagEnd: string, tagSty
     ]
   };
 
+
   describe(name, () => {
     
     it("replaces root key", () => {
       const text = `${tagStart}key${tagEnd}`;
       expect(replaceTags(text, values, tagStyle)).toBe(
         "Key Value",
+      );
+    });
+    it("replaces underscore key", () => {
+      const text = `${tagStart}__underscore${tagEnd}`;
+      expect(replaceTags(text, values, tagStyle)).toBe(
+        "Underscore Value",
+      );
+    });
+    it("replaces dollar key", () => {
+      const text = `${tagStart}$$dollar${tagEnd}`;
+      expect(replaceTags(text, values, tagStyle)).toBe(
+        "Dollar Value",
       );
     });
     it("replaces multiple tags", () => {
