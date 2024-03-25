@@ -48,7 +48,7 @@ mv "$CHANGELOG.tmp" "$CHANGELOG"
 git add "$CHANGELOG"
 
 # Commit the changelog
-git commit -m "Add version header for v$VERSION"
+git commit -m ":loud_sound: Changelog v$VERSION"
 
 # Create header for release notes
 HEADER="# Current Release\n\n$RELEASE_HEADER\n";
