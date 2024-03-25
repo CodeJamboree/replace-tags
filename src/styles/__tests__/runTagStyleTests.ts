@@ -22,14 +22,14 @@ const runTagStyleTests = (
     const text = `${tagStart}key${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe("Key Value");
   });
-  xit("replaces underscore key", () => {
-    const text = `${tagStart}_underscore_${tagEnd}`;
+  it("replaces underscore key", () => {
+    const text = `${tagStart}__underscore__${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe(
       "Underscore Value",
     );
   });
-  xit("replaces dollar key", () => {
-    const text = `${tagStart}$dollar$${tagEnd}`;
+  it("replaces dollar key", () => {
+    const text = `${tagStart}$$dollar$$${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe("Dollar Value");
   });
   it("replaces multiple tags", () => {
