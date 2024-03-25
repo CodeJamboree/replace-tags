@@ -1,6 +1,7 @@
 # Build Artifacts
 dist
 dist-dev
+/RELEASE_NOTES.md
 
 # Logs
 logs
