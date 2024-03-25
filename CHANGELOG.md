@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+- Link to changelog
+
 ## [1.0.21] - 2024-03-25
 
 ### Changed
