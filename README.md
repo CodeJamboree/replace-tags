@@ -21,7 +21,7 @@ yarn add @codejamboree/replace-tags
 ## Usage
 
 ```js
-const replaceTags = require("@codejamboree/replace-tags");
+const { replaceTags } = require("@codejamboree/replace-tags");
 
 // Define your text containing tags
 const text = "Hello {{user.name}}, welcome to {{website}}!";
@@ -29,69 +29,70 @@ const text = "Hello {{user.name}}, welcome to {{website}}!";
 // Define an object with values to replace the tags
 const values = {
   user: {
-    name: "Lewis Moten",
+    name: "John Doe",
   },
-  website: "CodeJamboree.com",
+  website: "example.com",
 };
 
 // Replace the tags in the text with values from the object
 const replacedText = replaceTags(text, values);
 
 console.log(replacedText);
-// Output: Hello Lewis Moten, welcome to CodeJamboree.com!
+// Output: Hello John Doe, welcome to example.com!
 ```
 
 ## Usage with Provided Tag Patterns
 
 ```js
-const replaceTags, { PercentSigns } = require("@codejamboree/replace-tags");
+const { replaceTags, PercentSigns } = require("@codejamboree/replace-tags");
 
-// Define your text containing tags
+// Define your text containing tags with percent signs
 const text = "Hello %{user.name}%, welcome to %{website}%!";
 
 // Define an object with values to replace the tags
 const values = {
   user: {
-    name: "Lewis Moten",
+    name: "John Doe",
   },
-  website: "CodeJamboree.com",
+  website: "example.com",
 };
 
 // Replace the tags in the text with values from the object
-const replacedText = replaceTags(text, values);
+const replacedText = replaceTags(text, values, PercentSigns);
 
 console.log(replacedText);
-// Output: Hello Lewis Moten, welcome to CodeJamboree.com!
+// Output: Hello John Doe, welcome to example.com!
 ```
 
 ## Usage with Custom Tag Patterns
 
 ```js
-const replaceTags = require("@codejamboree/replace-tags");
+const { replaceTags } = require("@codejamboree/replace-tags");
 
 // Define your text containing custom tags
-const text = "Hello %{user.name}%, welcome to %{website}%!";
+const text =
+  "Hello tag_start-> user.name <-tag_end, welcome to tag_start-> website <-tag_end!";
 
 // Define an object with values to replace the tags
 const values = {
   user: {
-    name: "Lewis Moten",
+    name: "John Doe",
   },
-  website: "CodeJamboree.com",
+  website: "example.com",
 };
 
 // Define custom options for tag parsing
 const options = {
-  tagPattern: /%\{([^%]+)\}%/g, // find all "%{ tag.name }%"
-  tagStartPattern: /^%\{/, // to remove starting "%{"
-  tagEndPattern: /%\}$/, // to remove ending "}%"
+  tagPattern: /tag_start->.*?<-tag_end/g, // find all "tag_start-> tag.name <-tag_end"
+  tagStartPattern: /^tag_start->/, // to remove starting "tag_start->"
+  tagEndPattern: /<-tag_end$/, // to remove ending "<-tag_end"
 };
 
 // Replace the custom tags in the text with values from the object using custom options
 const replacedText = replaceTags(text, values, options);
 
 console.log(replacedText);
-// Output: Hello Lewis Moten, welcome to CodeJamboree.com!
+// Output: Hello John Doe, welcome to example.com!
 ```
 
 ## Tag Styles
@@ -158,21 +159,28 @@ The `replaceTags` function supports dynamic behavior by allowing functions to be
 ### `getValue(key: string, currentPath: string, fullPath: string): unknown`
 
 ```js
-const data = {
+const { replaceTags } = require("@codejamboree/replace-tags");
+
+const values = {
   user: {
-    name: "John",
+    name: "John Doe",
     birthYear: 1990,
-    getAge: function (key, currentPath, fullPath) {
-      if (key === "getAge") {
-        const currentYear = new Date().getFullYear();
-        return currentYear - this.birthYear;
+    getDecade: function (key, currentPath, fullPath) {
+      if (key === "getDecade") {
+        return Math.floor((this.birthYear % 100) / 10);
       } else {
         return undefined;
       }
     },
   },
 };
-const text = "Hello, {{user.name}}, you are {{user.getAge}} years old!";
+const text = "Hello {{user.name}}, you were born in the {{user.getDecade}}0's.";
+
+// Replace the tags in the text with values from the object
+const replacedText = replaceTags(text, values);
+
+console.log(replacedText);
+// Output: Hello John Doe, you were born in the 90's.
 ```
 
 ## Passing Values as JSON
@@ -180,19 +188,19 @@ const text = "Hello, {{user.name}}, you are {{user.getAge}} years old!";
 You may pass a JSON string as the values to be evaluated.
 
 ```js
-const replaceTags, { PercentSigns } = require("@codejamboree/replace-tags");
+const { replaceTags } = require("@codejamboree/replace-tags");
 
 // Define your text containing tags
-const text = "Hello %{user.name}%!";
+const text = "Hello {{user.name}}!";
 
 // Define a JSON string with values to replace the tags
-const values = `{"user": {"name": "Lewis Moten"}}`;
+const values = `{"user": {"name": "John Doe"}}`;
 
 // Replace the tags in the text with values from the object
 const replacedText = replaceTags(text, values);
 
 console.log(replacedText);
-// Output: Hello Lewis Moten!
+// Output: Hello John Doe!
 ```
 
 ## Find Value By Path
@@ -207,7 +215,7 @@ const { findValueByPath } = require("@codejamboree/replace-tags");
 // Define an object with values to find the value
 const source = {
   user: {
-    name: "Lewis Moten",
+    name: "John Doe",
   },
 };
 
@@ -215,7 +223,7 @@ const source = {
 const value = findValueByPath(source, "user.name");
 
 console.log(value);
-// Output: Lewis Moten
+// Output: John Doe
 ```
 
 ## License
