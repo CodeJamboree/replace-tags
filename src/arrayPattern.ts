@@ -1,2 +1,2 @@
-const arrayPattern = /^(.+)\[(\d+)\]$/;
+const arrayPattern = /\[([^\]]*?)\]/g;
 export default arrayPattern;
