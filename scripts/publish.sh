@@ -9,7 +9,7 @@ LAST_VERSION=$(grep -E -o '# \[[0-9]+\.[0-9]+\.[0-9]+\]' "$CHANGELOG" | head -n 
 echo "Last Version: $LAST_VERSION"
 
 # Copy the unreleased changes to the release notes
-sed -n '/## \[Unreleased\]/,/# \[/p' "$CHANGELOG" > "$RELEASE_NOTES"
+sed -n '/## \[Unreleased\]/,/# \[/ {1! {/## \[Unreleased\]/d; /# \[/d;}; p;}' "$CHANGELOG" > "$RELEASE_NOTES"
 
 exit 1
 
