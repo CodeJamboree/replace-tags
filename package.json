@@ -7,9 +7,11 @@
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
-    "dist-dev"
+    "dist-dev",
+    "example.js"
   ],
   "changelog": "CHANGELOG.md",
+  "runkitExample": "example.js",
   "scripts": {
     "publish:npm": "./scripts/publish.sh",
     "build": "webpack --mode production",
