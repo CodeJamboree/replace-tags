@@ -1,5 +1,19 @@
 #!/bin/bash
 
+CHANGELOG="CHANGELOG.md"
+RELEASE_NOTES="RELEASE_NOTES.md"
+
+# Extract the latest version number from the changelog "# [major.minor.patch]""
+LAST_VERSION=$(grep -E -o '# \[[0-9]+\.[0-9]+\.[0-9]+\]' "$CHANGELOG" | head -n 1)
+
+echo "Last Version: $LAST_VERSION"
+
+# Copy the unreleased changes to the release notes
+sed -n '/## \[Unreleased\]/,/# \[/p' "$CHANGELOG" > "$RELEASE_NOTES"
+
+exit 1
+
+
 # Exit immediately if any command fails
 set -e
 
@@ -53,7 +67,7 @@ PACK_OUTPUT=$(npm pack)
 TARBALL=$(echo "$PACK_OUTPUT" | grep -E '[^[:space:]]+\.tgz')
 
 # Create release on Github
-gh release create "v$VERSION" "$TARBALL" --title "Release v$VERSION" --notes "This is an automated release." --draft=false --prerelease=false
+gh release create "v$VERSION" "$TARBALL" --title "Release v$VERSION" --notes-file "RELEASE_NOTES.md" --draft=false --prerelease=false
 
 # Remove tarball
 rm -f "$TARBALL"
