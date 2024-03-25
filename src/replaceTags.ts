@@ -1,7 +1,14 @@
-import DoubleCurlyBraces from "./styles/DoubleCurlyBraces";
-import findValueByPath from "./findValueByPath";
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
+import tagReplacer from "./replacer";
+import getOptionsWithDefaults from "./getOptionsWithDefaults";
 
+/**
+ * Replaces tags in a text with corresponding values from an object.
+ * @param {string} text - The text containing tags to be replaced.
+ * @param {object | string} values - The object containing values for replacement.
+ * @param {ReplaceTagsOptions} [options] - Optional configuration for tag parsing.
+ * @returns {string} The text with replaced tags.
+ */
 const replaceTags = (
   text: string,
   values: object | string,
@@ -11,22 +18,9 @@ const replaceTags = (
   if (typeof values === "string") {
     values = JSON.parse(values) as object;
   }
-  const {
-    tagPattern = DoubleCurlyBraces.tagPattern,
-    tagStartPattern = DoubleCurlyBraces.tagStartPattern,
-    tagEndPattern = DoubleCurlyBraces.tagEndPattern,
-  } = options ?? DoubleCurlyBraces;
-
-  const replaceTag = (match: string): string => {
-    const path = match
-      .replace(tagStartPattern, "")
-      .replace(tagEndPattern, "")
-      .trim();
-    const value = findValueByPath(values, path);
-    return value !== undefined ? `${value}` : match;
-  };
-
-  return text.replace(tagPattern, replaceTag);
+  const defaultedOptions = getOptionsWithDefaults(options);
+  const pattern = defaultedOptions.tagPattern;
+  return text.replace(pattern, tagReplacer(values, defaultedOptions));
 };
 
 export default replaceTags;
