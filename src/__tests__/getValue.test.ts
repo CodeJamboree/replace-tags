@@ -8,16 +8,18 @@ describe("getValue", () => {
     expect(getValue(["John Doe"], "length", "", "")).toBe(1);
   });
   it("gets value of key from source", () => {
-    expect(getValue({ name: "John Doe" }, "name", "", "")).toBe("John Doe");
+    expect(getValue({ name: "John Doe" }, "name", "", "")).toBe(
+      "John Doe",
+    );
   });
   it("ignores null source", () => {
     expect(getValue(null, "name", "", "")).toBe(undefined);
   });
   describe("functional values", () => {
     it("resolves functional values", () => {
-      expect(getValue({ name: () => "John Doe" }, "name", "", "")).toBe(
-        "John Doe",
-      );
+      expect(
+        getValue({ name: () => "John Doe" }, "name", "", ""),
+      ).toBe("John Doe");
     });
     it("passes key as arg1 to function", () => {
       const nameCallback = jest.fn().mockReturnValue("John Doe");

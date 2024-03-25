@@ -4,7 +4,10 @@ import getArrayValue from "./getArrayValue";
 import getValue from "./getValue";
 import NextValue from "./NextValue";
 
-const findNextValue = (result: NextValue, segment: string): NextValue => {
+const findNextValue = (
+  result: NextValue,
+  segment: string,
+): NextValue => {
   let { value, currentPath } = result;
   const { fullPath } = result;
   if (value === undefined) return result;

@@ -28,7 +28,10 @@ packageJson.contributors = newContributors.reduce(
 );
 
 if (newContributors.length !== 0) {
-  fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2) + "\n");
+  fs.writeFileSync(
+    "package.json",
+    JSON.stringify(packageJson, null, 2) + "\n",
+  );
   console.log("package.json updated with new contributors.");
   const names = newContributors.map(({ name }) => name).join(", ");
   let message = `Added contributors: ${names}`;

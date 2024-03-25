@@ -10,7 +10,11 @@ describe("findNextValue", () => {
     const segmentKey = "The Segment";
     beforeAll(() => {
       nextValue = findNextValue(
-        { value: { [segmentKey]: segmentValue }, currentPath, fullPath },
+        {
+          value: { [segmentKey]: segmentValue },
+          currentPath,
+          fullPath,
+        },
         segmentKey,
       );
     });
@@ -18,7 +22,9 @@ describe("findNextValue", () => {
       expect(nextValue.value).toBe(segmentValue);
     });
     it("appends the current path", () => {
-      expect(nextValue.currentPath).toBe(`${currentPath}.${segmentKey}`);
+      expect(nextValue.currentPath).toBe(
+        `${currentPath}.${segmentKey}`,
+      );
     });
     it("retains the fullPath", () => {
       expect(nextValue.fullPath).toBe(fullPath);

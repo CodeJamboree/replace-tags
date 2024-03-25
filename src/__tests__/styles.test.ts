@@ -39,31 +39,45 @@ describe("styles", () => {
   });
   it("replaces %{percent signs}%", () => {
     const text = "Hello %{name}%!";
-    expect(replaceTags(text, values, PercentSigns)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, PercentSigns)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces $[dollar signs]$", () => {
     const text = "Hello $[name]$!";
-    expect(replaceTags(text, values, DollarSigns)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, DollarSigns)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces $[square brackets]$", () => {
     const text = "Hello [name]!";
-    expect(replaceTags(text, values, SquareBrackets)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, SquareBrackets)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces <<angle brackets>>", () => {
     const text = "Hello <<name>>!";
-    expect(replaceTags(text, values, AngleBrackets)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, AngleBrackets)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces ``back ticks``", () => {
     const text = "Hello ``name``!";
-    expect(replaceTags(text, values, Backticks)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, Backticks)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces (parentheses)", () => {
     const text = "Hello (name)!";
-    expect(replaceTags(text, values, Parentheses)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, Parentheses)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces |pipe symbols|", () => {
     const text = "Hello |name|!";
-    expect(replaceTags(text, values, PipeSymbols)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, PipeSymbols)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces [:square brackets with colons:]", () => {
     const text = "Hello [:name:]!";
@@ -73,7 +87,9 @@ describe("styles", () => {
   });
   it("replaces !{Exclamation Marks}!", () => {
     const text = "Hello !{name}!!";
-    expect(replaceTags(text, values, ExclamationMarks)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, ExclamationMarks)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces ${Dollar Sign with Curly Braces}", () => {
     const text = "Hello ${name}!";
@@ -83,13 +99,15 @@ describe("styles", () => {
   });
   it("replaces <!--HTML Comments-->", () => {
     const text = "Hello <!--name--!>!";
-    expect(replaceTags(text, values, HTMLComments)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, HTMLComments)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces {$Curly Braces with Dollar Signs$}", () => {
     const text = "Hello {$name$}!";
-    expect(replaceTags(text, values, CurlyBracesWithDollarSigns)).toBe(
-      "Hello John Doe!",
-    );
+    expect(
+      replaceTags(text, values, CurlyBracesWithDollarSigns),
+    ).toBe("Hello John Doe!");
   });
   it("replaces [[Double Square Brackets]]", () => {
     const text = "Hello [[name]]!";
@@ -99,9 +117,9 @@ describe("styles", () => {
   });
   it("replaces <% Angle Brackets with Percent Signs %>", () => {
     const text = "Hello <%name%>!";
-    expect(replaceTags(text, values, AngleBracketsWithPercentSigns)).toBe(
-      "Hello John Doe!",
-    );
+    expect(
+      replaceTags(text, values, AngleBracketsWithPercentSigns),
+    ).toBe("Hello John Doe!");
   });
   it("replaces [- Square Brackets with Dashes -]", () => {
     const text = "Hello [-name-]!";
@@ -117,13 +135,15 @@ describe("styles", () => {
   });
   it("replaces @@ Double At Signs @@", () => {
     const text = "Hello @@name@@!";
-    expect(replaceTags(text, values, DoubleAtSigns)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, DoubleAtSigns)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces {{% Double Curly Braces with Percent Sign %}}", () => {
     const text = "Hello {{%name%}}!";
-    expect(replaceTags(text, values, DoubleCurlyBracesWithPercentSign)).toBe(
-      "Hello John Doe!",
-    );
+    expect(
+      replaceTags(text, values, DoubleCurlyBracesWithPercentSign),
+    ).toBe("Hello John Doe!");
   });
   it("replaces ::{ Double Colons with Braces }::", () => {
     const text = "Hello ::{name}::!";
@@ -133,9 +153,9 @@ describe("styles", () => {
   });
   it("replaces [[$ Double Square Brackets with Dollar Signs $]]", () => {
     const text = "Hello [[$name$]]!";
-    expect(replaceTags(text, values, DoubleSquareBracketsWithDollarSigns)).toBe(
-      "Hello John Doe!",
-    );
+    expect(
+      replaceTags(text, values, DoubleSquareBracketsWithDollarSigns),
+    ).toBe("Hello John Doe!");
   });
   it("replaces {# Curly Braces with Pound Signs #}", () => {
     const text = "Hello {#name#}!";
@@ -152,7 +172,11 @@ describe("styles", () => {
   it("replaces {! Single Braces with Exclamation Mark !}", () => {
     const text = "Hello {!name!}!";
     expect(
-      replaceTags(text, values, SingleCurlyBracesWithExclamationMarks),
+      replaceTags(
+        text,
+        values,
+        SingleCurlyBracesWithExclamationMarks,
+      ),
     ).toBe("Hello John Doe!");
   });
   it("replaces ?? Double Question Marks ??", () => {
@@ -163,16 +187,20 @@ describe("styles", () => {
   });
   it("replaces #{ Hash Symbols with Curly Braces }#", () => {
     const text = "Hello #{name}#!";
-    expect(replaceTags(text, values, HashSymbolsWithCurlyBraces)).toBe(
-      "Hello John Doe!",
-    );
+    expect(
+      replaceTags(text, values, HashSymbolsWithCurlyBraces),
+    ).toBe("Hello John Doe!");
   });
   it("replaces « Double Angle »", () => {
     const text = "Hello «name»!";
-    expect(replaceTags(text, values, DoubleAngle)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, DoubleAngle)).toBe(
+      "Hello John Doe!",
+    );
   });
   it("replaces 👉 Pointing Hands 👈", () => {
     const text = "Hello 👉name👈!";
-    expect(replaceTags(text, values, PointingHands)).toBe("Hello John Doe!");
+    expect(replaceTags(text, values, PointingHands)).toBe(
+      "Hello John Doe!",
+    );
   });
 });

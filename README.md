@@ -44,7 +44,10 @@ console.log(replacedText);
 ## Usage with Provided Tag Patterns
 
 ```js
-const { replaceTags, PercentSigns } = require("@codejamboree/replace-tags");
+const {
+  replaceTags,
+  PercentSigns,
+} = require("@codejamboree/replace-tags");
 
 // Define your text containing tags with percent signs
 const text = "Hello %{user.name}%, welcome to %{website}%!";
@@ -70,29 +73,31 @@ console.log(replacedText);
 const { replaceTags } = require("@codejamboree/replace-tags");
 
 // Define your text containing custom tags
-const text =
-  "Hello tag_start-> user.name <-tag_end, welcome to tag_start-> website <-tag_end!";
+const text = "Hello tag_start-> user.name <-tag_end!";
 
 // Define an object with values to replace the tags
 const values = {
   user: {
     name: "John Doe",
   },
-  website: "example.com",
 };
 
 // Define custom options for tag parsing
 const options = {
-  tagPattern: /tag_start->.*?<-tag_end/g, // find all "tag_start-> tag.name <-tag_end"
-  tagStartPattern: /^tag_start->/, // to remove starting "tag_start->"
-  tagEndPattern: /<-tag_end$/, // to remove ending "<-tag_end"
+  // find all "tag_start-> tag.name <-tag_end"
+  tagPattern: /tag_start->.*?<-tag_end/g,
+  // to remove starting "tag_start->"
+  tagStartPattern: /^tag_start->/,
+  // to remove ending "<-tag_end"
+  tagEndPattern: /<-tag_end$/,
 };
 
-// Replace the custom tags in the text with values from the object using custom options
+// Replace the custom tags in the text
+// with values from the object using custom options
 const replacedText = replaceTags(text, values, options);
 
 console.log(replacedText);
-// Output: Hello John Doe, welcome to example.com!
+// Output: Hello John Doe!
 ```
 
 ## Tag Styles
@@ -163,7 +168,6 @@ const { replaceTags } = require("@codejamboree/replace-tags");
 
 const values = {
   user: {
-    name: "John Doe",
     birthYear: 1990,
     getDecade: function (key, currentPath, fullPath) {
       if (key === "getDecade") {
@@ -174,13 +178,13 @@ const values = {
     },
   },
 };
-const text = "Hello {{user.name}}, you were born in the {{user.getDecade}}0's.";
+const text = "How was the {{user.getDecade}}0's?";
 
 // Replace the tags in the text with values from the object
 const replacedText = replaceTags(text, values);
 
 console.log(replacedText);
-// Output: Hello John Doe, you were born in the 90's.
+// Output: How was the 90's?
 ```
 
 ## Passing Values as JSON

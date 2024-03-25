@@ -5,12 +5,15 @@ import JavaScriptMarkdown from "../JavaScriptMarkdown";
 import { execSync } from "child_process";
 import crypto from "crypto";
 import { tmpdir } from "os";
+import { MatcherContext } from "expect";
 
 const markdown = fs.readFileSync("./README.md", "utf8");
 
 const scripts: string[] = [];
 let match: string[] | null;
-while ((match = JavaScriptMarkdown.tagPattern.exec(markdown)) !== null) {
+while (
+  (match = JavaScriptMarkdown.tagPattern.exec(markdown)) !== null
+) {
   const codeMarkdown = match[0] as string;
   scripts.push(
     codeMarkdown
@@ -18,6 +21,26 @@ while ((match = JavaScriptMarkdown.tagPattern.exec(markdown)) !== null) {
       .replace(JavaScriptMarkdown.tagEndPattern, ""),
   );
 }
+
+expect.extend({
+  toHaveLengthLessThanOrEqualTo(
+    this: MatcherContext,
+    received: any,
+    maxLength: number,
+  ) {
+    const pass = received.length <= maxLength;
+    const message = pass
+      ? () =>
+          `expected ${received} length to be more than ${maxLength}`
+      : () =>
+          `expected "${received}" length not to be more than ${maxLength}`;
+
+    return {
+      pass,
+      message,
+    };
+  },
+});
 
 const runScript = (script: string) => {
   // replace package name with path to main entry script in dist folder
@@ -37,7 +60,8 @@ const runScript = (script: string) => {
   } catch (error) {
     console.error("Failed to execute script: %s", tempFilePath);
     if (typeof error === "object" && error !== null) {
-      if ("stderr" in error && error.stderr !== null) return `${error.stderr}`;
+      if ("stderr" in error && error.stderr !== null)
+        return `${error.stderr}`;
     }
     return `${error}`;
   }
@@ -56,8 +80,20 @@ describe("README.md JavaScript Examples", () => {
       it("has output", () => {
         expect(script).toMatch(outputPattern);
       });
+      describe("lines", () => {
+        script.split("\n").forEach((line, lineIndex) => {
+          describe(`Line ${lineIndex + 1}`, () => {
+            it("is not too long", () => {
+              // @ts-expect-error
+              expect(line).toHaveLengthLessThanOrEqualTo(70);
+            });
+          });
+        });
+      });
       it("runs with expected output", () => {
-        const expectedOutput = script.match(outputPattern)?.[1] as string;
+        const expectedOutput = script.match(
+          outputPattern,
+        )?.[1] as string;
         const output = runScript(script).trim();
         expect(output).toEqual(expectedOutput);
       });

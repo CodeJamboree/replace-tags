@@ -7,7 +7,9 @@ describe("replace tags", () => {
   it("replaces multiple occurances of the same tag", () => {
     const text = "Tag 1: {{name}} Tag 2: {{name}}";
     const values = { name: "Works" };
-    expect(replaceTags(text, values)).toBe("Tag 1: Works Tag 2: Works");
+    expect(replaceTags(text, values)).toBe(
+      "Tag 1: Works Tag 2: Works",
+    );
   });
   it("trims white-space inside tag", () => {
     const text = "Hello {{ name }}!";
@@ -64,7 +66,9 @@ describe("replace tags", () => {
     it("passes current key to the function as argument 1", () => {
       const text = "Hello {{user.name}}!";
       const nameCallback = jest.fn().mockReturnValue("John Doe");
-      const userCallback = jest.fn().mockReturnValue({ name: nameCallback });
+      const userCallback = jest
+        .fn()
+        .mockReturnValue({ name: nameCallback });
       const values = { user: userCallback };
       replaceTags(text, values);
       expect(userCallback).toHaveBeenCalledWith(
@@ -82,7 +86,9 @@ describe("replace tags", () => {
       it("works with objects", () => {
         const text = "Hello {{user.name}}!";
         const nameCallback = jest.fn().mockReturnValue("John Doe");
-        const userCallback = jest.fn().mockReturnValue({ name: nameCallback });
+        const userCallback = jest
+          .fn()
+          .mockReturnValue({ name: nameCallback });
         const values = { user: userCallback };
         replaceTags(text, values);
         expect(userCallback).toHaveBeenCalledWith(
@@ -99,8 +105,12 @@ describe("replace tags", () => {
       it("works with arrays", () => {
         const text = "Hello {{user[0].name}}!";
         const nameCallback = jest.fn().mockReturnValue("John Doe");
-        const user1Callback = jest.fn().mockReturnValue({ name: nameCallback });
-        const userCallback = jest.fn().mockReturnValue([user1Callback]);
+        const user1Callback = jest
+          .fn()
+          .mockReturnValue({ name: nameCallback });
+        const userCallback = jest
+          .fn()
+          .mockReturnValue([user1Callback]);
         const values = { user: userCallback };
         replaceTags(text, values);
         expect(userCallback).toHaveBeenCalledWith(
@@ -123,7 +133,9 @@ describe("replace tags", () => {
     it("passes the full path to the function as argument 3", () => {
       const text = "Hello {{user.name}}!";
       const nameCallback = jest.fn().mockReturnValue("John Doe");
-      const userCallback = jest.fn().mockReturnValue({ name: nameCallback });
+      const userCallback = jest
+        .fn()
+        .mockReturnValue({ name: nameCallback });
       const values = { user: userCallback };
       replaceTags(text, values);
       expect(userCallback).toHaveBeenCalledWith(
@@ -157,27 +169,29 @@ describe("replace tags", () => {
     it("works with out-of-bounds array indexes", () => {
       const text = "Hello {{users.2.name}}!";
       const values = { users: [{ name: "John Doe" }] };
-      expect(replaceTags(text, values)).toBe("Hello {{users.2.name}}!");
+      expect(replaceTags(text, values)).toBe(
+        "Hello {{users.2.name}}!",
+      );
     });
   });
   describe("invalid text", () => {
     it("handles undefined", () => {
       const badText = undefined;
-      expect(replaceTags(badText as unknown as string, { key: "value" })).toBe(
-        badText,
-      );
+      expect(
+        replaceTags(badText as unknown as string, { key: "value" }),
+      ).toBe(badText);
     });
     it("handles object", () => {
       const badText = { key: "value" };
-      expect(replaceTags(badText as unknown as string, { key: "value" })).toBe(
-        badText,
-      );
+      expect(
+        replaceTags(badText as unknown as string, { key: "value" }),
+      ).toBe(badText);
     });
     it("handles null", () => {
       const badText = null;
-      expect(replaceTags(badText as unknown as string, { key: "value" })).toBe(
-        badText,
-      );
+      expect(
+        replaceTags(badText as unknown as string, { key: "value" }),
+      ).toBe(badText);
     });
   });
 });
