@@ -233,6 +233,10 @@ console.log(value);
 // Output: John Doe
 ```
 
+## Changelog
+
+For the latest changes, updates, and improvements to this project, please refer to the [Changelog](CHANGELOG.md).
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.

@@ -9,6 +9,7 @@
     "dist",
     "dist-dev"
   ],
+  "changelog": "CHANGELOG.md",
   "scripts": {
     "publish:npm": "./scripts/publish.sh",
     "build": "webpack --mode production",
