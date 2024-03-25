@@ -3,15 +3,6 @@
 # Exit immediately if any command fails
 set -e
 
-# Make sure code is formatted properly
-npm run format
-
-# Make sure there are not lint warnings
-npm run lint
-
-# Check for unused or outdated dependencies
-npm run depcheck
-
 # Check if there are any uncommitted changes
 if git diff-index --quiet HEAD --; then
     echo "No uncommitted changes found."
@@ -19,6 +10,22 @@ else
     echo "Error: There are uncommitted changes in the repository."
     exit 1
 fi
+
+# Make sure code is formatted properly
+npm run format
+# Check if there are any uncommitted changes
+if ! git diff-index --quiet HEAD --; then
+    # Add all affected files to staging
+    git add .
+    # Commit the changelog
+    git commit -m ":arg:Formatted code using Prettier"
+fi
+
+# Make sure there are not lint warnings
+npm run lint
+
+# Check for unused or outdated dependencies
+npm run depcheck
 
 # Update package.json with any new contributors to the repository
 node ./scripts/update-contributors
