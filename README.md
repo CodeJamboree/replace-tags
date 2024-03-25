@@ -41,6 +41,26 @@ console.log(replacedText);
 // Output: Hello John Doe, welcome to example.com!
 ```
 
+### Unresolved Tags
+
+If a tags property path cannot be resolved, the tag remains unchanged.
+
+```js
+const { replaceTags } = require("@codejamboree/replace-tags");
+
+// Define your text containing tags
+const text = "Hello {{missing.path}}!";
+
+// Define an object with values to replace the tags
+const values = { user: "John Doe" };
+
+// Replace the tags in the text with values from the object
+const replacedText = replaceTags(text, values);
+
+console.log(replacedText);
+// Output: Hello {{missing.path}}!
+```
+
 ## Usage with Provided Tag Patterns
 
 ```js
