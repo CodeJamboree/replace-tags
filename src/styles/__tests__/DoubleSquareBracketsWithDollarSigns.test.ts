@@ -1,4 +1,9 @@
 import DoubleSquareBracketsWithDollarSigns from "../DoubleSquareBracketsWithDollarSigns";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("DoubleSquareBracketsWithDollarSigns", "[[$", "$]]", DoubleSquareBracketsWithDollarSigns);
+runTagStyleTests(
+  "DoubleSquareBracketsWithDollarSigns",
+  "[[$",
+  "$]]",
+  DoubleSquareBracketsWithDollarSigns,
+);

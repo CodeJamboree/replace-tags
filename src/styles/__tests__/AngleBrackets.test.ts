@@ -1,4 +1,4 @@
 import AngleBrackets from "../AngleBrackets";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
 runTagStyleTests("AngleBrackets", "<<", ">>", AngleBrackets);

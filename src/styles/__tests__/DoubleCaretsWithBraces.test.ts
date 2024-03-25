@@ -1,4 +1,9 @@
 import DoubleCaretsWithBraces from "../DoubleCaretsWithBraces";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("DoubleCaretsWithBraces", "^^{", "}^^", DoubleCaretsWithBraces);
+runTagStyleTests(
+  "DoubleCaretsWithBraces",
+  "^^{",
+  "}^^",
+  DoubleCaretsWithBraces,
+);

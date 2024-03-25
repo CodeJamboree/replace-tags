@@ -4,7 +4,9 @@
  * @param {string} segment - The segment to append to the prefix, often numeric.
  * @returns {string} The concatenated path, with the segment appended to the prefix (if provided).
  */
-const appendPathIndex = (prefix: string | undefined, segment: string) =>
-  prefix ? `${prefix}[${segment}]` : `[${segment}]`;
+const appendPathIndex = (
+  prefix: string | undefined,
+  segment: string,
+) => (prefix ? `${prefix}[${segment}]` : `[${segment}]`);
 
 export default appendPathIndex;

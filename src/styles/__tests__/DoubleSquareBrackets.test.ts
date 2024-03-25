@@ -1,4 +1,9 @@
 import DoubleSquareBrackets from "../DoubleSquareBrackets";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("DoubleSquareBrackets", "[[", "]]", DoubleSquareBrackets);
+runTagStyleTests(
+  "DoubleSquareBrackets",
+  "[[",
+  "]]",
+  DoubleSquareBrackets,
+);

@@ -1,4 +1,9 @@
 import CurlyBracesWithExclamationMarks from "../CurlyBracesWithExclamationMarks";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("CurlyBracesWithExclamationMarks", "{!", "!}", CurlyBracesWithExclamationMarks);
+runTagStyleTests(
+  "CurlyBracesWithExclamationMarks",
+  "{!",
+  "!}",
+  CurlyBracesWithExclamationMarks,
+);

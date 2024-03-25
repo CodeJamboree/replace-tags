@@ -17,11 +17,10 @@ const getArrayValue = (
   currentPath: string | undefined,
   path: string,
 ): unknown => {
-
   // Do we have a key name before the array index?
-  if(segment[0] !== '[') {
+  if (segment[0] !== "[") {
     // pull out the key
-    let key = segment.substring(0, segment.indexOf('['));
+    let key = segment.substring(0, segment.indexOf("["));
     // Update the path
     currentPath = appendPath(currentPath, key);
     // Grab the value
@@ -43,7 +42,7 @@ const getArrayValue = (
       return value;
     }
   }
-  return value;  
+  return value;
 };
 
 export default getArrayValue;

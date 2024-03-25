@@ -1,36 +1,28 @@
 import replaceTags from "../../replaceTags";
 import ReplaceTagsOptions from "../../ReplaceTagsOptions";
 
-const runTagStyleTests = (name: string, tagStart: string, tagEnd: string, tagStyle: ReplaceTagsOptions) => {
-
-  const values = { 
+const runTagStyleTests = (
+  name: string,
+  tagStart: string,
+  tagEnd: string,
+  tagStyle: ReplaceTagsOptions,
+) => {
+  const values = {
     key: "Key Value",
     parent: {
-      child: "Child Value"
+      child: "Child Value",
     },
-    array: [
-      "Array 0 Value"
-    ],
+    array: ["Array 0 Value"],
     __underscore: "Underscore Value",
     $$dollar: "Dollar Value",
-    nestedArray: [
-      [
-        "Nested 0 0 Value"
-      ]
-    ],
-    "0": [
-      "Root Array 0 Value"
-    ]
+    nestedArray: [["Nested 0 0 Value"]],
+    "0": ["Root Array 0 Value"],
   };
 
-
   describe(name, () => {
-    
     it("replaces root key", () => {
       const text = `${tagStart}key${tagEnd}`;
-      expect(replaceTags(text, values, tagStyle)).toBe(
-        "Key Value",
-      );
+      expect(replaceTags(text, values, tagStyle)).toBe("Key Value");
     });
     it("replaces underscore key", () => {
       const text = `${tagStart}__underscore${tagEnd}`;
@@ -52,9 +44,7 @@ const runTagStyleTests = (name: string, tagStart: string, tagEnd: string, tagSty
     });
     it("replaces parent child key", () => {
       const text = `${tagStart}parent.child${tagEnd}`;
-      expect(replaceTags(text, values, tagStyle)).toBe(
-        "Child Value",
-      );
+      expect(replaceTags(text, values, tagStyle)).toBe("Child Value");
     });
     it("replaces array key", () => {
       const text = `${tagStart}array[0]${tagEnd}`;
@@ -75,7 +65,6 @@ const runTagStyleTests = (name: string, tagStart: string, tagEnd: string, tagSty
       );
     });
   });
-  
-  };
+};
 
-  export default runTagStyleTests;
+export default runTagStyleTests;

@@ -3,12 +3,14 @@
 ## [Unreleased]
 
 ### Added
+
 - Link to changelog
 - Process Nested Arrays `{{key[0][1][2]}}`
 - Process array segments without keys `{{[0]}}`
 - More tests for each tag style
 
 ### Fixed
+
 - `DollarSignWithSquareBrackets` works with arrays
 
 ## [1.0.21] - 2024-03-25

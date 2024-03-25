@@ -28,11 +28,11 @@ describe("arrayPattern", () => {
   });
   it("matches nested arrays", () => {
     const segment = "hello[1][2][3]";
-    let match = arrayPattern.exec(segment)
+    let match = arrayPattern.exec(segment);
     expect(match?.[1]).toBe("1");
-    match = arrayPattern.exec(segment)
+    match = arrayPattern.exec(segment);
     expect(match?.[1]).toBe("2");
-    match = arrayPattern.exec(segment)
+    match = arrayPattern.exec(segment);
     expect(match?.[1]).toBe("3");
   });
 });

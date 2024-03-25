@@ -1,4 +1,9 @@
 import CurlyBracesWithHashSymbols from "../CurlyBracesWithHashSymbols";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("CurlyBracesWithHashSymbols", "{#", "#}", CurlyBracesWithHashSymbols);
+runTagStyleTests(
+  "CurlyBracesWithHashSymbols",
+  "{#",
+  "#}",
+  CurlyBracesWithHashSymbols,
+);

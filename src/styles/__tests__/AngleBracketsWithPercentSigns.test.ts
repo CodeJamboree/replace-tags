@@ -1,4 +1,9 @@
 import AngleBracketsWithPercentSigns from "../AngleBracketsWithPercentSigns";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("AngleBracketsWithPercentSigns", "<%", "%>", AngleBracketsWithPercentSigns);
+runTagStyleTests(
+  "AngleBracketsWithPercentSigns",
+  "<%",
+  "%>",
+  AngleBracketsWithPercentSigns,
+);

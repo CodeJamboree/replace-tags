@@ -1,4 +1,9 @@
 import DollarSignWithCurlyBraces from "../DollarSignWithCurlyBraces";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("DollarSignWithCurlyBraces", "${", "}", DollarSignWithCurlyBraces);
+runTagStyleTests(
+  "DollarSignWithCurlyBraces",
+  "${",
+  "}",
+  DollarSignWithCurlyBraces,
+);

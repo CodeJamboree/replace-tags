@@ -1,4 +1,4 @@
 import HTMLComments from "../HTMLComments";
-import runTagStyleTests from './runTagStyleTests';
+import runTagStyleTests from "./runTagStyleTests";
 
 runTagStyleTests("HTMLComments", "<!--", "--!>", HTMLComments);
