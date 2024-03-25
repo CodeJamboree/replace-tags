@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.0.21] - 2024-03-25
+
 ### Changed
 
 - Updated build process for interacting with git
