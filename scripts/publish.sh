@@ -39,6 +39,9 @@ VERSION=$(node -p "require('./package.json').version")
 # Add gitmoji to the commit
 git commit --amend -m ":bookmark: v$VERSION"
 
+# Update the tag to point to the latest commit
+git tag -f "v$VERSION"
+
 # Build dev version
 npm run build:dev
 
