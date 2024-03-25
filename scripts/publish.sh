@@ -1,9 +1,5 @@
 #!/bin/bash
 
-./scripts/create-release-notes.sh
-
-exit 1
-
 # Exit immediately if any command fails
 set -e
 
@@ -45,6 +41,9 @@ npm run build
 # Enusure tests pass (Tests depend on build output, so we test after build)
 npm run test
 
+# Update changelog and release notes
+./scripts/update-changelog-and-release.sh
+
 # Push local commits
 git push
 
@@ -61,6 +60,9 @@ TARBALL=$(echo "$PACK_OUTPUT" | grep -E '[^[:space:]]+\.tgz')
 
 # Create release on Github
 gh release create "v$VERSION" "$TARBALL" --title "Release v$VERSION" --notes-file "RELEASE_NOTES.md" --draft=false --prerelease=false
+
+# Remove release notes
+rm -f "RELEASE_NOTES.md"
 
 # Remove tarball
 rm -f "$TARBALL"
