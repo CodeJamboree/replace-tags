@@ -48,6 +48,9 @@ git add "$CHANGELOG"
 # Ammend the commit to the package version 
 git commit --amend -C HEAD
 
+# Update the tag to point to the latest commit
+git tag -f "v$VERSION"
+
 # Create header for release notes
 HEADER="# Current Release\n\n$RELEASE_HEADER\n";
 
