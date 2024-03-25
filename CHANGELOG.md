@@ -19,6 +19,8 @@
 - Renamed `PointingHands` to `Pointy`
 - Renamed `SingleCurlyBracesWithExlamationMarks` to `CurlyBracesWithExclamationMarks`
 - Renamed `SquareBracketsWithDashes` to `SquareBracketsWithHyphens`
+- Associate latest changes as release notes on github
+- Add gitmoji to automated commits
 
 # [1.0.19] - 2024-03-25
 
