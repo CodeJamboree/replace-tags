@@ -238,3 +238,10 @@ console.log(value);
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+
+## Acknowledgments
+
+Portions of the source code were generated with the assistance of
+
+- [OpenAI's ChatGPT](https://chat.openai.com/) during the development process.
+- [vscode-jsdoct](https://github.com/lllllllqw/vscode-jsdoc)
