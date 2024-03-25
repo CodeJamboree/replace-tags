@@ -2,8 +2,6 @@
 
 ## [Unreleased]
 
-## [1.0.19] - 2024-03-25
-
 ### Added
 
 - JSDoc comments to functions
