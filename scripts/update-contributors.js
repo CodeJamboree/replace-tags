@@ -33,7 +33,7 @@ if (newContributors.length !== 0) {
   );
   console.log("package.json updated with new contributors.");
   const names = newContributors.map(({ name }) => name).join(", ");
-  const prefix = ":memo:Added contributors: "
+  const prefix = ":memo:Added contributors: ";
   let message = `${prefix}${names}`;
   if (message.length > 50)
     message = `${prefix}${newContributors.length}`;
