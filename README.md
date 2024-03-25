@@ -275,6 +275,17 @@ console.log(value);
 // Output: John Doe
 ```
 
+## Known Issues
+
+Some tag styles with square brackets are unable to parse array paths.
+
+- `CurlyBracesWithDollarSigns` has trouble with dollar signs in property paths.
+- `DollarSignWithCurlyBraces` has trouble with dollar signs in property paths.
+- `DoubleSquareBrackets` has trouble with arrays in paths.
+- `DoubleSquareBracketsWithDollarSigns` has trouble with dollar signs in property paths.
+- `DoubleUnderscores` has trouble with underscores in property paths.
+- `SquareBrackets` has trouble with arrays in paths.
+
 ## Changelog
 
 For the latest changes, updates, and improvements to this project, please refer to the [Changelog](CHANGELOG.md).
