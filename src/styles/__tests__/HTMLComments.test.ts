@@ -1,4 +1,6 @@
 import HTMLComments from "../HTMLComments";
 import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("HTMLComments", "<!--", "--!>", HTMLComments);
+describe("HTMLComments", () => {
+  runTagStyleTests("<!--", "--!>", HTMLComments);
+});

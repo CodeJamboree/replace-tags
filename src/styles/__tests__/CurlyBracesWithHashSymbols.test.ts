@@ -1,9 +1,6 @@
 import CurlyBracesWithHashSymbols from "../CurlyBracesWithHashSymbols";
 import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests(
-  "CurlyBracesWithHashSymbols",
-  "{#",
-  "#}",
-  CurlyBracesWithHashSymbols,
-);
+describe("CurlyBracesWithHashSymbols", () => {
+  runTagStyleTests("{#", "#}", CurlyBracesWithHashSymbols);
+});

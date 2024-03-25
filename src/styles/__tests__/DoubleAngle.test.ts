@@ -1,4 +1,6 @@
 import DoubleAngle from "../DoubleAngle";
 import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("DoubleAngle", "«", "»", DoubleAngle);
+describe("DoubleAngle", () => {
+  runTagStyleTests("«", "»", DoubleAngle);
+});

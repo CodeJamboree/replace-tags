@@ -1,4 +1,6 @@
 import Parentheses from "../Parentheses";
 import runTagStyleTests from "./runTagStyleTests";
 
-runTagStyleTests("Parentheses", "(", ")", Parentheses);
+describe("Parentheses", () => {
+  runTagStyleTests("(", ")", Parentheses);
+});
