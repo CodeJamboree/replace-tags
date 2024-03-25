@@ -109,9 +109,10 @@ console.log(replacedText);
 | Backticks                           | Hello \`\` user.name \`\`         |
 | Chevrons                            | See AngleBrackets                 |
 | CurlyBracesWithDollarSigns          | `Hello {$ user.name $}`           |
+| CurlyBracesWithExclamationMarks     | `Hello {! user.name !}`           |
 | CurlyBracesWithHashSymbols          | `Hello {# user.name #}`           |
-| DollarSignWithCurlyBraces           | `Hello ${ user.name }`            |
 | DollarSignsWithSquareBrackets       | `Hello $[ user.name ]$`           |
+| DollarSignWithCurlyBraces           | `Hello ${ user.name }`            |
 | DoubleAngle                         | `Hello « user.name »`             |
 | DoubleAtSigns                       | `Hello @@ user.name @@`           |
 | DoubleCaretsWithBraces              | `Hello ^^{ user.name }^^`         |
@@ -129,13 +130,12 @@ console.log(replacedText);
 | Parentheses                         | `Hello ( user.name )`             |
 | PercentBrackets                     | See AngleBracketsWithPercentSigns |
 | PercentSigns                        | `Hello %{ user.name }%`           |
-| VerticalBars                        | `Hello \| user.name \|`           |
 | Pointy                              | `Hello 👉 user.name 👈`           |
-| CurlyBracesWithExclamationMarks     | `Hello {! user.name !}`           |
 | SquareBrackets                      | `Hello [ user.name ]`             |
 | SquareBracketsWithColons            | `Hello [: user.name :]`           |
 | SquareBracketsWithHyphens           | `Hello [- user.name -]`           |
 | TripleCurlyBraces                   | `Hello {{{ user.name }}}`         |
+| VerticalBars                        | `Hello \| user.name \|`           |
 
 ## API
 
