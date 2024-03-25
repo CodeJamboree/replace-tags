@@ -1,18 +1,8 @@
 #!/bin/bash
 
-CHANGELOG="CHANGELOG.md"
-RELEASE_NOTES="RELEASE_NOTES.md"
-
-# Extract the latest version number from the changelog "# [major.minor.patch]""
-LAST_VERSION=$(grep -E -o '# \[[0-9]+\.[0-9]+\.[0-9]+\]' "$CHANGELOG" | head -n 1)
-
-echo "Last Version: $LAST_VERSION"
-
-# Copy the unreleased changes to the release notes
-sed -n '/## \[Unreleased\]/,/# \[/ {1! {/## \[Unreleased\]/d; /# \[/d;}; p;}' "$CHANGELOG" > "$RELEASE_NOTES"
+./create-release-notes.sh
 
 exit 1
-
 
 # Exit immediately if any command fails
 set -e
