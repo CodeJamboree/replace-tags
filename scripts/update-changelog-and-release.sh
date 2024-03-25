@@ -46,7 +46,7 @@ mv "$CHANGELOG.tmp" "$CHANGELOG"
 git add "$CHANGELOG"
 
 # Ammend the commit to the package version 
-git commit --amend
+git commit --amend -C HEAD
 
 # Create header for release notes
 HEADER="# Current Release\n\n$RELEASE_HEADER\n";
