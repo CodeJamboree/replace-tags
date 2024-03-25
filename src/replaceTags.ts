@@ -1,5 +1,5 @@
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
-import tagReplacer from "./replacer";
+import tagReplacer from "./tagReplacer";
 import getOptionsWithDefaults from "./getOptionsWithDefaults";
 
 /**

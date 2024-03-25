@@ -3,8 +3,8 @@ import AngleBrackets from "../styles/AngleBrackets";
 import AngleBracketsWithPercentSigns from "../styles/AngleBracketsWithPercentSigns";
 import Backticks from "../styles/Backticks";
 import CurlyBracesWithDollarSigns from "../styles/CurlyBracesWithDollarSigns";
-import CurlyBracesWithPoundSigns from "../styles/CurlyBracesWithPoundSigns";
-import DollarSigns from "../styles/DollarSigns";
+import CurlyBracesWithHashSymbols from "../styles/CurlyBracesWithHashSymbols";
+import DollarSignsWithSquareBrackets from "../styles/DollarSignsWithSquareBrackets";
 import DollarSignWithCurlyBraces from "../styles/DollarSignWithCurlyBraces";
 import DoubleAngle from "../styles/DoubleAngle";
 import DoubleAtSigns from "../styles/DoubleAtSigns";
@@ -20,12 +20,12 @@ import HashSymbolsWithCurlyBraces from "../styles/HashSymbolsWithCurlyBraces";
 import HTMLComments from "../styles/HTMLComments";
 import Parentheses from "../styles/Parentheses";
 import PercentSigns from "../styles/PercentSigns";
-import PipeSymbols from "../styles/PipeSymbols";
-import PointingHands from "../styles/PointingHands";
-import SingleCurlyBracesWithExclamationMarks from "../styles/SingleCurlyBracesWithExclamationMarks";
+import VerticalBars from "../styles/VerticalBars";
+import Pointy from "../styles/Pointy";
+import CurlyBracesWithExclamationMarks from "../styles/CurlyBracesWithExclamationMarks";
 import SquareBrackets from "../styles/SquareBrackets";
 import SquareBracketsWithColons from "../styles/SquareBracketsWithColons";
-import SquareBracketsWithDashes from "../styles/SquareBracketsWithDashes";
+import SquareBracketsWithHyphens from "../styles/SquareBracketsWithHyphens";
 import TripleCurlyBraces from "../styles/TripleCurlyBraces";
 
 describe("styles", () => {
@@ -43,11 +43,11 @@ describe("styles", () => {
       "Hello John Doe!",
     );
   });
-  it("replaces $[dollar signs]$", () => {
+  it("replaces $[dollar signs with square brackets]$", () => {
     const text = "Hello $[name]$!";
-    expect(replaceTags(text, values, DollarSigns)).toBe(
-      "Hello John Doe!",
-    );
+    expect(
+      replaceTags(text, values, DollarSignsWithSquareBrackets),
+    ).toBe("Hello John Doe!");
   });
   it("replaces $[square brackets]$", () => {
     const text = "Hello [name]!";
@@ -73,9 +73,9 @@ describe("styles", () => {
       "Hello John Doe!",
     );
   });
-  it("replaces |pipe symbols|", () => {
+  it("replaces |vertical bars|", () => {
     const text = "Hello |name|!";
-    expect(replaceTags(text, values, PipeSymbols)).toBe(
+    expect(replaceTags(text, values, VerticalBars)).toBe(
       "Hello John Doe!",
     );
   });
@@ -121,9 +121,9 @@ describe("styles", () => {
       replaceTags(text, values, AngleBracketsWithPercentSigns),
     ).toBe("Hello John Doe!");
   });
-  it("replaces [- Square Brackets with Dashes -]", () => {
+  it("replaces [- Square Brackets with Hyphens -]", () => {
     const text = "Hello [-name-]!";
-    expect(replaceTags(text, values, SquareBracketsWithDashes)).toBe(
+    expect(replaceTags(text, values, SquareBracketsWithHyphens)).toBe(
       "Hello John Doe!",
     );
   });
@@ -157,11 +157,11 @@ describe("styles", () => {
       replaceTags(text, values, DoubleSquareBracketsWithDollarSigns),
     ).toBe("Hello John Doe!");
   });
-  it("replaces {# Curly Braces with Pound Signs #}", () => {
+  it("replaces {# Curly Braces with Hash Symbols #}", () => {
     const text = "Hello {#name#}!";
-    expect(replaceTags(text, values, CurlyBracesWithPoundSigns)).toBe(
-      "Hello John Doe!",
-    );
+    expect(
+      replaceTags(text, values, CurlyBracesWithHashSymbols),
+    ).toBe("Hello John Doe!");
   });
   it("replaces ^^{ Double Carets with Braces }^^", () => {
     const text = "Hello ^^{name}^^!";
@@ -169,14 +169,10 @@ describe("styles", () => {
       "Hello John Doe!",
     );
   });
-  it("replaces {! Single Braces with Exclamation Mark !}", () => {
+  it("replaces {! Curly Braces with Exclamation Mark !}", () => {
     const text = "Hello {!name!}!";
     expect(
-      replaceTags(
-        text,
-        values,
-        SingleCurlyBracesWithExclamationMarks,
-      ),
+      replaceTags(text, values, CurlyBracesWithExclamationMarks),
     ).toBe("Hello John Doe!");
   });
   it("replaces ?? Double Question Marks ??", () => {
@@ -197,10 +193,8 @@ describe("styles", () => {
       "Hello John Doe!",
     );
   });
-  it("replaces 👉 Pointing Hands 👈", () => {
+  it("replaces 👉 Hand Emojis 👈", () => {
     const text = "Hello 👉name👈!";
-    expect(replaceTags(text, values, PointingHands)).toBe(
-      "Hello John Doe!",
-    );
+    expect(replaceTags(text, values, Pointy)).toBe("Hello John Doe!");
   });
 });

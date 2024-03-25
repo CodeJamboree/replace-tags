@@ -4,8 +4,8 @@ import AngleBrackets from "./styles/AngleBrackets";
 import AngleBracketsWithPercentSigns from "./styles/AngleBracketsWithPercentSigns";
 import Backticks from "./styles/Backticks";
 import CurlyBracesWithDollarSigns from "./styles/CurlyBracesWithDollarSigns";
-import CurlyBracesWithPoundSigns from "./styles/CurlyBracesWithPoundSigns";
-import DollarSigns from "./styles/DollarSigns";
+import CurlyBracesWithHashSymbols from "./styles/CurlyBracesWithHashSymbols";
+import DollarSignsWithSquareBrackets from "./styles/DollarSignsWithSquareBrackets";
 import DollarSignWithCurlyBraces from "./styles/DollarSignWithCurlyBraces";
 import DoubleAngle from "./styles/DoubleAngle";
 import DoubleAtSigns from "./styles/DoubleAtSigns";
@@ -22,12 +22,12 @@ import HashSymbolsWithCurlyBraces from "./styles/HashSymbolsWithCurlyBraces";
 import HTMLComments from "./styles/HTMLComments";
 import Parentheses from "./styles/Parentheses";
 import PercentSigns from "./styles/PercentSigns";
-import PipeSymbols from "./styles/PipeSymbols";
-import PointingHands from "./styles/PointingHands";
-import SingleCurlyBracesWithExclamationMarks from "./styles/SingleCurlyBracesWithExclamationMarks";
+import VerticalBars from "./styles/VerticalBars";
+import Pointy from "./styles/Pointy";
+import CurlyBracesWithExclamationMarks from "./styles/CurlyBracesWithExclamationMarks";
 import SquareBrackets from "./styles/SquareBrackets";
 import SquareBracketsWithColons from "./styles/SquareBracketsWithColons";
-import SquareBracketsWithDashes from "./styles/SquareBracketsWithDashes";
+import SquareBracketsWithHyphens from "./styles/SquareBracketsWithHyphens";
 import TripleCurlyBraces from "./styles/TripleCurlyBraces";
 
 try {
@@ -42,6 +42,11 @@ try {
 
 const version = __VERSION__;
 export default replaceTags;
+
+const Chevrons = AngleBrackets;
+const PercentBrackets = AngleBracketsWithPercentSigns;
+const Dunders = DoubleUnderscores;
+
 export {
   version,
   replaceTags,
@@ -49,9 +54,10 @@ export {
   AngleBrackets,
   AngleBracketsWithPercentSigns,
   Backticks,
+  Chevrons,
   CurlyBracesWithDollarSigns,
-  CurlyBracesWithPoundSigns,
-  DollarSigns,
+  CurlyBracesWithHashSymbols,
+  DollarSignsWithSquareBrackets,
   DollarSignWithCurlyBraces,
   DoubleAngle,
   DoubleAtSigns,
@@ -63,16 +69,18 @@ export {
   DoubleSquareBrackets,
   DoubleSquareBracketsWithDollarSigns,
   DoubleUnderscores,
+  Dunders,
   ExclamationMarks,
   HashSymbolsWithCurlyBraces,
   HTMLComments,
   Parentheses,
+  PercentBrackets,
   PercentSigns,
-  PipeSymbols,
-  PointingHands,
-  SingleCurlyBracesWithExclamationMarks,
+  VerticalBars,
+  Pointy,
+  CurlyBracesWithExclamationMarks,
   SquareBrackets,
   SquareBracketsWithColons,
-  SquareBracketsWithDashes,
+  SquareBracketsWithHyphens,
   TripleCurlyBraces,
 };

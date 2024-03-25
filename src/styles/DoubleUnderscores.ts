@@ -1,6 +1,14 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
 
-// "Hello __variable__"
+/**
+ * Options for replacing tags using double underscores (`__` `__`).
+ * Matches tags of the form `__variable__` in the text.
+ * @example
+ * // Example usage:
+ * const text = 'Hello __variable__';
+ * const result = replaceTags(text, { variable: 'world' }, DoubleUnderscores);
+ * console.log(result); // Output: 'Hello world'
+ */
 const DoubleUnderscores: ReplaceTagsOptions = {
   tagPattern: /__[^_]+__/g,
   tagStartPattern: /^__/,

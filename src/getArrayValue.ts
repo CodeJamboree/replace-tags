@@ -19,7 +19,7 @@ const getArrayValue = (
   const [, arrayName, arrayIndex] = segment.match(arrayPattern) ?? [];
   const namePath = appendPath(currentPath, arrayName);
   value = getValue(value, arrayName, namePath, path);
-  if (value === undefined) return;
+  if (value === undefined) return value;
   currentPath = appendPath(currentPath, segment);
   return getValue(value, arrayIndex, currentPath, path);
 };
