@@ -1,4 +1,3 @@
-const { execSync } = require("child_process");
 const fs = require("fs");
 const packageJson = require("../package.json");
 const assertCommitted = require("./git/assertCommitted");
@@ -34,9 +33,10 @@ if (newContributors.length !== 0) {
   );
   console.log("package.json updated with new contributors.");
   const names = newContributors.map(({ name }) => name).join(", ");
-  let message = `Added contributors: ${names}`;
+  const prefix = ":memo:Added contributors: "
+  let message = `${prefix}${names}`;
   if (message.length > 50)
-    message = `Added contributors: ${newContributors.length}`;
+    message = `${prefix}${newContributors.length}`;
   commit("package.json", message);
 } else {
   console.log("No additional contributors found.");
