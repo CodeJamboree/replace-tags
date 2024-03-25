@@ -120,6 +120,12 @@ console.log(replacedText);
 // Output: Hello John Doe!
 ```
 
+Things to consider when making your own custom tag options:
+
+1. The `tagPattern` should end with the `/g` flag.
+1. The `tagStartPattern` should begin with `/^`.
+1. The `tagEndpattern` should end with `$/`.
+
 ## Tag Styles
 
 | Style                               | Template                          |
