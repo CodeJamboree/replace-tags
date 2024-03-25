@@ -45,8 +45,8 @@ mv "$CHANGELOG.tmp" "$CHANGELOG"
 # Add changelog to staging
 git add "$CHANGELOG"
 
-# Commit the changelog
-git commit -m ":loud_sound: Changelog v$VERSION"
+# Ammend the commit to the package version 
+git commit --amend
 
 # Create header for release notes
 HEADER="# Current Release\n\n$RELEASE_HEADER\n";
