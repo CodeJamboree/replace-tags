@@ -18,7 +18,7 @@ if ! git diff-index --quiet HEAD --; then
     # Add all affected files to staging
     git add .
     # Commit the changelog
-    git commit -m ":arg:Formatted code using Prettier"
+    git commit -m ":art:Formatted code using Prettier"
 fi
 
 # Make sure there are not lint warnings
