@@ -6,13 +6,13 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * @example
  * // Example usage:
  * const text = 'Hello {{%variable%}}';
- * const result = replaceTags(text, { variable: 'world' }, DoubleCurlyBracesWithPercentSign);
+ * const result = replaceTags(text, { variable: 'world' }, DoubleCurlyBracesWithPercentSigns);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleCurlyBracesWithPercentSign: ReplaceTagsOptions = {
+const DoubleCurlyBracesWithPercentSigns: ReplaceTagsOptions = {
   tagPattern: /\{\{%([^%]+)%\}\}/g,
   tagStartPattern: /^\{\{%/,
   tagEndPattern: /%\}\}$/,
 };
 
-export default DoubleCurlyBracesWithPercentSign;
+export default DoubleCurlyBracesWithPercentSigns;
