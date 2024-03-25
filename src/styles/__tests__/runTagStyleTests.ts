@@ -12,8 +12,8 @@ const runTagStyleTests = (
       child: "Child Value",
     },
     array: ["Array 0 Value"],
-    _underscore_: "Underscore Value",
-    $dollar$: "Dollar Value",
+    __underscore__: "Underscore Value",
+    $$dollar$$: "Dollar Value",
     nestedArray: [["Nested 0 0 Value"]],
     "0": ["Root Array 0 Value"],
   };
