@@ -163,6 +163,22 @@ Things to consider when making your own custom tag options:
 | TripleCurlyBraces                   | `Hello {{{ user.name }}}`         |
 | VerticalBars                        | `Hello \| user.name \|`           |
 
+## Property Access Notation
+
+The paths that may appear within tags allows for object traversal along the object to find the properties value in complex data structures. It can navigate through nested objects and nested arrays.
+
+| values                                   | path           |
+| ---------------------------------------- | -------------- |
+| `{"key": "value"}`                       | `key`          |
+| `["value"]`                              | `[0]`          |
+| `{"key": ["value"]}`                     | `key[0]`       |
+| `{"key": [["value"]]}`                   | `key[0][0]`    |
+| `{"parent": {"child": "value"}}`         | `parent.child` |
+| `{"key": () => "value" }`                | `key`          |
+| `{"parent": () => ({"child": "value"})}` | `parent.child` |
+
+The paths within the tags also allow for whitespace. You can either specify `{{key}}` or `{{ key }}` for easier readability.
+
 ## API
 
 ### `replaceTags(text: string, values: object, options?: ReplaceTagsOptions): string`
