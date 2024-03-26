@@ -8,10 +8,7 @@
 - Generate and Publish [API Documentation](https://codejamboree.github.io/replace-tags/) during builds
 - Example scripts are only tested via `npm test:examples`
 - Tests with prettier configuration print width
-
-### Fixed
-
-- Invalid JSON is now caught
+- Resolved values as objects will display as JSON
 
 ## [1.0.22] - 2024-03-26
 
