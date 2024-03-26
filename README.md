@@ -292,6 +292,8 @@ For the latest changes, updates, and improvements to this project, please refer 
 
 ## License
 
+Copyright (c) 2024 Code Jamboree LLC
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
