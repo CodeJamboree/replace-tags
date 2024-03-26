@@ -10,7 +10,7 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * console.log(result); // Output: 'Hello world'
  */
 const DoubleUnderscores: ReplaceTagsOptions = {
-  tagPattern: /__[^_]+__/g,
+  tagPattern: /__+.+?__+/g,
   tagStartPattern: /^__/,
   tagEndPattern: /__$/,
 };
