@@ -9,11 +9,10 @@ import ReplaceTagsOptions from "./ReplaceTagsOptions";
  * @param {ReplaceTagsOptions} options - configuration for tag parsing.
  * @returns {RegExReplacer} A function that takes a tag and replaces it with a value.
  */
-const tagReplacer =
-  (
-    values: object,
-    { tagStartPattern, tagEndPattern }: ReplaceTagsOptions,
-  ): RegExReplacer => {
+const tagReplacer = (
+  values: object,
+  { tagStartPattern, tagEndPattern }: ReplaceTagsOptions,
+): RegExReplacer => {
   /**
    * Replaces a tag with its resolved value if found; otherwise, returns the tag.
    * @param {string} match The matched tag
@@ -21,13 +20,18 @@ const tagReplacer =
    */
   const replacer: RegExReplacer = (match: string): string => {
     const path = match
-      .replace(tagStartPattern, "")
-      .replace(tagEndPattern, "")
+      .replace(
+        new RegExp(
+          `${tagStartPattern.source}|${tagEndPattern.source}`,
+          "g",
+        ),
+        "",
+      )
       .trim();
     const value = findValueByPath(values, path);
-    return value === undefined ? match : `${value}`
+    return `${value ?? match}`;
   };
 
   return replacer;
-}
+};
 export default tagReplacer;
