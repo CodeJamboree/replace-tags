@@ -1,5 +1,4 @@
 import replaceTags from "../replaceTags";
-import ReplaceTagsOptions from "../ReplaceTagsOptions";
 
 describe("replace tags", () => {
   it("accepts empty string", () => {
