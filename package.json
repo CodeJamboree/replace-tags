@@ -21,6 +21,7 @@
     "test:examples": "npm run build:all && TEST_EXAMPLES=true jest",
     "depcheck": "npm-check --unused --ignore @codejamboree/replace-tags",
     "lint": "eslint src",
+    "doc": "typedoc ./src/index.ts",
     "format": "npm run pretty",
     "pretty": "prettier --write . --list-different --ignore-path .prettierignore"
   },
@@ -80,6 +81,7 @@
     "terser-webpack-plugin": "^5.3.10",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.5.1",
+    "typedoc": "^0.25.12",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4"
   },
