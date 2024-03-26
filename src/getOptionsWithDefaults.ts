@@ -67,12 +67,18 @@ const getOptionsWithDefaults: IgetOptionsWithDefaults = ({
   return options;
 };
 
+/**
+ * Gets a regular expression, or the default expression
+ * @param {RegExp | undefined} expression An regular expression, or undefined
+ * @param {RegExp} defaultExpression A default regular expression
+ * @returns {RegExp} A stateless regular expression
+ */
 const getRegExp = (
   expression: RegExp | undefined,
   defaultExpression: RegExp,
 ): RegExp => {
   const value = expression ?? defaultExpression;
-  // return copy of expressions with state
+  // return stateless regluar expression
   return value.lastIndex !== 0 ? new RegExp(value) : value;
 };
 
