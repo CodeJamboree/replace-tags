@@ -21,11 +21,12 @@ const getValue = (
   const numericKey = !isNaN(Number(key)) ? Number(key) : null;
 
   // Assign value based on whether source is an array and key is a numeric string
-  const value =
-    Array.isArray(source) && numericKey !== null
-      ? source[numericKey]
-      : (source as Record<string, unknown>)[key];
-
+  let value;
+  if (numericKey !== null && Array.isArray(source)) {
+    value = source[numericKey];
+  } else {
+    value = (source as Record<string, unknown>)[key];
+  }
   // If the value is a function, call it with the provided parameters
   if (typeof value === "function")
     return value.call(source, key, currentPath, fullPath);
