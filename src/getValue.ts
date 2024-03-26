@@ -12,20 +12,24 @@ const getValue = (
   currentPath: string,
   fullPath: string,
 ): unknown => {
-  // Check if source is an object
-  if (typeof source === "object" && source !== null) {
-    // Assign value based on whether source is an array and key is a numeric string
-    const value =
-      Array.isArray(source) && !isNaN(Number(key))
-        ? source[Number(key)]
-        : (source as Record<string, unknown>)[key];
-    // If the value is a function, call it with the provided parameters
-    if (typeof value === "function")
-      return value.call(source, key, currentPath, fullPath);
-    return value;
+  // Early return if source is not an object
+  if (typeof source !== "object" || source === null) {
+    return undefined;
   }
-  // Return undefined if source is not an object
-  return undefined;
+
+  // Check if key is a numeric string once and reuse the result
+  const numericKey = !isNaN(Number(key)) ? Number(key) : null;
+
+  // Assign value based on whether source is an array and key is a numeric string
+  const value =
+    Array.isArray(source) && numericKey !== null
+      ? source[numericKey]
+      : (source as Record<string, unknown>)[key];
+
+  // If the value is a function, call it with the provided parameters
+  if (typeof value === "function")
+    return value.call(source, key, currentPath, fullPath);
+  return value;
 };
 
 export default getValue;
