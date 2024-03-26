@@ -10,6 +10,7 @@
 - More tests for each tag style
 - [example.js](./example.js) for [RunKit](https://npm.runkit.com/%40codejamboree%2Freplace-tags).
 - Test [README](./README.md) samples with both `main` and `devMain`.
+- Guard against stateful regular expressions
 
 ### Fixed
 
