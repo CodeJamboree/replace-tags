@@ -1,8 +1,6 @@
-import KeyedObject from "./KeyedObject";
-
 /**
- * Retrieves the value from the source object based on the provided key
- * @param {unknown} source The source object from which to retrieve the value.
+ * Retrieves the value from the source based on the provided key
+ * @param {unknown} source The source from which to retrieve the value.
  * @param {string|number} key The key to look up in the source object.
  * @param {string} currentPath The current path being traversed in the object hierarchy.
  * @param {string} fullPath The full path to the current key being evaluated.
@@ -19,7 +17,7 @@ const getValue = (
     if (Array.isArray(source) && /\d+/.test(key)) {
       value = source[parseInt(key)];
     } else {
-      value = (source as KeyedObject)[key];
+      value = (source as Record<string, unknown>)[key];
     }
     if (typeof value === "function")
       value = value.call(source, key, currentPath, fullPath);
