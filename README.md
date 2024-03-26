@@ -120,7 +120,7 @@ console.log(replacedText);
 // Output: Hello John Doe!
 ```
 
-Things to consider when making your own custom tag options:
+An error will be thrown if the following conditions are not met:
 
 1. The `tagPattern` should end with the `/g` flag.
 1. The `tagStartPattern` should begin with `/^`.
