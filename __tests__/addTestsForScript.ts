@@ -5,6 +5,7 @@ import { execSync } from "child_process";
 import crypto from "crypto";
 import { tmpdir } from "os";
 import "./toHaveLengthLessThanOrEqualTo";
+import prettierConfig from "../prettier.config";
 
 const addTestsForScript = (script: string) => {
   describe(`JavaScript`, () => {
@@ -68,7 +69,7 @@ const addTestsForScriptEnvironment = (
           describe(`Line ${lineIndex + 1}`, () => {
             it("is not too long", () => {
               // @ts-expect-error
-              expect(line).toHaveLengthLessThanOrEqualTo(70);
+              expect(line).toHaveLengthLessThanOrEqualTo(prettierConfig.printWidth);
             });
           });
         });
