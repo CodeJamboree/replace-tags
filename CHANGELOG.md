@@ -8,6 +8,7 @@
 - Process Nested Arrays `{{key[0][1][2]}}`
 - Process array segments without keys `{{[0]}}`
 - More tests for each tag style
+- [example.js](./example.js) for [RunKit](https://npm.runkit.com/%40codejamboree%2Freplace-tags).
 
 ### Fixed
 
