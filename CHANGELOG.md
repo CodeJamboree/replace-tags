@@ -12,6 +12,7 @@
 - Test [README](./README.md) samples with both `main` and `devMain`.
 - Guard against stateful regular expressions
 - Guard against regular expressions with wrong flags or start/end of line/text
+- Add tests to verify [example.js](./example.js) has expected output
 
 ### Fixed
 
