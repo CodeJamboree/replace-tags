@@ -30,16 +30,6 @@ import SquareBracketsWithColons from "./styles/SquareBracketsWithColons";
 import SquareBracketsWithHyphens from "./styles/SquareBracketsWithHyphens";
 import TripleCurlyBraces from "./styles/TripleCurlyBraces";
 
-try {
-  if (process?.argv?.length > 2) {
-    const text = process.argv[2];
-    const values = JSON.stringify(process.argv[3]);
-    console.log(replaceTags(text, values));
-  }
-} catch (e) {
-  console.log("Error processing", e);
-}
-
 const version = __VERSION__;
 export default replaceTags;
 
