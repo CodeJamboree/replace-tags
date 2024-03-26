@@ -1,5 +1,5 @@
 import getRegExp from "./getRegExp";
-import guardPatterns from "./guardPatterns";
+import validatePatterns from "./validatePatterns";
 import IgetOptionsWithDefaults from "./IgetOptionsWithDefaults";
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
 import defaultTag from "./styles/DoubleCurlyBraces";
@@ -23,7 +23,7 @@ const getOptionsWithDefaults: IgetOptionsWithDefaults = ({
     tagEndPattern: getRegExp(tagEndPattern, defaultTag.tagEndPattern),
   };
 
-  guardPatterns(options);
+  validatePatterns(options);
 
   return options;
 };

@@ -1,7 +1,10 @@
 import checkCondition from "./checkCondition";
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
-
-const guardPatterns = ({
+/**
+ * Checks the provided patterns and throws an error if they don't meet certain conditions.
+ * @param {ReplaceTagsOptions} options - The options object containing the patterns to check.
+ */
+const validatePatterns = ({
   tagEndPattern,
   tagStartPattern,
   tagPattern,
@@ -55,4 +58,4 @@ const guardPatterns = ({
   );
 };
 
-export default guardPatterns;
+export default validatePatterns;
