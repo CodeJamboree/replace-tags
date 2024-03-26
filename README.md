@@ -208,6 +208,7 @@ Ideally, paths can have multiple segments delimited by `.`. Each segment may hav
 - `tables[0][1].name` The first value of `tables`, second value of a nested array, and the value of `name` key.
 
 ### Unconventional paths
+
 - `0` The same as `[0]`
 - `users.0.name` The same as `users[0].name`
 - `user[name]` The same as `users.name`
