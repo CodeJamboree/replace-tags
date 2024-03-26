@@ -14,6 +14,7 @@
 
 - `DollarSignWithSquareBrackets` works with arrays
 - `CurlyBracesWithDollarSigns` works with paths containing dollars
+- `DoubleSquareBracketsWithDollarSigns` works with paths containing dollars
 
 ## [1.0.21] - 2024-03-25
 
