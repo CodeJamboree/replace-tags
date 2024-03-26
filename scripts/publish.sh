@@ -42,11 +42,8 @@ git commit --amend -m ":bookmark: v$VERSION"
 # Update the tag to point to the latest commit
 git tag -f "v$VERSION"
 
-# Build dev version
-npm run build:dev
-
-# Build production version
-npm run build
+# Build dev & production versions
+npm run build:all
 
 # Enusure tests pass (Tests depend on build output, so we test after build)
 npm run test
