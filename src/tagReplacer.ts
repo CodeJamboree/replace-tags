@@ -25,14 +25,12 @@ const tagReplacer = (
     const value = findValueByPath(values, path);
 
     let result: string;
-    if(value === null || value === undefined) {
-      result = match;
-    } else if (typeof value === 'string') {
+    if (typeof value === 'string') {
       result = value;
     } else if(typeof value === 'object') {
       result = JSON.stringify(value);
     } else {
-      result = String(value);
+      result = String(value ?? match);
     }
     cache.set(path, result);
     return result;
