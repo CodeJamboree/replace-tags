@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.0.22] - 2024-03-26
+
 ### Added
 
 - Link to changelog
