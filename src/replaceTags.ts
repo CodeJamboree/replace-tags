@@ -21,7 +21,7 @@ const replaceTags = (
   const defaultedOptions = getOptionsWithDefaults(options);
   const pattern = defaultedOptions.tagPattern;
   const tagEdges = new RegExp(
-    `${defaultedOptions.tagStartPattern.source+'\\s*'}|${'\\s*'+defaultedOptions.tagEndPattern.source}`,
+    `${defaultedOptions.tagStartPattern.source + "\\s*"}|${"\\s*" + defaultedOptions.tagEndPattern.source}`,
     "g",
   );
   return text.replace(pattern, tagReplacer(values, tagEdges));

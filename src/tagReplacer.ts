@@ -12,7 +12,6 @@ const tagReplacer = (
   values: object,
   tagEdges: RegExp,
 ): RegExReplacer => {
-  
   const cache = new Map<string, string>();
 
   /**
@@ -24,9 +23,9 @@ const tagReplacer = (
     const path = match.replace(tagEdges, "");
     if (cache.has(path)) return cache.get(path) as string;
     const value = findValueByPath(values, path);
-  
+
     // If the value is null or undefined, return the original tag.
-    const result = (value == null) ? match : value.toString();
+    const result = value == null ? match : value.toString();
     cache.set(path, result);
     return result;
   };
