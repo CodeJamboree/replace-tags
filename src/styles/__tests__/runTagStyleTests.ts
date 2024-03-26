@@ -61,6 +61,10 @@ const runTagStyleTests = (
       "Root Array 0 Value",
     );
   });
+  it("replaces root key as array", () => {
+    const text = `${tagStart}[key]${tagEnd}`;
+    expect(replaceTags(text, values, tagStyle)).toBe("Key Value");
+  });
   it("replaces nested array key", () => {
     const text = `${tagStart}nestedArray[0][0]${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe(
