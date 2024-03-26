@@ -305,9 +305,17 @@ const values = {
 };
 
 // Replace the tags in the text with values from the object
-console.log(replaceTags("Hello __key1____key2__!", values));
+console.log(
+  replaceTags("Hello __key1____key2__!", values, DoubleUnderscores),
+);
 // Output: Hello __key1____key2__!
 // Expected: Hello Value 1Value 2!
+
+// Replace the tags in the text with values from the object
+console.log(
+  replaceTags("Hello __key1__ __key2__!", values, DoubleUnderscores),
+);
+// Output: Hello Value 1 Value 2!
 ```
 
 ## Changelog
