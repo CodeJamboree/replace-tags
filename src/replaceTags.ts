@@ -20,7 +20,11 @@ const replaceTags = (
   }
   const defaultedOptions = getOptionsWithDefaults(options);
   const pattern = defaultedOptions.tagPattern;
-  return text.replace(pattern, tagReplacer(values, defaultedOptions));
+  const tagEdges = new RegExp(
+    `${defaultedOptions.tagStartPattern.source}|${defaultedOptions.tagEndPattern.source}`,
+    "g",
+  );
+  return text.replace(pattern, tagReplacer(values, tagEdges));
 };
 
 export default replaceTags;
