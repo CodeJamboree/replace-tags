@@ -266,6 +266,25 @@ console.log(replacedText);
 // Output: How was the 90's?
 ```
 
+### Cached Values
+
+Values along a path are cached for optimization. Even when the path has differing whitespace within the tags. Tag paths used multiple times will resolve to the same value. Using functions as values demonstrates this behavior.
+
+```js
+const { replaceTags } = require("@codejamboree/replace-tags");
+let count = 0;
+const getCount = () => {
+  console.log("Getting Count");
+  return ++count;
+};
+const values = { getCount };
+const text = "Count 1: {{getCount}}; Count 2: {{ getCount }}";
+console.log(replaceTags(text, values));
+// Output: Getting Count
+// Output: Count 1: 1; Count 2: 1
+// Note: "Getting Count" was only logged once.
+```
+
 ## Passing Values as JSON
 
 You may pass a JSON string as the values to be evaluated.
