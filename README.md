@@ -279,7 +279,30 @@ console.log(value);
 
 ### Paired Delimiters
 
-Tag Styles with a paried tag with the same opening and closing tags (ie `__` in `__underscore__`) are unable to parse tags directly following one after another. (ie `__first____last__`) It is recomended to have some whitespace between these tags. (ie `__first__ __last__`).
+Tag Styles that have a paried tag with the same opening and closing tags (ie `__` in `__dunder__`) are sometimes unable to parse tags directly following one after another. (ie `__key1____key2__`) It is recomended to have some whitespace between these tags. (ie `__key1__ __key2__`).
+
+```js
+const {
+  replaceTags,
+  DoubleUnderscores,
+} = require("@codejamboree/replace-tags");
+
+// Define your text containing tags
+const text = "Hello __key1____key2__!";
+
+// Define values to replace the tags
+const values = {
+  key2: "Value 1",
+  key2: "Value 2",
+};
+
+// Replace the tags in the text with values from the object
+const replacedText = replaceTags(text, values);
+
+console.log(replacedText);
+// Output: Hello __key1____key2__!
+// Expected: Hello Value 1Value 2!
+```
 
 ### Parsing Paths
 
