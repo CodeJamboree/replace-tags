@@ -1,9 +1,10 @@
 #!/bin/bash
 
-VERSION="$1"
-
 # Exit immediately if any command fails
 set -e
+
+# Get package version
+VERSION=$(node -p "require('./package.json').version")
 
 # Create documentation
 npm run doc
@@ -18,7 +19,7 @@ sed -i '' '/^docs$/d' .gitignore
 git add docs/*
 
 # Ammend the commit to the package version 
-git commit -m ":memo: Update documentation"
+git commit -m ":memo: Update documentation $VERSION"
 
 # Update the tag to point to the latest commit
 git tag -f "v$VERSION"
