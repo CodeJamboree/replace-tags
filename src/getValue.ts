@@ -14,11 +14,13 @@ const getValue = (
 ): unknown => {
   let value;
   if (typeof source === "object" && source !== null) {
+    // Check if source is an array and key is a numeric string
     if (Array.isArray(source) && /\d+/.test(key)) {
       value = source[parseInt(key)];
     } else {
       value = (source as Record<string, unknown>)[key];
     }
+    // If the value is a function, call it with the provided parameters
     if (typeof value === "function")
       value = value.call(source, key, currentPath, fullPath);
     return value;
