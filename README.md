@@ -215,6 +215,27 @@ Ideally, paths can have multiple segments delimited by `.`. Each segment may hav
 - `users.0.name` The same as `users[0].name`
 - `user[name]` The same as `users.name`
 
+## Object Values
+
+Any value that resolves as an object will result as that object being converted to JSON.
+
+```js
+const { replaceTags } = require("@codejamboree/replace-tags");
+
+const values = {
+  user: {
+   name: "John Doe"
+  },
+};
+const text = "user = {{user}}";
+
+// Replace the tags in the text with values from the object
+const replacedText = replaceTags(text, values);
+
+console.log(replacedText);
+// Output: user = {"name":"John Doe"}
+```
+
 ## Dynamic Values
 
 The `replaceTags` function supports dynamic behavior by allowing functions to be called during property resolution. If a value is found to be a function, it will be called. The value returned is then used to continue resolving the property path.
