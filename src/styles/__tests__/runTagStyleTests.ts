@@ -7,6 +7,7 @@ const runTagStyleTests = (
   tagStyle: ReplaceTagsOptions,
 ) => {
   const values = {
+    "😎": "Emoji Value",
     key: "Key Value",
     parent: {
       child: "Child Value",
@@ -21,6 +22,10 @@ const runTagStyleTests = (
   it("replaces root key", () => {
     const text = `${tagStart}key${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe("Key Value");
+  });
+  it("replaces emoji key", () => {
+    const text = `${tagStart}😎${tagEnd}`;
+    expect(replaceTags(text, values, tagStyle)).toBe("Emoji Value");
   });
   it("replaces underscore key", () => {
     const text = `${tagStart}__underscore__${tagEnd}`;
