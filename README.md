@@ -277,7 +277,13 @@ console.log(value);
 
 ## Known Issues
 
-Some tag styles with square brackets are unable to parse array paths.
+### Paired Delimiters
+
+Tag Styles with a paried tag with the same opening and closing tags (ie `__` in `__underscore__`) are unable to parse tags directly following one after another. (ie `__first____last__`) It is recomended to have some whitespace between these tags. (ie `__first__ __last__`).
+
+### Parsing Paths
+
+Some tag styles with square brackets are unable to parse paths with certain characters or combinations that are similar to the tag style itself.
 
 - `DollarSignWithCurlyBraces` has trouble with dollar signs in property paths.
 - `DoubleSquareBrackets` has trouble with arrays in paths.
