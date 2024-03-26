@@ -30,6 +30,31 @@ describe("getOptionsWithDefaults", () => {
     });
   });
 
+  describe("non-stateful Regular Expressions", () => {
+    const options: ReplaceTagsOptions = {
+      tagPattern: /<.*?>/g,
+      tagStartPattern: /^</,
+      tagEndPattern: />$/,
+    };
+    let defaultedOptions: ReplaceTagsOptions;
+    beforeAll(() => {
+      defaultedOptions = getOptionsWithDefaults(options);
+    });
+    it("uses original tagPattern", () => {
+      expect(options.tagPattern).toBe(defaultedOptions.tagPattern);
+    });
+    it("uses original tagStartPattern", () => {
+      expect(options.tagStartPattern).toBe(
+        defaultedOptions.tagStartPattern,
+      );
+    });
+    it("uses original tagEndPattern", () => {
+      expect(options.tagEndPattern).toBe(
+        defaultedOptions.tagEndPattern,
+      );
+    });
+  });
+
   describe("global flag", () => {
     it("throws error if tagPattern is not global", () => {
       const options: ReplaceTagsOptions = {
