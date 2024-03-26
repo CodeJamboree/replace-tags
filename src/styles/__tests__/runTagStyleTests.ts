@@ -31,31 +31,45 @@ const runTagStyleTests = (
   });
   it("replaces emoji key", () => {
     const text = `${tagStart}${emojiKey}${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values[emojiKey]);
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      values[emojiKey],
+    );
   });
   it("replaces underscore key", () => {
     const text = `${tagStart}${underscoreKey}${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values[underscoreKey]);
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      values[underscoreKey],
+    );
   });
   it("replaces dollar key", () => {
     const text = `${tagStart}${dollarKey}${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values[dollarKey]);
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      values[dollarKey],
+    );
   });
   it("replaces multiple tags", () => {
     const text = `${tagStart}key1${tagEnd} ${tagStart}key2${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(`${values.key1} ${values.key2}`);
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      `${values.key1} ${values.key2}`,
+    );
   });
   it("replaces duplicate tags", () => {
     const text = `${tagStart}key${tagEnd} ${tagStart}key${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(`${values.key} ${values.key}`);
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      `${values.key} ${values.key}`,
+    );
   });
   it("replaces parent child key", () => {
     const text = `${tagStart}parent.child${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values.parent.child);
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      values.parent.child,
+    );
   });
   it("replaces parent with JSON of value", () => {
     const text = `${tagStart}parent${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(JSON.stringify(values.parent));
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      JSON.stringify(values.parent),
+    );
   });
   it("replaces array key", () => {
     const text = `${tagStart}array[0]${tagEnd}`;
@@ -75,7 +89,9 @@ const runTagStyleTests = (
   });
   it("replaces nested array key", () => {
     const text = `${tagStart}nestedArray[0][0]${tagEnd}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values.nestedArray[0][0]);
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      values.nestedArray[0][0],
+    );
   });
 };
 

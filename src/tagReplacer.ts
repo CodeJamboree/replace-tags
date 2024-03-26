@@ -25,9 +25,9 @@ const tagReplacer = (
     const value = findValueByPath(values, path);
 
     let result: string;
-    if (typeof value === 'string') {
+    if (typeof value === "string") {
       result = value;
-    } else if(typeof value === 'object') {
+    } else if (typeof value === "object") {
       result = JSON.stringify(value);
     } else {
       result = String(value ?? match);
