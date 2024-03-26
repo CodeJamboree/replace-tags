@@ -11,6 +11,7 @@
 - [example.js](./example.js) for [RunKit](https://npm.runkit.com/%40codejamboree%2Freplace-tags).
 - Test [README](./README.md) samples with both `main` and `devMain`.
 - Guard against stateful regular expressions
+- Guard against regular expressions with wrong flags or start/end of line/text
 
 ### Fixed
 
