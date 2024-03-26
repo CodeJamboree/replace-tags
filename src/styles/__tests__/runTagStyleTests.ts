@@ -13,6 +13,8 @@ const runTagStyleTests = (
   const values = {
     [emojiKey]: "Emoji Value",
     key: "Key Value",
+    key1: "Key 1 Value",
+    key2: "Key 2 Value",
     parent: {
       child: "Child Value",
     },
@@ -42,6 +44,12 @@ const runTagStyleTests = (
     expect(replaceTags(text, values, tagStyle)).toBe("Dollar Value");
   });
   it("replaces multiple tags", () => {
+    const text = `${tagStart}key1${tagEnd} ${tagStart}key2${tagEnd}`;
+    expect(replaceTags(text, values, tagStyle)).toBe(
+      "Key 1 Value Key 2 Value",
+    );
+  });
+  it("replaces duplicate tags", () => {
     const text = `${tagStart}key${tagEnd} ${tagStart}key${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe(
       "Key Value Key Value",
