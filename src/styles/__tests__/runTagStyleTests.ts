@@ -22,7 +22,7 @@ const runTagStyleTests = (
     [underscoreKey]: "Underscore Value",
     [dollarKey]: "Dollar Value",
     nestedArray: [["Nested 0 0 Value"]],
-    "0": ["Root Array 0 Value"],
+    "0": "Root Array 0 Value",
   };
 
   it("replaces root key", () => {
