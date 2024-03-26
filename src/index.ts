@@ -1,4 +1,4 @@
-// Import functions// Import functions
+// Import functions
 import findValueByPath from "./findValueByPath";
 import replaceTags from "./replaceTags";
 
