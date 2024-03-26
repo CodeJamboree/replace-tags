@@ -314,12 +314,6 @@ console.log(replacedText);
 // Expected: Hello Value 1Value 2!
 ```
 
-### Parsing Paths
-
-Some tag styles with square brackets are unable to parse paths with certain characters or combinations that are similar to the tag style itself.
-
-- `DollarSignWithCurlyBraces` has trouble with dollar signs in property paths.
-
 ## Changelog
 
 For the latest changes, updates, and improvements to this project, please refer to the [Changelog](CHANGELOG.md).
