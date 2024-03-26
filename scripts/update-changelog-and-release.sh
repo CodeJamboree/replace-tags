@@ -46,7 +46,7 @@ mv "$CHANGELOG.tmp" "$CHANGELOG"
 git add "$CHANGELOG"
 
 # Ammend the commit to the package version 
-git commit -m ":loud_sound: Update Changelog $VERSION"
+git commit -m ":loud_sound: Update Changelog v$VERSION"
 
 # Update the tag to point to the latest commit
 git tag -f "v$VERSION"
