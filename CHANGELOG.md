@@ -17,6 +17,7 @@
 - `DoubleSquareBracketsWithDollarSigns` works with paths containing `$`
 - `DoubleUnderscores` works with paths containing `_`
 - `DoubleSquareBrackets` works with paths containing `[` and `]`
+- `SquareBrackets` works with paths containing `[` and `]`
 
 ## [1.0.21] - 2024-03-25
 
