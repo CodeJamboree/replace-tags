@@ -15,6 +15,7 @@
 - `DollarSignWithSquareBrackets` works with arrays
 - `CurlyBracesWithDollarSigns` works with paths containing dollars
 - `DoubleSquareBracketsWithDollarSigns` works with paths containing dollars
+- `DoubleUnderscores` works with paths containing `_`
 
 ## [1.0.21] - 2024-03-25
 
