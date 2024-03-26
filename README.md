@@ -122,9 +122,9 @@ console.log(replacedText);
 
 An error will be thrown if the following conditions are not met:
 
-1. The `tagPattern` should end with the `/g` flag.
-1. The `tagStartPattern` should begin with `/^`.
-1. The `tagEndpattern` should end with `$/`.
+1. The `tagPattern` must end with the `/g` flag.
+1. The `tagStartPattern` must begin with `/^`.
+1. The `tagEndpattern` must end with non-escaped `$/`.
 
 ## Tag Styles
 
