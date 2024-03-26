@@ -279,7 +279,6 @@ console.log(value);
 
 Some tag styles with square brackets are unable to parse array paths.
 
-- `CurlyBracesWithDollarSigns` has trouble with dollar signs in property paths.
 - `DollarSignWithCurlyBraces` has trouble with dollar signs in property paths.
 - `DoubleSquareBrackets` has trouble with arrays in paths.
 - `DoubleSquareBracketsWithDollarSigns` has trouble with dollar signs in property paths.
