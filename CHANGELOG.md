@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Added
+
+- Various changes to build scripts
+- Generate and Publish [API Documentation](https://codejamboree.github.io/replace-tags/) during builds
+- Example scripts are only tested via `npm test:examples`
+
 ## [1.0.22] - 2024-03-26
 
 ### Added
