@@ -13,6 +13,7 @@
 
 ### Fixed
 
+- `DollarSignWithCurlyBraces` works with paths containing `$`
 - `DollarSignWithSquareBrackets` works with paths containing `[` and `]`
 - `CurlyBracesWithDollarSigns` works with paths containing `$`
 - `DoubleSquareBracketsWithDollarSigns` works with paths containing `$`
