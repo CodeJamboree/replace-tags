@@ -1,11 +1,7 @@
+import getRegExp from "./getRegExp";
+import IgetOptionsWithDefaults from "./IgetOptionsWithDefaults";
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
 import defaultTag from "./styles/DoubleCurlyBraces";
-
-interface IgetOptionsWithDefaults {
-  (
-    options: Partial<ReplaceTagsOptions> | undefined,
-  ): ReplaceTagsOptions;
-}
 
 /**
  * Merges the provided options with default options for tag patterns.
@@ -65,21 +61,6 @@ const getOptionsWithDefaults: IgetOptionsWithDefaults = ({
   }
 
   return options;
-};
-
-/**
- * Gets a regular expression, or the default expression
- * @param {RegExp | undefined} expression An regular expression, or undefined
- * @param {RegExp} defaultExpression A default regular expression
- * @returns {RegExp} A stateless regular expression
- */
-const getRegExp = (
-  expression: RegExp | undefined,
-  defaultExpression: RegExp,
-): RegExp => {
-  const value = expression ?? defaultExpression;
-  // return stateless regluar expression
-  return value.lastIndex !== 0 ? new RegExp(value) : value;
 };
 
 export default getOptionsWithDefaults;
