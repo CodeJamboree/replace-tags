@@ -9,6 +9,10 @@
 - Example scripts are only tested via `npm test:examples`
 - Tests with prettier configuration print width
 
+### Fixed
+
+- Invalid JSON is now caught
+
 ## [1.0.22] - 2024-03-26
 
 ### Added
