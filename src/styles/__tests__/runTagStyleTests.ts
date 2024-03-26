@@ -6,15 +6,19 @@ const runTagStyleTests = (
   tagEnd: string,
   tagStyle: ReplaceTagsOptions,
 ) => {
+  const underscoreKey = "__underscore__";
+  const dollarKey = "$$dollar$$";
+  const emojiKey = "😎";
+
   const values = {
-    "😎": "Emoji Value",
+    [emojiKey]: "Emoji Value",
     key: "Key Value",
     parent: {
       child: "Child Value",
     },
     array: ["Array 0 Value"],
-    __underscore__: "Underscore Value",
-    $$dollar$$: "Dollar Value",
+    [underscoreKey]: "Underscore Value",
+    [dollarKey]: "Dollar Value",
     nestedArray: [["Nested 0 0 Value"]],
     "0": ["Root Array 0 Value"],
   };
@@ -24,23 +28,23 @@ const runTagStyleTests = (
     expect(replaceTags(text, values, tagStyle)).toBe("Key Value");
   });
   it("replaces emoji key", () => {
-    const text = `${tagStart}😎${tagEnd}`;
+    const text = `${tagStart}${emojiKey}${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe("Emoji Value");
   });
   it("replaces underscore key", () => {
-    const text = `${tagStart}__underscore__${tagEnd}`;
+    const text = `${tagStart}${underscoreKey}${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe(
       "Underscore Value",
     );
   });
   it("replaces dollar key", () => {
-    const text = `${tagStart}$$dollar$$${tagEnd}`;
+    const text = `${tagStart}${dollarKey}${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe("Dollar Value");
   });
   it("replaces multiple tags", () => {
-    const text = `${tagStart}key${tagEnd}${tagStart}key${tagEnd}`;
+    const text = `${tagStart}key${tagEnd} ${tagStart}key${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe(
-      "Key ValueKey Value",
+      "Key Value Key Value",
     );
   });
   it("replaces parent child key", () => {
