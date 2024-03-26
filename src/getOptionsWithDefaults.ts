@@ -1,4 +1,5 @@
 import getRegExp from "./getRegExp";
+import guardPatterns from "./guardPatterns";
 import IgetOptionsWithDefaults from "./IgetOptionsWithDefaults";
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
 import defaultTag from "./styles/DoubleCurlyBraces";
@@ -21,44 +22,8 @@ const getOptionsWithDefaults: IgetOptionsWithDefaults = ({
     ),
     tagEndPattern: getRegExp(tagEndPattern, defaultTag.tagEndPattern),
   };
-  // Global Flag Checks
-  if (!options.tagPattern.global) {
-    throw new Error("tagPattern not flagged as global");
-  }
-  if (options.tagStartPattern.global) {
-    throw new Error("tagStartPattern flagged as global");
-  }
-  if (options.tagEndPattern.global) {
-    throw new Error("tagEndPattern flagged as global");
-  }
-  // Start of string or line checks
-  if (options.tagPattern.source.startsWith("^")) {
-    throw new Error("tagPattern starts with `^`");
-  }
-  if (!options.tagStartPattern.source.startsWith("^")) {
-    throw new Error("tagStartPattern missing prefix `^`");
-  }
-  if (options.tagEndPattern.source.startsWith("^")) {
-    throw new Error("tagEndPattern starts with `^`");
-  }
-  // End of string or line checks
-  if (
-    options.tagPattern.source.endsWith("$") &&
-    !options.tagPattern.source.endsWith("\\$")
-  ) {
-    throw new Error("tagPattern ends with unescaped `$`");
-  }
-  if (
-    options.tagStartPattern.source.endsWith("$") &&
-    !options.tagStartPattern.source.endsWith("\\$")
-  ) {
-    throw new Error("tagStartPattern ends with unescaped `$`");
-  }
-  if (!options.tagEndPattern.source.endsWith("$")) {
-    throw new Error("tagEndPattern missing suffix `$`");
-  } else if (options.tagEndPattern.source.endsWith("\\$")) {
-    throw new Error("tagEndPattern ends with escaped `$`");
-  }
+
+  guardPatterns(options);
 
   return options;
 };
