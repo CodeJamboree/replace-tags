@@ -1,5 +1,7 @@
 import findValueByPath from "./findValueByPath";
 import replaceTags from "./replaceTags";
+
+// Import styles
 import AngleBrackets from "./styles/AngleBrackets";
 import AngleBracketsWithPercentSigns from "./styles/AngleBracketsWithPercentSigns";
 import Backticks from "./styles/Backticks";
@@ -30,12 +32,16 @@ import SquareBracketsWithColons from "./styles/SquareBracketsWithColons";
 import SquareBracketsWithHyphens from "./styles/SquareBracketsWithHyphens";
 import TripleCurlyBraces from "./styles/TripleCurlyBraces";
 
+// Define version number
 const version = __VERSION__;
+
+// Epoxrt main function
 export default replaceTags;
 
-const Chevrons = AngleBrackets;
-const PercentBrackets = AngleBracketsWithPercentSigns;
-const Dunders = DoubleUnderscores;
+// Define style aliases
+export const Chevrons = AngleBrackets;
+export const PercentBrackets = AngleBracketsWithPercentSigns;
+export const Dunders = DoubleUnderscores;
 
 export {
   version,
@@ -44,7 +50,6 @@ export {
   AngleBrackets,
   AngleBracketsWithPercentSigns,
   Backticks,
-  Chevrons,
   CurlyBracesWithDollarSigns,
   CurlyBracesWithHashSymbols,
   DollarSignsWithSquareBrackets,
@@ -59,12 +64,10 @@ export {
   DoubleSquareBrackets,
   DoubleSquareBracketsWithDollarSigns,
   DoubleUnderscores,
-  Dunders,
   ExclamationMarks,
   HashSymbolsWithCurlyBraces,
   HTMLComments,
   Parentheses,
-  PercentBrackets,
   PercentSigns,
   VerticalBars,
   Pointy,
