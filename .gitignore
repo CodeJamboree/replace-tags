@@ -2,6 +2,9 @@
 dist
 dist-dev
 /RELEASE_NOTES.md
+docs
+
+.DS_Store
 
 # Logs
 logs
