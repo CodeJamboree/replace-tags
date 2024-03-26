@@ -1,6 +1,6 @@
 import SquareBrackets from "../SquareBrackets";
 import runTagStyleTests from "./runTagStyleTests";
 
-xdescribe("SquareBrackets", () => {
+describe("SquareBrackets", () => {
   runTagStyleTests("[", "]", SquareBrackets);
 });
