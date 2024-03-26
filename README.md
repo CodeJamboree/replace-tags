@@ -319,7 +319,6 @@ console.log(replacedText);
 Some tag styles with square brackets are unable to parse paths with certain characters or combinations that are similar to the tag style itself.
 
 - `DollarSignWithCurlyBraces` has trouble with dollar signs in property paths.
-- `SquareBrackets` has trouble with arrays in paths.
 
 ## Changelog
 
