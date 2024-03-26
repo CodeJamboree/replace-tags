@@ -3,12 +3,14 @@ import ReplaceTagsOptions from "./ReplaceTagsOptions";
 /**
  * Checks the provided patterns and throws an error if they don't meet certain conditions.
  * @param {ReplaceTagsOptions} options - The options object containing the patterns to check.
+ * @returns {void}
+ * @throws {Error} Throws an error if the patterns don't meet the conditions.
  */
 const validatePatterns = ({
   tagEndPattern,
   tagStartPattern,
   tagPattern,
-}: ReplaceTagsOptions) => {
+}: ReplaceTagsOptions): void => {
   // Global Flag Checks
   checkCondition(
     !tagPattern.global,
