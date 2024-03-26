@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import packageJson from "../../package.json";
+import packageJson from "../package.json";
 import { execSync } from "child_process";
 import crypto from "crypto";
 import { tmpdir } from "os";
