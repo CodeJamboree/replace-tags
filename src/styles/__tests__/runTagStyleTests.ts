@@ -59,6 +59,10 @@ const runTagStyleTests = (
     const text = `${tagStart}parent.child${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe("Child Value");
   });
+  it("replaces parent with JSON of value", () => {
+    const text = `${tagStart}parent${tagEnd}`;
+    expect(replaceTags(text, values, tagStyle)).toBe(JSON.stringify(values.parent));
+  });
   it("replaces array key", () => {
     const text = `${tagStart}array[0]${tagEnd}`;
     expect(replaceTags(text, values, tagStyle)).toBe("Array 0 Value");
