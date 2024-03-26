@@ -6,8 +6,8 @@ const runTagStyleTests = (
   tagEnd: string,
   tagStyle: ReplaceTagsOptions,
 ) => {
-  const underscoreKey = "__underscore__";
-  const dollarKey = "$$dollar$$";
+  const underscoreKey = "__under_score__";
+  const dollarKey = "$$dol$lar$$";
   const emojiKey = "😎";
 
   const values = {
