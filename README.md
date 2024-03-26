@@ -298,9 +298,6 @@ const {
   DoubleUnderscores,
 } = require("@codejamboree/replace-tags");
 
-// Define your text containing tags
-const text = "Hello __key1____key2__!";
-
 // Define values to replace the tags
 const values = {
   key1: "Value 1",
@@ -308,9 +305,7 @@ const values = {
 };
 
 // Replace the tags in the text with values from the object
-const replacedText = replaceTags(text, values);
-
-console.log(replacedText);
+console.log(replaceTags("Hello __key1____key2__!", values));
 // Output: Hello __key1____key2__!
 // Expected: Hello Value 1Value 2!
 ```
