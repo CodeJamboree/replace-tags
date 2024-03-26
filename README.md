@@ -224,7 +224,7 @@ const { replaceTags } = require("@codejamboree/replace-tags");
 
 const values = {
   user: {
-   name: "John Doe"
+    name: "John Doe",
   },
 };
 const text = "user = {{user}}";
