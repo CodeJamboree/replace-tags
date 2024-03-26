@@ -195,32 +195,4 @@ describe("replace tags", () => {
       ).toBe(badText);
     });
   });
-  describe("stateful Regular Expressions", () => {
-    const options: ReplaceTagsOptions = {
-      tagPattern: /<.*?>/g,
-      tagStartPattern: /^</,
-      tagEndPattern: />$/,
-    };
-    const values = { key1: "value1", key2: "value2" };
-    const template = "<key1><key2>";
-    let text: string;
-    beforeAll(() => {
-      options.tagPattern.lastIndex = 1;
-      options.tagStartPattern.lastIndex = 1;
-      options.tagEndPattern.lastIndex = 1;
-      text = replaceTags(template, values, options);
-    });
-    it("processes all tags", () => {
-      expect(text).toBe("value1value2");
-    });
-    it("does not affect tagPattern state", () => {
-      expect(options.tagPattern.lastIndex).toBe(1);
-    });
-    it("does not affect tagStartPattern state", () => {
-      expect(options.tagStartPattern.lastIndex).toBe(1);
-    });
-    it("does not affect tagEndPattern state", () => {
-      expect(options.tagEndPattern.lastIndex).toBe(1);
-    });
-  });
 });

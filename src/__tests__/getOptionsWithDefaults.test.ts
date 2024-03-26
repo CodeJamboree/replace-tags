@@ -3,6 +3,33 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
 import DoubleCurlyBraces from "../styles/DoubleCurlyBraces";
 
 describe("getOptionsWithDefaults", () => {
+  describe("stateful Regular Expressions", () => {
+    const options: ReplaceTagsOptions = {
+      tagPattern: /<.*?>/g,
+      tagStartPattern: /^</,
+      tagEndPattern: />$/,
+    };
+    let defaultedOptions: ReplaceTagsOptions;
+    beforeAll(() => {
+      options.tagPattern.lastIndex = 1;
+      options.tagStartPattern.lastIndex = 1;
+      options.tagEndPattern.lastIndex = 1;
+      defaultedOptions = getOptionsWithDefaults(options);
+    });
+    it("created new tagPattern", () => {
+      expect(options.tagPattern.lastIndex).toBe(1);
+      expect(defaultedOptions.tagPattern.lastIndex).toBe(0);
+    });
+    it("created new tagStartPattern", () => {
+      expect(options.tagStartPattern.lastIndex).toBe(1);
+      expect(defaultedOptions.tagStartPattern.lastIndex).toBe(0);
+    });
+    it("creates new tagEndPattern", () => {
+      expect(options.tagEndPattern.lastIndex).toBe(1);
+      expect(defaultedOptions.tagEndPattern.lastIndex).toBe(0);
+    });
+  });
+
   describe("global flag", () => {
     it("throws error if tagPattern is not global", () => {
       const options: ReplaceTagsOptions = {
