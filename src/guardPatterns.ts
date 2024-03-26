@@ -1,11 +1,5 @@
+import checkCondition from "./checkCondition";
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
-
-// Helper function to check a condition and throw an error
-const checkCondition = (condition: boolean, errorMessage: string) => {
-  if (condition) {
-    throw new Error(errorMessage);
-  }
-};
 
 const guardPatterns = ({
   tagEndPattern,
@@ -13,9 +7,18 @@ const guardPatterns = ({
   tagPattern,
 }: ReplaceTagsOptions) => {
   // Global Flag Checks
-  checkCondition(!tagPattern.global, "tagPattern not flagged as global");
-  checkCondition(tagStartPattern.global, "tagStartPattern flagged as global");
-  checkCondition(tagEndPattern.global, "tagEndPattern flagged as global");
+  checkCondition(
+    !tagPattern.global,
+    "tagPattern not flagged as global",
+  );
+  checkCondition(
+    tagStartPattern.global,
+    "tagStartPattern flagged as global",
+  );
+  checkCondition(
+    tagEndPattern.global,
+    "tagEndPattern flagged as global",
+  );
 
   // Start of string or line checks
   checkCondition(
