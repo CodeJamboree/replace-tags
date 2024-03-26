@@ -10,7 +10,7 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * console.log(result); // Output: 'Hello world'
  */
 const SquareBrackets: ReplaceTagsOptions = {
-  tagPattern: /\[([^\]]+)\]/g,
+  tagPattern: /\[\s*(\.?[^[]*(\[[^\]]+\])*)+\s*\]+/g,
   tagStartPattern: /^\[/,
   tagEndPattern: /\]$/,
 };
