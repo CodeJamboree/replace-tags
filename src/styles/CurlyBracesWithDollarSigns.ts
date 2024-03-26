@@ -10,7 +10,7 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * console.log(result); // Output: 'Hello world'
  */
 const CurlyBracesWithDollarSigns: ReplaceTagsOptions = {
-  tagPattern: /\{\$([^$]+)\$\}/g,
+  tagPattern: /\{\$+(.*?)\$\}/g,
   tagStartPattern: /^\{\$/,
   tagEndPattern: /\$\}$/,
 };
