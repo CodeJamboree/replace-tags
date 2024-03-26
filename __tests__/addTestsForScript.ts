@@ -69,7 +69,9 @@ const addTestsForScriptEnvironment = (
           describe(`Line ${lineIndex + 1}`, () => {
             it("is not too long", () => {
               // @ts-expect-error
-              expect(line).toHaveLengthLessThanOrEqualTo(prettierConfig.printWidth);
+              expect(line).toHaveLengthLessThanOrEqualTo(
+                prettierConfig.printWidth,
+              );
             });
           });
         });
