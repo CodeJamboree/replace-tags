@@ -17,7 +17,7 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "test": "jest",
-    "depcheck": "npm-check --unused",
+    "depcheck": "npm-check --unused --ignore @codejamboree/replace-tags",
     "lint": "eslint src",
     "format": "npm run pretty",
     "pretty": "prettier --write . --list-different --ignore-path .prettierignore"
