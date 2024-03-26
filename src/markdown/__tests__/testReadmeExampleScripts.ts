@@ -76,8 +76,15 @@ const testReadmeExampleScripts = (
     it(`Has at least 1 sample.`, () => {
       expect(scripts.length).toBeGreaterThan(0);
     });
-    const outputPattern = /\/\/ Output: (.*)/;
+    const outputPattern = /\/\/ Output: (.*)/g;
     scripts.forEach((script, index) => {
+      const outputs: string[] = [];
+      beforeAll(() => {
+        let match: RegExpExecArray | null;
+        while ((match = outputPattern.exec(script)) !== null) {
+          outputs.push(match[1].trim());
+        }
+      });
       describe(`Sample ${index + 1}`, () => {
         it("is not empty", () => {
           expect(script).not.toBe("");
@@ -96,11 +103,8 @@ const testReadmeExampleScripts = (
           });
         });
         it("runs with expected output", () => {
-          const expectedOutput = script.match(
-            outputPattern,
-          )?.[1] as string;
           const output = runScript(script).trim();
-          expect(output).toEqual(expectedOutput);
+          expect(output).toEqual(outputs.join("\n"));
         });
       });
     });
