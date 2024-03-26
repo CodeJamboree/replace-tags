@@ -302,7 +302,7 @@ const text = "Hello __key1____key2__!";
 
 // Define values to replace the tags
 const values = {
-  key2: "Value 1",
+  key1: "Value 1",
   key2: "Value 2",
 };
 
