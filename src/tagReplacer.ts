@@ -21,12 +21,10 @@ const tagReplacer = (
    * @returns {string} The resolved value if the tag matches a path in the `values` object; otherwise, the original tag.
    */
   const replacer: RegExReplacer = (match: string): string => {
-    if (cache.has(match)) return cache.get(match) as string;
     const path = match.replace(tagEdges, "").trim();
     if (cache.has(path)) return cache.get(path) as string;
     const value = findValueByPath(values, path);
     const result = value ? `${value}` : match;
-    cache.set(match, result);
     cache.set(path, result);
     return result;
   };
