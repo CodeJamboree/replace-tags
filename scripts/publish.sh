@@ -51,6 +51,9 @@ npm run test
 # Update changelog and release notes
 ./scripts/update-changelog-and-release.sh
 
+# Generate release documentation
+./update-docs.sh
+
 # Push local commits
 git push
 
