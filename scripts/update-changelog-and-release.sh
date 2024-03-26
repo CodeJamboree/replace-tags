@@ -52,7 +52,7 @@ git commit --amend -C HEAD
 git tag -f "v$VERSION"
 
 # Create header for release notes
-HEADER="# Current Release\n\n$RELEASE_HEADER\n";
+HEADER="# [$VERSION] - $DATE\n"
 
 # Add header to release notes
 echo -e "$HEADER$(cat $RELEASE_NOTES)" > "$RELEASE_NOTES"
