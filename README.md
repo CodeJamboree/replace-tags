@@ -181,6 +181,8 @@ The paths within the tags also allow for whitespace. You can either specify `{{k
 
 ## API
 
+For detailed API documentation, pleae refer to the [documentation](https://codejamboree.github.io/replace-tags/).
+
 ### `replaceTags(text: string, values: object, options?: ReplaceTagsOptions): string`
 
 Replaces tags in the provided text with values from the values object.
