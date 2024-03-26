@@ -16,7 +16,7 @@
     "publish:npm": "./scripts/publish.sh",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "test": "jest",
+    "test": "npm run build:dev && npm run build && jest",
     "depcheck": "npm-check --unused --ignore @codejamboree/replace-tags",
     "lint": "eslint src",
     "format": "npm run pretty",
