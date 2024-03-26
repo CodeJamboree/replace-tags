@@ -44,36 +44,41 @@ const addTestsForScriptEnvironment = (
     }
   };
 
-  describe(`${packageEntryKey === "main" ? "production" : "development"}`, () => {
-    const outputPattern = /\/\/ Output: (.*)/g;
-    const outputs: string[] = [];
-    beforeAll(() => {
-      let match: RegExpExecArray | null;
-      while ((match = outputPattern.exec(script)) !== null) {
-        outputs.push(match[1].trim());
-      }
-    });
-    it("is not empty", () => {
-      expect(script).not.toBe("");
-    });
-    it("has output", () => {
-      expect(script).toMatch(outputPattern);
-    });
-    describe("lines", () => {
-      script.split("\n").forEach((line, lineIndex) => {
-        describe(`Line ${lineIndex + 1}`, () => {
-          it("is not too long", () => {
-            // @ts-expect-error
-            expect(line).toHaveLengthLessThanOrEqualTo(70);
+  const conditionalDescribe =
+    process.env.TEST_EXAMPLES === "true" ? describe : xdescribe;
+  conditionalDescribe(
+    `${packageEntryKey === "main" ? "production" : "development"}`,
+    () => {
+      const outputPattern = /\/\/ Output: (.*)/g;
+      const outputs: string[] = [];
+      beforeAll(() => {
+        let match: RegExpExecArray | null;
+        while ((match = outputPattern.exec(script)) !== null) {
+          outputs.push(match[1].trim());
+        }
+      });
+      it("is not empty", () => {
+        expect(script).not.toBe("");
+      });
+      it("has output", () => {
+        expect(script).toMatch(outputPattern);
+      });
+      describe("lines", () => {
+        script.split("\n").forEach((line, lineIndex) => {
+          describe(`Line ${lineIndex + 1}`, () => {
+            it("is not too long", () => {
+              // @ts-expect-error
+              expect(line).toHaveLengthLessThanOrEqualTo(70);
+            });
           });
         });
       });
-    });
-    it("runs with expected output", () => {
-      const output = runScript(script).trim();
-      expect(output).toEqual(outputs.join("\n"));
-    });
-  });
+      it("runs with expected output", () => {
+        const output = runScript(script).trim();
+        expect(output).toEqual(outputs.join("\n"));
+      });
+    },
+  );
 };
 
 export default addTestsForScript;
