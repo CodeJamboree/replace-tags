@@ -24,7 +24,9 @@ const tagReplacer = (
     const path = match.replace(tagEdges, "").trim();
     if (cache.has(path)) return cache.get(path) as string;
     const value = findValueByPath(values, path);
-    const result = value ? `${value}` : match;
+  
+    // If the value is null or undefined, return the original tag.
+    const result = (value == null) ? match : value.toString();
     cache.set(path, result);
     return result;
   };
