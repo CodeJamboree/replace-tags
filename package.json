@@ -49,14 +49,7 @@
     "Value injection",
     "Token replacement",
     "Inline variable interpretation",
-    "Text parsing",
-    "Flexible tag interpretation",
-    "Token expansion",
-    "Data injection",
-    "Text tokenization",
-    "Text templating engine",
-    "Text content customization",
-    "Tags"
+    "Text parsing"
   ],
   "author": {
     "name": "Code Jamboree LLC",
