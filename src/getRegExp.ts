@@ -9,7 +9,7 @@ const getRegExp = (
   defaultExpression: RegExp,
 ): RegExp => {
   const value = expression ?? defaultExpression;
-  // return stateless regluar expression
+  // Return a new RegExp if lastIndex is not 0 to ensure the returned RegExp is stateless
   return value.lastIndex !== 0 ? new RegExp(value) : value;
 };
 
