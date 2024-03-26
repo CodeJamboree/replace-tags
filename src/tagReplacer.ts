@@ -24,8 +24,16 @@ const tagReplacer = (
     if (cache.has(path)) return cache.get(path) as string;
     const value = findValueByPath(values, path);
 
-    // If the value is null or undefined, return the original tag.
-    const result = value?.toString() ?? match;
+    let result: string;
+    if(value === null || value === undefined) {
+      result = match;
+    } else if (typeof value === 'string') {
+      result = value;
+    } else if(typeof value === 'object') {
+      result = JSON.stringify(value);
+    } else {
+      result = String(value);
+    }
     cache.set(path, result);
     return result;
   };
