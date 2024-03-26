@@ -1,3 +1,4 @@
+// Import functions// Import functions
 import findValueByPath from "./findValueByPath";
 import replaceTags from "./replaceTags";
 
@@ -7,8 +8,8 @@ import AngleBracketsWithPercentSigns from "./styles/AngleBracketsWithPercentSign
 import Backticks from "./styles/Backticks";
 import CurlyBracesWithDollarSigns from "./styles/CurlyBracesWithDollarSigns";
 import CurlyBracesWithHashSymbols from "./styles/CurlyBracesWithHashSymbols";
-import DollarSignsWithSquareBrackets from "./styles/DollarSignsWithSquareBrackets";
 import DollarSignWithCurlyBraces from "./styles/DollarSignWithCurlyBraces";
+import DollarSignsWithSquareBrackets from "./styles/DollarSignsWithSquareBrackets";
 import DoubleAngle from "./styles/DoubleAngle";
 import DoubleAtSigns from "./styles/DoubleAtSigns";
 import DoubleCaretsWithBraces from "./styles/DoubleCaretsWithBraces";
@@ -33,7 +34,8 @@ import SquareBracketsWithHyphens from "./styles/SquareBracketsWithHyphens";
 import TripleCurlyBraces from "./styles/TripleCurlyBraces";
 
 // Define version number
-const version = __VERSION__;
+// Populated by Webpack DefinePlugin
+export const version = __VERSION__;
 
 // Epoxrt main function
 export default replaceTags;
@@ -44,7 +46,6 @@ export const PercentBrackets = AngleBracketsWithPercentSigns;
 export const Dunders = DoubleUnderscores;
 
 export {
-  version,
   replaceTags,
   findValueByPath,
   AngleBrackets,
