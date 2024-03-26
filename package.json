@@ -18,7 +18,7 @@
     "build:dev": "webpack --mode development",
     "build:all": "npm run build:dev && npm run build",
     "test": "jest",
-    "test:examples": "TEST_EXAMPLES=true jest",
+    "test:examples": "npm run build:all && TEST_EXAMPLES=true jest",
     "depcheck": "npm-check --unused --ignore @codejamboree/replace-tags",
     "lint": "eslint src",
     "format": "npm run pretty",
