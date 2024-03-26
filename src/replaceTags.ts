@@ -16,11 +16,7 @@ const replaceTags = (
 ): string => {
   if (typeof text !== "string") return text;
   if (typeof values === "string") {
-    try {
-      values = JSON.parse(values) as object;
-    } catch (error) {
-      return text;
-    }
+    values = JSON.parse(values) as object;
   }
   const defaultedOptions = getOptionsWithDefaults(options);
   const pattern = defaultedOptions.tagPattern;

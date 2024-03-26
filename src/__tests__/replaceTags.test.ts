@@ -27,10 +27,10 @@ describe("replace tags", () => {
     const values = JSON.stringify({ name: "World" });
     expect(replaceTags(text, values)).toBe("Hello World!");
   });
-  it("handles errors parsing values as JSON.", () => {
+  it("throws errors parsing values as JSON.", () => {
     const text = "Hello {{name}}!";
     const values = "This is not JSON";
-    expect(replaceTags(text, values)).toBe("Hello {{name}}!");
+    expect(() => replaceTags(text, values)).toThrow();
   });
   it("replaces nested properties", () => {
     const text = "Hello {{user.name}}!";
