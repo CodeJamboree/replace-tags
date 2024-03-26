@@ -15,8 +15,8 @@ const getValue = (
   let value;
   if (typeof source === "object" && source !== null) {
     // Check if source is an array and key is a numeric string
-    if (Array.isArray(source) && /\d+/.test(key)) {
-      value = source[parseInt(key)];
+    if (Array.isArray(source) && !isNaN(Number(key))) {
+      value = source[Number(key)];
     } else {
       value = (source as Record<string, unknown>)[key];
     }
