@@ -28,7 +28,8 @@ const getValue = (
     numericKey !== null && Array.isArray(source)
       ? source[numericKey]
       : (source as Record<string, unknown>)[key];
-  // If the value is a function, call it with the provided parameters
+  // If the value is a function, call it with the provided
+  // parameters
   return typeof value === "function"
     ? value.call(source, key, currentPath, fullPath)
     : value;
