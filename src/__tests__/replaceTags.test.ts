@@ -1,6 +1,15 @@
 import replaceTags from "../replaceTags";
 
 describe("replace tags", () => {
+  describe("cache", () => {
+    it("does not catches the result of the last successful compilation", () => {
+      const text = "Hello {{name}}!";
+      const values1 = { name: "John Doe" };
+      const values2 = { name: "Jane Smith" };
+      expect(replaceTags(text, values1)).toBe("Hello John Doe!");
+      expect(replaceTags(text, values2)).toBe("Hello Jane Smith!");
+    });
+  });
   it("accepts empty string", () => {
     expect(replaceTags("", { key: "value" })).toBe("");
   });
