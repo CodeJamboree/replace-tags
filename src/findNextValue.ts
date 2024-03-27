@@ -1,5 +1,4 @@
 import appendPath from "./appendPath";
-import arrayPattern from "./arrayPattern";
 import getArrayValue from "./getArrayValue";
 import getValue from "./getValue";
 import getValueFromIndicies from "./getValueFromIndicies";
