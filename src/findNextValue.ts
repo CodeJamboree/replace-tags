@@ -2,6 +2,7 @@ import appendPath from "./appendPath";
 import arrayPattern from "./arrayPattern";
 import getArrayValue from "./getArrayValue";
 import getValue from "./getValue";
+import getValueFromIndicies from "./getValueFromIndicies";
 import NextValue from "./NextValue";
 
 /**
@@ -17,7 +18,15 @@ const findNextValue = (
   let { value, currentPath } = result;
   const { fullPath } = result;
   if (value === undefined) return result;
-  if (new RegExp(arrayPattern).test(segment)) {
+  if (segment[0] === "[") {
+    value = getValueFromIndicies(
+      value,
+      segment,
+      currentPath,
+      fullPath,
+    );
+    currentPath = appendPath(currentPath, segment);
+  } else if (segment.includes("[")) {
     value = getArrayValue(value, segment, currentPath, fullPath);
     currentPath = appendPath(currentPath, segment);
   } else {
