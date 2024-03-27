@@ -1,6 +1,7 @@
 import appendPath from "./appendPath";
 import appendPathIndex from "./appendPathIndex";
 import arrayPattern from "./arrayPattern";
+import getIndicies from "./getIndicies";
 import getValue from "./getValue";
 
 /**
@@ -10,6 +11,13 @@ import getValue from "./getValue";
  * @param {string | undefined} currentPath - The current path in the object hierarchy.
  * @param {string} path - The full path in the object hierarchy.
  * @returns {unknown} The value retrieved from the array based on the segment.
+ * @example // Example usage
+ * const value = { a: [ 'b', ['c', 'd', ['e', 'f', 'g']]] }
+ * const path = 'parent.a[1][2][3].length';
+ * const currentPath = 'parent';
+ * const segment = 'a[1][2][3]';
+ * console.log(getArrayValue(data, segment, currentPath, path));  
+ * // Output: "g"
  */
 const getArrayValue = (
   value: unknown,
@@ -26,33 +34,11 @@ const getArrayValue = (
     // Grab the value
     value = getValue(value, key, currentPath, path);
     // quit if we have nothing
-    if (value === undefined) return value;
+    if (value === undefined) return;
   }
-  // Copy RegEx if already in use
-  const pattern =
-    arrayPattern.lastIndex === 0
-      ? arrayPattern
-      : new RegExp(arrayPattern);
 
-  // Loop through nested array indexes
-  let match;
-  while ((match = pattern.exec(segment)) !== null) {
-    // Grab the key in between the square brackets
-    const key = match[1];
-    // Append the [key] to the current path
-    currentPath = appendPathIndex(currentPath, key);
-    // Grab the value
-    value = getValue(value, key, currentPath, path);
-    // quit if we have nothing
-    if (value === undefined) {
-      // Reset the RegEx pattern
-      pattern.lastIndex = 0;
-      // Return undefined
-      return value;
-    }
-  }
-  // Return the value
-  return value;
+  return getIndicies(value, segment, currentPath, path);
+
 };
 
 export default getArrayValue;
