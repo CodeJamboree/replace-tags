@@ -22,6 +22,12 @@ interface ReplaceTagsOptions {
    * @type {RegExp}
    */
   tagEndPattern: RegExp;
+
+  /**
+   * Whether to cache resolved values.
+   * @type {boolean}
+   */
+  cache?: boolean;
 }
 
 export default ReplaceTagsOptions;
