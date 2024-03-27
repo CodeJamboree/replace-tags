@@ -15,12 +15,12 @@ const getOptionsWithDefaults: IgetOptionsWithDefaults = ({
   tagEndPattern,
 }: Partial<ReplaceTagsOptions> = defaultTag): ReplaceTagsOptions => {
   const options: ReplaceTagsOptions = {
-    tagPattern: getRegExp(tagPattern, defaultTag.tagPattern),
+    tagPattern: getRegExp(defaultTag.tagPattern, tagPattern),
     tagStartPattern: getRegExp(
-      tagStartPattern,
       defaultTag.tagStartPattern,
+      tagStartPattern,
     ),
-    tagEndPattern: getRegExp(tagEndPattern, defaultTag.tagEndPattern),
+    tagEndPattern: getRegExp(defaultTag.tagEndPattern, tagEndPattern),
   };
   // Validate the provided patterns
   validatePatterns(options);
