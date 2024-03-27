@@ -31,9 +31,11 @@ const getArrayValue = (
   // Copy RegEx so nested uses can have their own engine
   const pattern = new RegExp(arrayPattern);
   // Loop through nested array indexes
-  while (true) {
-    const match = pattern.exec(segment);
-    if (match === null) break;
+  for (
+    let match = pattern.exec(segment);
+    match !== null;
+    match = pattern.exec(segment)
+  ) {
     // Grab the key in between the square brackets
     const key = match[1];
     // Append the [key] to the current path
