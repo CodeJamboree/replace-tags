@@ -377,4 +377,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) f
 Portions of the source code were generated with the assistance of
 
 - [OpenAI's ChatGPT](https://chat.openai.com/)
+- [GitHub Copilot](https://copilot.github.com/)
 - [vscode-jsdoc](https://github.com/lllllllqw/vscode-jsdoc)
