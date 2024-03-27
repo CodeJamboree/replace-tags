@@ -12,11 +12,11 @@ import TagStyle from "./TagStyle";
  */
 const Pointy: TagStyle = {
   name: "Pointy",
-  openingTag: "👉",
-  closingTag: "👈",
-  tagPattern: /👉([^👈]+)👈/gu,
-  tagStartPattern: /^👉/u,
-  tagEndPattern: /👈$/u,
+  openingTag: "\uD83D\uDC49",
+  closingTag: "\uD83D\uDC48",
+  tagPattern: /\uD83D\uDC49([^\uD83D\uDC48]+)\uD83D\uDC48/gu,
+  tagStartPattern: /^\uD83D\uDC49/u,
+  tagEndPattern: /\uD83D\uDC48$/u,
 };
 
 export default Pointy;

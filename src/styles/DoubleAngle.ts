@@ -12,11 +12,11 @@ import TagStyle from "./TagStyle";
  */
 const DoubleAngle: TagStyle = {
   name: "Double Angle",
-  openingTag: "«",
-  closingTag: "»",
-  tagPattern: /«([^»]+)»/g,
-  tagStartPattern: /^«/,
-  tagEndPattern: /»$/,
+  openingTag: "\xAB",
+  closingTag: "\xBB",
+  tagPattern: /\xAB([^\xBB]+)\xBB/g,
+  tagStartPattern: /^\xAB/,
+  tagEndPattern: /\xBB$/,
 };
 
 export default DoubleAngle;

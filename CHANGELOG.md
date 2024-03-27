@@ -9,6 +9,11 @@
 - `Handlebars` alias for `CurlyBraces` ie `{ name }`
 - Tag styles now have `openingTag`, `closingTag` and `name` properties.
 
+### Fixed
+
+- `Pointy` issues with Unicode, now escaped as `\uD83D\uDC49` and `\uD83D\uDC48`.
+- `DoubleAngle` issues with upper ASCII, now escaped as `\xAB` and `\xAA`
+
 ## [1.1.1] - 2024-03-27
 
 ### Added
