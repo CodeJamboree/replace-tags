@@ -35,7 +35,7 @@ const getArrayValue = (
     // Grab the value
     value = getValue(value, key, currentPath, path);
     // quit if we have nothing
-    if (value === undefined) return;
+    if (value === undefined) return value;
     // Update the segment to remove the key
     segment = segment.slice(index);
   }

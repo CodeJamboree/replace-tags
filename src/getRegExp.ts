@@ -1,7 +1,6 @@
 /**
- * Gets a regular expression, or the default expression
- * @param {RegExp} defaultExpression A default regular expression
- * @param {RegExp} [expression] An regular expression, or undefined
+ * Gets a regular expression, or a new stateless regular expression if the input is stateful.
+ * @param {RegExp} [expression] An regular expression
  * @returns {RegExp} A stateless regular expression
  */
 const getRegExp = (expression: RegExp): RegExp => {

@@ -16,7 +16,7 @@ const findValueByPath = (source: unknown, path: string): unknown => {
   };
   for (const segment of segments) {
     nextValue = findNextValue(nextValue, segment);
-    if (nextValue.value === undefined) return;
+    if (nextValue.value === undefined) break;
   }
   return nextValue.value;
 };
