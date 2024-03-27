@@ -16,30 +16,30 @@ const getIndicies = (
   currentPath: string | undefined,
   path: string,
 ) => {
-    // Copy RegEx if already in use
-    const pattern =
+  // Copy RegEx if already in use
+  const pattern =
     arrayPattern.lastIndex === 0
       ? arrayPattern
       : new RegExp(arrayPattern);
 
-    // Loop through nested array indexes
-    let match: RegExpExecArray | null;
-    while ((match = pattern.exec(indicies)) !== null) {
-      // Grab the key in between the square brackets
-      const key = match[1];
-      // Append the [key] to the current path
-      currentPath = appendPathIndex(currentPath, key);
-      // Grab the value
-      value = getValue(value, key, currentPath, path);
-      // quit if we have nothing
-      if (value === undefined) {
-        // Reset the RegEx pattern
-        pattern.lastIndex = 0;
-        // Return undefined
-        return;
-      }
+  // Loop through nested array indexes
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(indicies)) !== null) {
+    // Grab the key in between the square brackets
+    const key = match[1];
+    // Append the [key] to the current path
+    currentPath = appendPathIndex(currentPath, key);
+    // Grab the value
+    value = getValue(value, key, currentPath, path);
+    // quit if we have nothing
+    if (value === undefined) {
+      // Reset the RegEx pattern
+      pattern.lastIndex = 0;
+      // Return undefined
+      return;
     }
-    return value;  
-}
+  }
+  return value;
+};
 
 export default getIndicies;

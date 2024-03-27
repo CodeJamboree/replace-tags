@@ -16,7 +16,7 @@ import getValue from "./getValue";
  * const path = 'parent.a[1][2][3].length';
  * const currentPath = 'parent';
  * const segment = 'a[1][2][3]';
- * console.log(getArrayValue(data, segment, currentPath, path));  
+ * console.log(getArrayValue(data, segment, currentPath, path));
  * // Output: "g"
  */
 const getArrayValue = (
@@ -38,7 +38,6 @@ const getArrayValue = (
   }
 
   return getIndicies(value, segment, currentPath, path);
-
 };
 
 export default getArrayValue;
