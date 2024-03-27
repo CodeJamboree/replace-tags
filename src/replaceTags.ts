@@ -25,7 +25,7 @@ const replaceTags = (
     `${defaultedOptions.tagStartPattern.source + "\\s*"}|${"\\s*" + defaultedOptions.tagEndPattern.source}`,
     "g",
   );
-  cache.clear();
+  if (!options?.cache) cache.clear();
   return text.replace(pattern, tagReplacer(values, tagEdges));
 };
 
