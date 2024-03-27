@@ -10,6 +10,9 @@ module.exports = (env, argv) => {
     mode: "production",
     devtool: "source-map",
     optimization: {
+      splitChunks: {
+        chunks: "all",
+      },
       minimize: true,
       minimizer: [new TerserPlugin()],
     },
