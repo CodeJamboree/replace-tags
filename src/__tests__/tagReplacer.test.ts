@@ -25,18 +25,37 @@ describe("tagReplacer", () => {
       "Age: {{age}}".replace(DoubleCurlyBraces.tagPattern, replacer),
     ).toBe("Age: {{age}}");
   });
-  it("should cache tag results", () => {
-    const mockName = jest.fn().mockReturnValue("John Doe");
-    const values = {
-      name: mockName,
-    };
-    const replacer = tagReplacer(values, tagEdges);
-    expect(
-      "Name 1: {{name}}; Name 2: {{ name }}".replace(
-        DoubleCurlyBraces.tagPattern,
-        replacer,
-      ),
-    ).toBe("Name 1: John Doe; Name 2: John Doe");
-    expect(mockName).toHaveBeenCalledTimes(1);
+  describe("cache", () => {
+    it("should cache tag paths", () => {
+      const mockName = jest.fn().mockReturnValue("John Doe");
+      const values = {
+        name: mockName,
+      };
+      const replacer = tagReplacer(values, tagEdges);
+      expect(
+        "Name 1: {{name}}; Name 2: {{ name }}".replace(
+          DoubleCurlyBraces.tagPattern,
+          replacer,
+        ),
+      ).toBe("Name 1: John Doe; Name 2: John Doe");
+      expect(mockName).toHaveBeenCalledTimes(1);
+    });
+    it("should cache sub-paths", () => {
+      const mockUser = jest.fn().mockReturnValue({
+        first: "John",
+        last: "Doe",
+      });
+      const values = {
+        user: mockUser,
+      };
+      const replacer = tagReplacer(values, tagEdges);
+      expect(
+        "{{user.first}} {{ user.last }}".replace(
+          DoubleCurlyBraces.tagPattern,
+          replacer,
+        ),
+      ).toBe("John Doe");
+      expect(mockUser).toHaveBeenCalledTimes(1);
+    });
   });
 });
