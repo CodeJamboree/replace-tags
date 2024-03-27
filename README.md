@@ -47,17 +47,9 @@ If a tags property path cannot be resolved, the tag remains unchanged.
 
 ```js
 const { replaceTags } = require("@codejamboree/replace-tags");
-
-// Define your text containing tags
-const text = "Hello {{missing.path}}!";
-
-// Define an object with values to replace the tags
-const values = { user: "John Doe" };
-
-// Replace the tags in the text with values from the object
-const replacedText = replaceTags(text, values);
-
-console.log(replacedText);
+console.log(
+  replaceTags("Hello {{missing.path}}!", { user: "John Doe" }),
+);
 // Output: Hello {{missing.path}}!
 ```
 
@@ -69,31 +61,23 @@ const {
   PercentSigns,
 } = require("@codejamboree/replace-tags");
 
-// Define your text containing tags with percent signs
-const text = "Hello %{user.name}%, welcome to %{website}%!";
-
-// Define an object with values to replace the tags
-const values = {
-  user: {
-    name: "John Doe",
-  },
-  website: "example.com",
-};
-
-// Replace the tags in the text with values from the object
-const replacedText = replaceTags(text, values, PercentSigns);
-
-console.log(replacedText);
-// Output: Hello John Doe, welcome to example.com!
+// Replace percent sign tags
+console.log(
+  replaceTags(
+    "Hello %{name}%",
+    {
+      name: "John Doe",
+    },
+    PercentSigns,
+  ),
+);
+// Output: Hello John Doe
 ```
 
 ## Usage with Custom Tag Patterns
 
 ```js
 const { replaceTags } = require("@codejamboree/replace-tags");
-
-// Define your text containing custom tags
-const text = "Hello tag_start-> user.name <-tag_end!";
 
 // Define an object with values to replace the tags
 const values = {
@@ -112,11 +96,12 @@ const options = {
   tagEndPattern: /<-tag_end$/,
 };
 
+// Define your text containing custom tags
+const text = "Hello tag_start-> user.name <-tag_end!";
+
 // Replace the custom tags in the text
 // with values from the object using custom options
-const replacedText = replaceTags(text, values, options);
-
-console.log(replacedText);
+console.log(replaceTags(text, values, options));
 // Output: Hello John Doe!
 ```
 
@@ -193,6 +178,7 @@ Replaces tags in the provided text with values from the values object.
   - `tagPattern` (optional): A regular expression pattern to find tags in the text. Default is DoubleCurlyBraces.tagPattern.
   - `tagStartPattern` (optional): A regular expression pattern to find the start of a tag. Default is DoubleCurlyBraces.tagStartPattern.
   - `tagEndPattern` (optional): A regular expression pattern to find the end of a tag. Default is DoubleCurlyBraces.tagEndPattern.
+  - `cache` (optional): Flag indicating if values are to be cached for subsequent calls. Default is false.
 
 Returns the modified text string with tags replaced.
 
@@ -230,9 +216,7 @@ const values = {
 const text = "user = {{user}}";
 
 // Replace the tags in the text with values from the object
-const replacedText = replaceTags(text, values);
-
-console.log(replacedText);
+console.log(replaceTags(text, values));
 // Output: user = {"name":"John Doe"}
 ```
 
@@ -240,7 +224,7 @@ console.log(replacedText);
 
 The `replaceTags` function supports dynamic behavior by allowing functions to be called during property resolution. If a value is found to be a function, it will be called. The value returned is then used to continue resolving the property path.
 
-### `getValue(key: string, currentPath: string, fullPath: string): unknown`
+### `valueGetter(key: string, currentPath: string, fullPath: string): unknown`
 
 ```js
 const { replaceTags } = require("@codejamboree/replace-tags");
@@ -260,9 +244,7 @@ const values = {
 const text = "How was the {{user.getDecade}}0's?";
 
 // Replace the tags in the text with values from the object
-const replacedText = replaceTags(text, values);
-
-console.log(replacedText);
+console.log(replaceTags(text, values));
 // Output: How was the 90's?
 ```
 
@@ -284,6 +266,8 @@ console.log(replaceTags(text, values));
 // Output: Count 1: 1; Count 2: 1
 // Note: "Getting Count" was only logged once.
 ```
+
+Note: Even when the `cache` flag is set to false for subsequent calls to `replaceTags`, the internal cache is still used during each individual call.
 
 ### Caching Option
 
@@ -352,18 +336,9 @@ A method is also provided for you to retrieve the resolved path values.
 
 ```js
 const { findValueByPath } = require("@codejamboree/replace-tags");
-
-// Define an object with values to find the value
-const source = {
-  user: {
-    name: "John Doe",
-  },
-};
-
-// Find the value in the object
-const value = findValueByPath(source, "user.name");
-
-console.log(value);
+console.log(
+  findValueByPath({ user: { name: "John Doe" } }, "user.name"),
+);
 // Output: John Doe
 ```
 
@@ -412,22 +387,22 @@ const {
 
 // Define values to replace the tags
 const values = {
-  key1: "Value 1",
-  key2: "Value 2",
+  key1: "## 1 ##",
+  key2: "-- 2 --",
 };
 
 // Replace the tags in the text with values from the object
 console.log(
-  replaceTags("Hello __key1____key2__!", values, DoubleUnderscores),
+  replaceTags("__key1____key2__", values, DoubleUnderscores),
 );
-// Output: Hello __key1____key2__!
-// Expected: Hello Value 1Value 2!
+// Output: __key1____key2__
+// Expected: ## 1 ##-- 2 --
 
 // Replace the tags in the text with values from the object
 console.log(
-  replaceTags("Hello __key1__ __key2__!", values, DoubleUnderscores),
+  replaceTags("__key1__ __key2__", values, DoubleUnderscores),
 );
-// Output: Hello Value 1 Value 2!
+// Output: ## 1 ## -- 2 --
 ```
 
 ## Changelog
