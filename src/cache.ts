@@ -3,7 +3,7 @@ import stringify from "./stringify";
 /**
  * Cache for storing the results of the last successful compilation.
  */
-const cache = new Map<string, unknown>();
+const valueCache = new Map<string, unknown>();
 
 /**
  * Cache for storing the results of the last successful compilation as strings.
@@ -14,13 +14,16 @@ const stringCache = new Map<string, string>();
  * Clears the cache.
  * @returns {void} Nothing.
  */
-const clear = (): void => cache.clear();
+export const clear = (): void => {
+  valueCache.clear();
+  stringCache.clear();
+};
 /**
  * Gets a value from the cache.
  * @param {string} key - The key to retrieve from the cache.
  * @returns {unknown} The value from the cache.
  */
-const get = (key: string): unknown => cache.get(key);
+export const get = (key: string): unknown => valueCache.get(key);
 /**
  * Checks if the cache has a value for the given key.
  * @param {string} key - The key to check in the cache.
@@ -31,7 +34,7 @@ const get = (key: string): unknown => cache.get(key);
  * cache.set("Key", "Value");
  * cache.has("Key"); // true
  */
-const has = (key: string): boolean => cache.has(key);
+export const has = (key: string): boolean => valueCache.has(key);
 
 /**
  * Sets a value in the cache.
@@ -45,8 +48,9 @@ const has = (key: string): boolean => cache.has(key);
  * cache.set("Key", "New Value"); // "New Value"
  * cache.get("Key"); // "New Value"
  */
-const set = (key: string, value: unknown): unknown => {
-  cache.set(key, value);
+export const set = (key: string, value: unknown): unknown => {
+  valueCache.set(key, value);
+  stringCache.delete(key);
   return value;
 };
 
@@ -64,18 +68,13 @@ const set = (key: string, value: unknown): unknown => {
  * set("Key", undefined);
  * getString("Key", "default value"); // "default value"
  */
-const getString = (key: string, defaultValue: string): string => {
+export const getString = (
+  key: string,
+  defaultValue: string,
+): string => {
   if (stringCache.has(key)) return stringCache.get(key) as string;
-  const value = cache.get(key);
+  const value = valueCache.get(key);
   const text = stringify(value, defaultValue);
   stringCache.set(key, text);
   return text;
-};
-
-export default {
-  get,
-  getString,
-  has,
-  set,
-  clear,
 };

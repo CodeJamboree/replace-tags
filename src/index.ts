@@ -1,6 +1,7 @@
 // Import functions
 import findValueByPath from "./findValueByPath";
 import replaceTags from "./replaceTags";
+import { clear } from "./cache";
 
 // Import styles
 import AngleBrackets from "./styles/AngleBrackets";
@@ -44,6 +45,9 @@ export default replaceTags;
 export const Chevrons = AngleBrackets;
 export const PercentBrackets = AngleBracketsWithPercentSigns;
 export const Dunders = DoubleUnderscores;
+
+// Export utility functions
+export const clearCache = clear;
 
 export {
   replaceTags,

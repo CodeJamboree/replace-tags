@@ -1,4 +1,4 @@
-import cache from "../cache";
+import * as cache from "../cache";
 import DoubleCurlyBraces from "../styles/DoubleCurlyBraces";
 import tagReplacer from "../tagReplacer";
 

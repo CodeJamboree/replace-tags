@@ -1,4 +1,4 @@
-import cache from "./cache";
+import * as cache from "./cache";
 import findValueByPath from "./findValueByPath";
 import RegExReplacer from "./RegExReplacer";
 import stringify from "./stringify";

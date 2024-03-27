@@ -1,6 +1,10 @@
 import replaceTags from "../replaceTags";
+import * as cache from "../cache";
 
 describe("replace tags", () => {
+  beforeEach(() => {
+    cache.clear();
+  });
   describe("cache", () => {
     it("does not catches the result of the last successful compilation", () => {
       const text = "Hello {{name}}!";

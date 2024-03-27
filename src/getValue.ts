@@ -1,4 +1,4 @@
-import cache from "./cache";
+import * as cache from "./cache";
 
 /**
  * Retrieves the value from the source based on the provided key
