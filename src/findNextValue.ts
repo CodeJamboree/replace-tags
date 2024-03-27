@@ -18,7 +18,7 @@ const findNextValue = (
   let { value, currentPath } = result;
   const { fullPath } = result;
   if (value === undefined) return result;
-  if (segment[0] === "[") {
+  if (segment.startsWith("[")) {
     value = getValueFromIndicies(
       value,
       segment,
