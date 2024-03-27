@@ -154,13 +154,15 @@ The paths that may appear within tags allows for object traversal along the obje
 
 Ideally, paths can have multiple segments delimited by `.`. Each segment may have a part at the beginning that doesn't have a `[` character, and they can end with multiple sets of brackets `[` and `]` before a `.` indicating the next segment of the path.
 
+Since each segment and index are evaluted against object keys and arrray indexes, Unconventional paths that wouldn't work accessing properties in JavaScript will still work in the path resolution.
+
 | values                                   | path           | unconventional    |
 | ---------------------------------------- | -------------- | ----------------- |
 | `{"key": "value"}`                       | `key`          | `[key]`           |
 | `["value"]`                              | `[0]`          | `0`               |
 | `{"key": ["value"]}`                     | `key[0]`       | `key.0`           |
 | `{"key": [["value"]]}`                   | `key[0][0]`    | `key.0.0`         |
-| `{"parent": {"child": "value"}}`         | `parent.child` | `[parent][child]` |
+| `{"parent": {"child": "value"}}`         | `parent.child` | `parent[child]`   |
 | `{"key": () => "value" }`                | `key`          | `[key]`           |
 | `{"parent": () => ({"child": "value"})}` | `parent.child` | `[parent][child]` |
 
