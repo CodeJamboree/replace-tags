@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double colons with braces (`::` `::`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleColonsWithBraces);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleColonsWithBraces: ReplaceTagsOptions = {
+const DoubleColonsWithBraces: TagStyle = {
+  name: "Double Colons With Braces",
+  openingTag: "::{",
+  closingTag: "}::",
   tagPattern: /::\{[^}]+\}::/g,
   tagStartPattern: /^::\{/,
   tagEndPattern: /\}::$/,

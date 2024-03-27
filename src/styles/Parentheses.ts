@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using parentheses (`(` `)`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, Parentheses);
  * console.log(result); // Output: 'Hello world'
  */
-const Parentheses: ReplaceTagsOptions = {
+const Parentheses: TagStyle = {
+  name: "Parentheses",
+  openingTag: "(",
+  closingTag: ")",
   tagPattern: /\(([^)]+)\)/g,
   tagStartPattern: /^\(/,
   tagEndPattern: /\)$/,

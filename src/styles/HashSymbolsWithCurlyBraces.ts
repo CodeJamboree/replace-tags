@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using hash symbols and curly braces (`#{` `}#`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, HashSymbolsWithCurlyBraces);
  * console.log(result); // Output: 'Hello world'
  */
-const HashSymbolsWithCurlyBraces: ReplaceTagsOptions = {
+const HashSymbolsWithCurlyBraces: TagStyle = {
+  name: "Hash Symbols With Curly Braces",
+  openingTag: "#{",
+  closingTag: "}#",
   tagPattern: /#\{([^}]+)\}#/g,
   tagStartPattern: /^#\{/,
   tagEndPattern: /\}#$/,

@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using HTML comments (`<!--` `-->`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, HTMLComments);
  * console.log(result); // Output: 'Hello world'
  */
-const HTMLComments: ReplaceTagsOptions = {
+const HTMLComments: TagStyle = {
+  name: "HTML Comments",
+  openingTag: "<!--",
+  closingTag: "--!>",
   tagPattern: /<!--.*?--!>/g,
   tagStartPattern: /^<!--/,
   tagEndPattern: /--!>$/,

@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using square brackets and colons (`[:` `:]`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, SquareBracketsWithColons);
  * console.log(result); // Output: 'Hello world'
  */
-const SquareBracketsWithColons: ReplaceTagsOptions = {
+const SquareBracketsWithColons: TagStyle = {
+  name: "Square Brackets With Colons",
+  openingTag: "[:",
+  closingTag: ":]",
   tagPattern: /\[:([^:]+):\]/g,
   tagStartPattern: /^\[:/,
   tagEndPattern: /:\]$/,

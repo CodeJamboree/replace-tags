@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double at signs (`@@` `@@`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleAtSigns);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleAtSigns: ReplaceTagsOptions = {
+const DoubleAtSigns: TagStyle = {
+  name: "Double At Signs",
+  openingTag: "@@",
+  closingTag: "@@",
   tagPattern: /@@[^@]+@@/g,
   tagStartPattern: /^@@/,
   tagEndPattern: /@@$/,

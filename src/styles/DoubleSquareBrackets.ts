@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double square brackets (`[[` `]]`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleSquareBrackets);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleSquareBrackets: ReplaceTagsOptions = {
+const DoubleSquareBrackets: TagStyle = {
+  name: "Double Square Brackets",
+  openingTag: "[[",
+  closingTag: "]]",
   tagPattern: /\[\[.*?\]\]+/g,
   tagStartPattern: /^\[\[/,
   tagEndPattern: /\]\]$/,

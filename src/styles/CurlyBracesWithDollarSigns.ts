@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using curly braces with dollar signs (`{$` `$}`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, CurlyBracesWithDollarSigns);
  * console.log(result); // Output: 'Hello world'
  */
-const CurlyBracesWithDollarSigns: ReplaceTagsOptions = {
+const CurlyBracesWithDollarSigns: TagStyle = {
+  name: "Curly Braces With Dollar Signs",
+  openingTag: "{$",
+  closingTag: "$}",
   tagPattern: /\{\$+(.*?)\$\}/g,
   tagStartPattern: /^\{\$/,
   tagEndPattern: /\$\}$/,

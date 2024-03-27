@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double curly braces with percent signs (`{{%` `%}}`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleCurlyBracesWithPercentSigns);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleCurlyBracesWithPercentSigns: ReplaceTagsOptions = {
+const DoubleCurlyBracesWithPercentSigns: TagStyle = {
+  name: "Double Curly Braces With Percent Signs",
+  openingTag: "{{%",
+  closingTag: "%}}",
   tagPattern: /\{\{%([^%]+)%\}\}/g,
   tagStartPattern: /^\{\{%/,
   tagEndPattern: /%\}\}$/,

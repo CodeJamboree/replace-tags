@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double question marks (`??` `??`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleQuestionMarks);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleQuestionMarks: ReplaceTagsOptions = {
+const DoubleQuestionMarks: TagStyle = {
+  name: "Double Question Marks",
+  openingTag: "??",
+  closingTag: "??",
   tagPattern: /\?\?[^?]+\?\?/g,
   tagStartPattern: /^\?\?/,
   tagEndPattern: /\?\?$/,

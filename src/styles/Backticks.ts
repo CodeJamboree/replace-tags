@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using backticks (` `` ` ` `` `).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, Backticks);
  * console.log(result); // Output: 'Hello world'
  */
-const Backticks: ReplaceTagsOptions = {
+const Backticks: TagStyle = {
+  name: "Backticks",
+  openingTag: "``",
+  closingTag: "``",
   tagPattern: /``([^`]+)``/g,
   tagStartPattern: /^``/,
   tagEndPattern: /``$/,

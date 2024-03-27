@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double underscores (`__` `__`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleUnderscores);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleUnderscores: ReplaceTagsOptions = {
+const DoubleUnderscores: TagStyle = {
+  name: "Double Underscores",
+  openingTag: "__",
+  closingTag: "__",
   tagPattern: /__+.+?__+/g,
   tagStartPattern: /^__/,
   tagEndPattern: /__$/,

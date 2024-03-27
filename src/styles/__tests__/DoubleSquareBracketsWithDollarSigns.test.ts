@@ -2,5 +2,5 @@ import DoubleSquareBracketsWithDollarSigns from "../DoubleSquareBracketsWithDoll
 import runTagStyleTests from "./runTagStyleTests";
 
 describe("DoubleSquareBracketsWithDollarSigns", () => {
-  runTagStyleTests("[[$", "$]]", DoubleSquareBracketsWithDollarSigns);
+  runTagStyleTests(DoubleSquareBracketsWithDollarSigns);
 });

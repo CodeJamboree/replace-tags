@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using angle brackets (`<<` `>>`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, AngleBrackets);
  * console.log(result); // Output: 'Hello world'
  */
-const AngleBrackets: ReplaceTagsOptions = {
+const AngleBrackets: TagStyle = {
+  name: "Angle Brackets",
+  openingTag: "<<",
+  closingTag: ">>",
   tagPattern: /<<([^>]+)>>/g,
   tagStartPattern: /^<</,
   tagEndPattern: />>$/,

@@ -2,5 +2,5 @@ import DoubleCurlyBracesWithPercentSigns from "../DoubleCurlyBracesWithPercentSi
 import runTagStyleTests from "./runTagStyleTests";
 
 describe("DoubleCurlyBracesWithPercentSigns", () => {
-  runTagStyleTests("{{%", "%}}", DoubleCurlyBracesWithPercentSigns);
+  runTagStyleTests(DoubleCurlyBracesWithPercentSigns);
 });

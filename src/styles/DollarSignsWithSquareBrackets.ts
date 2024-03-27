@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using dollar signs and square brackets (`$[` `]$`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DollarSignsWithSquareBrackets);
  * console.log(result); // Output: 'Hello world'
  */
-const DollarSignsWithSquareBrackets: ReplaceTagsOptions = {
+const DollarSignsWithSquareBrackets: TagStyle = {
+  name: "Dollar Signs With Square Brackets",
+  openingTag: "$[",
+  closingTag: "]$",
   tagPattern: /\$\[([^\]]*(?:](?!\$)[^\]]*)*)\]\$/g,
   tagStartPattern: /^\$\[/,
   tagEndPattern: /\]\$$/,

@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double carets with braces (`^^` `^^`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleCaretsWithBraces);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleCaretsWithBraces: ReplaceTagsOptions = {
+const DoubleCaretsWithBraces: TagStyle = {
+  name: "Double Carets With Braces",
+  openingTag: "^^{",
+  closingTag: "}^^",
   tagPattern: /\^\^\{[^}]+\}\^\^/g,
   tagStartPattern: /^\^\^\{/,
   tagEndPattern: /\}\^\^$/,

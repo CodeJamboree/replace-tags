@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using curly braces (`{` `}`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, CurlyBraces);
  * console.log(result); // Output: 'Hello world'
  */
-const CurlyBraces: ReplaceTagsOptions = {
+const CurlyBraces: TagStyle = {
+  name: "Curly Braces",
+  openingTag: "{",
+  closingTag: "}",
   tagPattern: /\{[^}]*\}/g,
   tagStartPattern: /^\{/,
   tagEndPattern: /\}$/,

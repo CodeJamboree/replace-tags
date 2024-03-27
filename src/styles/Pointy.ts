@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using hand emojis pointing in at the variable (`👉` `👈`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, Pointy);
  * console.log(result); // Output: 'Hello world'
  */
-const Pointy: ReplaceTagsOptions = {
+const Pointy: TagStyle = {
+  name: "Pointy",
+  openingTag: "👉",
+  closingTag: "👈",
   tagPattern: /👉([^👈]+)👈/gu,
   tagStartPattern: /^👉/u,
   tagEndPattern: /👈$/u,

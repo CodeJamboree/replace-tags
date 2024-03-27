@@ -1,4 +1,5 @@
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import TagStyle from "./TagStyle";
 
 /**
  * Options for replacing tags using double angle brackets (`«` `»`).
@@ -9,7 +10,10 @@ import ReplaceTagsOptions from "../ReplaceTagsOptions";
  * const result = replaceTags(text, { variable: 'world' }, DoubleAngle);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleAngle: ReplaceTagsOptions = {
+const DoubleAngle: TagStyle = {
+  name: "Double Angle",
+  openingTag: "«",
+  closingTag: "»",
   tagPattern: /«([^»]+)»/g,
   tagStartPattern: /^«/,
   tagEndPattern: /»$/,
