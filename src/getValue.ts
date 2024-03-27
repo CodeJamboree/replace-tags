@@ -20,17 +20,18 @@ const getValue = (
   // Check if key is a numeric string once and reuse the result
   const numericKey = !isNaN(Number(key)) ? Number(key) : null;
 
-  // Assign value based on whether source is an array and key is a numeric string
-  let value;
-  if (numericKey !== null && Array.isArray(source)) {
-    value = source[numericKey];
-  } else {
-    value = (source as Record<string, unknown>)[key];
-  }
+  // We assign `value` to the element at the `numericKey`
+  // index if `source` is an array and `key` is a numeric
+  // string, otherwise we treat `source` as an object and
+  // assign `value` to the property with the name `key`.
+  const value =
+    numericKey !== null && Array.isArray(source)
+      ? source[numericKey]
+      : (source as Record<string, unknown>)[key];
   // If the value is a function, call it with the provided parameters
-  if (typeof value === "function")
-    return value.call(source, key, currentPath, fullPath);
-  return value;
+  return typeof value === "function"
+    ? value.call(source, key, currentPath, fullPath)
+    : value;
 };
 
 export default getValue;
