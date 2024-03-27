@@ -33,26 +33,25 @@ const getArrayValue = (
     arrayPattern.lastIndex === 0
       ? arrayPattern
       : new RegExp(arrayPattern);
+
   // Loop through nested array indexes
-  for (
-    let match = pattern.exec(segment);
-    match !== null;
-    match = pattern.exec(segment)
-  ) {
+  let match;
+  while ((match = pattern.exec(segment)) !== null) {
     // Grab the key in between the square brackets
     const key = match[1];
     // Append the [key] to the current path
     currentPath = appendPathIndex(currentPath, key);
-
     // Grab the value
     value = getValue(value, key, currentPath, path);
     // quit if we have nothing
     if (value === undefined) {
-      // Reset the pattern index
+      // Reset the RegEx pattern
       pattern.lastIndex = 0;
+      // Return undefined
       return value;
     }
   }
+  // Return the value
   return value;
 };
 
