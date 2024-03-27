@@ -7,7 +7,10 @@
  * @example checkCondition(1 === 1, "1 is equal to 1");
  * // Throws an error with the message "1 is equal to 1"
  */
-const checkCondition = (condition: boolean, message: string): void => {
+const checkCondition = (
+  condition: boolean,
+  message: string,
+): void => {
   if (condition) {
     throw new Error(message);
   }

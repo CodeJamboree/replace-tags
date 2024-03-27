@@ -7,6 +7,6 @@
 const appendPathIndex = (
   prefix: string | undefined,
   segment: string,
-): string => `${prefix || ''}[${segment}]`;
+): string => `${prefix || ""}[${segment}]`;
 
 export default appendPathIndex;
