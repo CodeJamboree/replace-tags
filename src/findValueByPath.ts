@@ -10,14 +10,14 @@ import NextValue from "./NextValue";
 const findValueByPath = (source: unknown, path: string): unknown => {
   const segments = path.split(".");
   let nextValue: NextValue = {
-      fullPath: path,
-      currentPath: undefined,
-      value: source,
-    }
-  for(const segment of segments) {
+    fullPath: path,
+    currentPath: undefined,
+    value: source,
+  };
+  for (const segment of segments) {
     nextValue = findNextValue(nextValue, segment);
     if (nextValue.value === undefined) return;
   }
   return nextValue.value;
-}
+};
 export default findValueByPath;
