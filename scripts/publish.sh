@@ -52,7 +52,7 @@ npm run test
 ./scripts/update-changelog-and-release.sh
 
 # Generate release documentation
-./update-docs.sh
+./scripts/update-docs.sh
 
 # Push local commits
 git push
