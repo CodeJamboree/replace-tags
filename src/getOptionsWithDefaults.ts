@@ -10,17 +10,14 @@ import defaultTag from "./styles/DoubleCurlyBraces";
  * @returns {ReplaceTagsOptions} The merged options object with default values.
  */
 const getOptionsWithDefaults: IgetOptionsWithDefaults = ({
-  tagPattern,
-  tagStartPattern,
-  tagEndPattern,
+  tagPattern = defaultTag.tagPattern,
+  tagStartPattern = defaultTag.tagStartPattern,
+  tagEndPattern = defaultTag.tagEndPattern,
 }: Partial<ReplaceTagsOptions> = defaultTag): ReplaceTagsOptions => {
   const options: ReplaceTagsOptions = {
-    tagPattern: getRegExp(defaultTag.tagPattern, tagPattern),
-    tagStartPattern: getRegExp(
-      defaultTag.tagStartPattern,
-      tagStartPattern,
-    ),
-    tagEndPattern: getRegExp(defaultTag.tagEndPattern, tagEndPattern),
+    tagPattern: getRegExp(tagPattern),
+    tagStartPattern: getRegExp(tagStartPattern),
+    tagEndPattern: getRegExp(tagEndPattern),
   };
   // Validate the provided patterns
   validatePatterns(options);

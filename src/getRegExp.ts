@@ -5,12 +5,10 @@
  * @returns {RegExp} A stateless regular expression
  */
 const getRegExp = (
-  defaultExpression: RegExp,
-  expression?: RegExp,
+  expression: RegExp,
 ): RegExp => {
-  const value = expression ?? defaultExpression;
   // Return a new RegExp if lastIndex is not 0 to ensure the returned RegExp is stateless
-  return value.lastIndex !== 0 ? new RegExp(value) : value;
+  return expression.lastIndex !== 0 ? new RegExp(expression) : expression;
 };
 
 export default getRegExp;
