@@ -137,8 +137,10 @@ An error will be thrown if the following conditions are not met:
 | DoubleUnderscores                   | `Hello __ user.name __`           |
 | Dunders                             | See DoubleUnderscores             |
 | ExclamationMarks                    | `Hello !{ user.name }!`           |
+| HandleBars                          | See CurlyBraces                   |
 | HashSymbolsWithCurlyBraces          | `Hello #{ user.name }#`           |
 | HTMLComments                        | `Hello <!-- user.name --!>`       |
+| Mustache                            | See DoubleCurlyBraces             |
 | Parentheses                         | `Hello ( user.name )`             |
 | PercentBrackets                     | See AngleBracketsWithPercentSigns |
 | PercentSigns                        | `Hello %{ user.name }%`           |

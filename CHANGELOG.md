@@ -4,7 +4,9 @@
 
 ### Added
 
-- CurlyBraces `{ name }`
+- `CurlyBraces` ie `{ name }`
+- `Mustache` alias for `DoubleCurlyBraces` ie `{{ name }}`
+- `Handlebars` alias for `CurlyBraces` ie `{ name }`
 
 ## [1.1.1] - 2024-03-27
 

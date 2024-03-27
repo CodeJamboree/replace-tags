@@ -46,6 +46,8 @@ export default replaceTags;
 export const Chevrons = AngleBrackets;
 export const PercentBrackets = AngleBracketsWithPercentSigns;
 export const Dunders = DoubleUnderscores;
+export const Mustache = DoubleCurlyBraces;
+export const Handlebars = CurlyBraces;
 
 // Export utility functions
 export const clearCache = clear;
