@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2024-03-27
+
 ### Added
 
 - Cache resolved values for quicker processing
