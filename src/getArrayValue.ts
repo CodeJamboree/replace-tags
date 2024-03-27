@@ -1,5 +1,5 @@
 import appendPath from "./appendPath";
-import getIndicies from "./getIndicies";
+import getValueFromIndicies from "./getValueFromIndicies";
 import getValue from "./getValue";
 
 /**
@@ -41,7 +41,7 @@ const getArrayValue = (
   }
 
   // Return the value from indicies "[0][1]...[n]"
-  return getIndicies(value, segment, currentPath, path);
+  return getValueFromIndicies(value, segment, currentPath, path);
 };
 
 export default getArrayValue;
