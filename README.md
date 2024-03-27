@@ -285,6 +285,45 @@ console.log(replaceTags(text, values));
 // Note: "Getting Count" was only logged once.
 ```
 
+### Caching Option
+
+The `cache` flag may be set to true to cache resolved lookup values betweeen subsequent calls. This is optimal when reusing the same `values` between each call.
+
+```js
+const {
+  replaceTags,
+  DoubleAngle,
+} = require("@codejamboree/replace-tags");
+const original = { name: "John Doe" };
+const newValues = { name: "Jane Smith" };
+
+// Replace tags
+console.log(replaceTags("{{name}}", original));
+// Output: John Doe
+
+// Start caching values
+console.log(replaceTags("{{name}}", newValues, { cache: true }));
+// Output: Jane Smith
+
+// Use previously resolved values
+console.log(replaceTags("{{name}}", original, { cache: true }));
+// Output: Jane Smith
+// Actual: John Doe
+
+// Use caching with a predefined tag style
+console.log(
+  replaceTags("«name»", original, {
+    ...DoubleAngle,
+    cache: true,
+  }),
+);
+// Output: Jane Smith
+// Actual: John Doe
+
+console.log(replaceTags("{{name}}", original));
+// Output: John Doe
+```
+
 ## Passing Values as JSON
 
 You may pass a JSON string as the values to be evaluated.
@@ -326,6 +365,37 @@ const value = findValueByPath(source, "user.name");
 
 console.log(value);
 // Output: John Doe
+```
+
+### Caching
+
+Subsequent calls to `findValueByPath` will return cached values. You may use `clearCache` to clear the cache.
+
+```js
+const {
+  findValueByPath,
+  clearCache,
+} = require("@codejamboree/replace-tags");
+
+// Define objects with values to find
+const original = { name: "John Doe" };
+const newValues = { name: "Jane Smith" };
+
+// Find the value in original
+console.log(findValueByPath(original, "name"));
+// Output: John Doe
+
+// Find the value in newValues
+console.log(findValueByPath(newValues, "name"));
+// Output: John Doe
+// Actual: Jane Smith
+
+// clear the cache
+clearCache();
+
+// Find the value in newValues
+console.log(findValueByPath(newValues, "name"));
+// Output: Jane Smith
 ```
 
 ## Known Issues
