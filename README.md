@@ -378,4 +378,5 @@ Portions of the source code were generated with the assistance of
 
 - [OpenAI's ChatGPT](https://chat.openai.com/)
 - [GitHub Copilot](https://copilot.github.com/)
+- [typedoc](https://typedoc.org/)
 - [vscode-jsdoc](https://github.com/lllllllqw/vscode-jsdoc)
