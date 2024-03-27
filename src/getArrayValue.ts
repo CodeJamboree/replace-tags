@@ -1,6 +1,4 @@
 import appendPath from "./appendPath";
-import appendPathIndex from "./appendPathIndex";
-import arrayPattern from "./arrayPattern";
 import getIndicies from "./getIndicies";
 import getValue from "./getValue";
 
@@ -25,18 +23,24 @@ const getArrayValue = (
   currentPath: string | undefined,
   path: string,
 ): unknown => {
+  // Find the index of where the indicies begin
+  const index: number = segment.indexOf("[");
+
   // Check to see if the segment begins with a key
-  if (segment[0] !== "[") {
-    // pull out the key
-    const key = segment.substring(0, segment.indexOf("["));
+  if (index !== 0) {
+    // Get the key name before the indicies
+    const key: string = segment.slice(0, index);
     // Update the path
     currentPath = appendPath(currentPath, key);
     // Grab the value
     value = getValue(value, key, currentPath, path);
     // quit if we have nothing
     if (value === undefined) return;
+    // Update the segment to remove the key
+    segment = segment.slice(index);
   }
 
+  // Return the value from indicies "[0][1]...[n]"
   return getIndicies(value, segment, currentPath, path);
 };
 
