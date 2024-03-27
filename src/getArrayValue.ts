@@ -28,8 +28,11 @@ const getArrayValue = (
     // quit if we have nothing
     if (value === undefined) return value;
   }
-  // Copy RegEx so nested uses can have their own engine
-  const pattern = new RegExp(arrayPattern);
+  // Copy RegEx if already in use
+  const pattern =
+    arrayPattern.lastIndex === 0
+      ? arrayPattern
+      : new RegExp(arrayPattern);
   // Loop through nested array indexes
   for (
     let match = pattern.exec(segment);
