@@ -4,6 +4,9 @@
 
 ### Added
 
+- Cache resolved values for quicker processing
+- Helper function to clear the internal cache
+- Option to cache results between calls with the `cache: true` flag.
 - Various changes to build scripts
 - Generate and Publish [API Documentation](https://codejamboree.github.io/replace-tags/) during builds
 - Example scripts are only tested via `npm test:examples`
