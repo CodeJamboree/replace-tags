@@ -9,6 +9,18 @@ describe("replace tags", () => {
       expect(replaceTags(text, values1)).toBe("Hello John Doe!");
       expect(replaceTags(text, values2)).toBe("Hello Jane Smith!");
     });
+    it("May catches the result of the last successful compilation", () => {
+      const text = "Hello {{name}}!";
+      const values1 = { name: "John Doe" };
+      const values2 = { name: "Jane Smith" };
+      const options = { cache: true };
+      expect(replaceTags(text, values1, options)).toBe(
+        "Hello John Doe!",
+      );
+      expect(replaceTags(text, values2, options)).toBe(
+        "Hello John Doe!",
+      );
+    });
   });
   it("accepts empty string", () => {
     expect(replaceTags("", { key: "value" })).toBe("");
