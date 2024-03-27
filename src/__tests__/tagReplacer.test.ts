@@ -1,8 +1,16 @@
+import cache from "../cache";
 import DoubleCurlyBraces from "../styles/DoubleCurlyBraces";
 import tagReplacer from "../tagReplacer";
 
 describe("tagReplacer", () => {
   const tagEdges = /^{{\s*|\s*}}$/g;
+  beforeEach(() => {
+    cache.clear();
+  });
+  afterAll(() => {
+    cache.clear();
+  });
+
   it("should replace tags with corresponding values", () => {
     const values = {
       name: "John Doe",

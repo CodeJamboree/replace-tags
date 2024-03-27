@@ -1,3 +1,5 @@
+import cache from "./cache";
+
 /**
  * Retrieves the value from the source based on the provided key
  * @param {unknown} source The source from which to retrieve the value.
@@ -12,8 +14,10 @@ const getValue = (
   currentPath: string,
   fullPath: string,
 ): unknown => {
+  if (cache.has(currentPath)) return cache.get(currentPath);
   // Early return if source is not an object
   if (typeof source !== "object" || source === null) {
+    cache.set(currentPath, undefined);
     return undefined;
   }
 
@@ -30,9 +34,12 @@ const getValue = (
       : (source as Record<string, unknown>)[key];
   // If the value is a function, call it with the provided
   // parameters
-  return typeof value === "function"
-    ? value.call(source, key, currentPath, fullPath)
-    : value;
+  return cache.set(
+    currentPath,
+    typeof value === "function"
+      ? value.call(source, key, currentPath, fullPath)
+      : value,
+  );
 };
 
 export default getValue;

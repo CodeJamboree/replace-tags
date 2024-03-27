@@ -1,5 +1,7 @@
+import cache from "./cache";
 import findValueByPath from "./findValueByPath";
 import RegExReplacer from "./RegExReplacer";
+import stringify from "./stringify";
 
 /**
  *
@@ -12,8 +14,6 @@ const tagReplacer = (
   values: object,
   tagEdges: RegExp,
 ): RegExReplacer => {
-  const cache = new Map<string, string>();
-
   /**
    * Replaces a tag with its resolved value if found; otherwise, returns the tag.
    * @param {string} match The matched tag
@@ -21,19 +21,10 @@ const tagReplacer = (
    */
   const replacer: RegExReplacer = (match: string): string => {
     const path = match.replace(tagEdges, "");
-    if (cache.has(path)) return cache.get(path) as string;
+    if (cache.has(path))
+      return cache.getString(path, match) as string;
     const value = findValueByPath(values, path);
-
-    let result: string;
-    if (typeof value === "string") {
-      result = value;
-    } else if (typeof value === "object") {
-      result = JSON.stringify(value);
-    } else {
-      result = String(value ?? match);
-    }
-    cache.set(path, result);
-    return result;
+    return stringify(value, match);
   };
 
   return replacer;

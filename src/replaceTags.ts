@@ -1,6 +1,7 @@
 import ReplaceTagsOptions from "./ReplaceTagsOptions";
 import tagReplacer from "./tagReplacer";
 import getOptionsWithDefaults from "./getOptionsWithDefaults";
+import cache from "./cache";
 
 /**
  * Replaces tags in a text with corresponding values from an object.
@@ -24,6 +25,7 @@ const replaceTags = (
     `${defaultedOptions.tagStartPattern.source + "\\s*"}|${"\\s*" + defaultedOptions.tagEndPattern.source}`,
     "g",
   );
+  cache.clear();
   return text.replace(pattern, tagReplacer(values, tagEdges));
 };
 
