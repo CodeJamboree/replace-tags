@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- CurlyBraces `{ name }`
+
 ## [1.1.1] - 2024-03-27
 
 ### Added

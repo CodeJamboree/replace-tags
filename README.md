@@ -119,6 +119,7 @@ An error will be thrown if the following conditions are not met:
 | AngleBracketsWithPercentSigns       | `Hello <% user.name %>`           |
 | Backticks                           | Hello \`\` user.name \`\`         |
 | Chevrons                            | See AngleBrackets                 |
+| CurlyBraces                         | `Hello { user.name }`             |
 | CurlyBracesWithDollarSigns          | `Hello {$ user.name $}`           |
 | CurlyBracesWithExclamationMarks     | `Hello {! user.name !}`           |
 | CurlyBracesWithHashSymbols          | `Hello {# user.name #}`           |

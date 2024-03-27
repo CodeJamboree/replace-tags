@@ -7,6 +7,7 @@ import { clear } from "./cache";
 import AngleBrackets from "./styles/AngleBrackets";
 import AngleBracketsWithPercentSigns from "./styles/AngleBracketsWithPercentSigns";
 import Backticks from "./styles/Backticks";
+import CurlyBraces from "./styles/CurlyBraces";
 import CurlyBracesWithDollarSigns from "./styles/CurlyBracesWithDollarSigns";
 import CurlyBracesWithHashSymbols from "./styles/CurlyBracesWithHashSymbols";
 import DollarSignWithCurlyBraces from "./styles/DollarSignWithCurlyBraces";
@@ -55,6 +56,7 @@ export {
   AngleBrackets,
   AngleBracketsWithPercentSigns,
   Backticks,
+  CurlyBraces,
   CurlyBracesWithDollarSigns,
   CurlyBracesWithHashSymbols,
   DollarSignsWithSquareBrackets,
