@@ -17,7 +17,7 @@ const getArrayValue = (
   currentPath: string | undefined,
   path: string,
 ): unknown => {
-  // Do we have a key name before the array index?
+  // Check to see if the segment begins with a key
   if (segment[0] !== "[") {
     // pull out the key
     const key = segment.substring(0, segment.indexOf("["));
@@ -28,16 +28,22 @@ const getArrayValue = (
     // quit if we have nothing
     if (value === undefined) return value;
   }
-  let match;
   // Copy RegEx so nested uses can have their own engine
   const pattern = new RegExp(arrayPattern);
   // Loop through nested array indexes
-  while ((match = pattern.exec(segment)) !== null) {
-    // Grab the key in between
+  while (true) {
+    const match = pattern.exec(segment);
+    if (match === null) break;
+    // Grab the key in between the square brackets
     const key = match[1];
+    // Append the [key] to the current path
     currentPath = appendPathIndex(currentPath, key);
+
+    // Grab the value
     value = getValue(value, key, currentPath, path);
+    // quit if we have nothing
     if (value === undefined) {
+      // Reset the pattern index
       pattern.lastIndex = 0;
       return value;
     }
