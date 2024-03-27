@@ -15,17 +15,15 @@ const getValueFromIndicies = (
   currentPath: string | undefined,
   path: string,
 ) => {
-  const keys = indices.split(/[\[\]]+/).filter(Boolean);
+  // Split the indicie values into an array of keys
+  const keys: string[] = indices.split(/[\[\]]+/).filter(Boolean);
   for (const key of keys) {
     // Append the [key] to the current path
     currentPath = appendPathIndex(currentPath, key);
-    // Grab the value
+    // Retrieve the value associated with the key
     value = getValue(value, key, currentPath, path);
-    // quit if we have nothing
-    if (value === undefined) {
-      // Return undefined
-      return;
-    }
+    // quit if the value is undefined, return early from the function
+    if (value === undefined) return;
   }
   return value;
 };
