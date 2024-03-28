@@ -47,10 +47,16 @@ var values = {
   },
 };
 
-values = generateRandomObject(3, 10);
-paths = getDotPaths(values).sort(function () {
-  return Math.random() - 0.5;
-});
+// values = generateRandomObject(3, 10);
+
+paths = generateDotPaths(10000); //.sort();
+values = createObjectFromDotPaths(paths);
+
+console.log(paths);
+
+// paths = getDotPaths(values).sort(function () {
+//   return Math.random() - 0.5;
+// });
 template = "";
 paths.forEach(function (path) {
   template += `{{${path}}}\n`;
