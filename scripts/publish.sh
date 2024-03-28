@@ -48,6 +48,9 @@ npm run build:all
 # Enusure tests pass (Tests depend on build output, so we test after build)
 npm run test
 
+# update readme with new version
+./scripts/update-readme.sh
+
 # Update changelog and release notes
 ./scripts/update-changelog-and-release.sh
 
