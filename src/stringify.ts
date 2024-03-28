@@ -1,9 +1,13 @@
+import MissingPathCallback from "./MissingPathCallback";
+
 const STRING = "string";
 const OBJECT = "object";
 /**
  * Convert value to string
  * @param {unknown} value The value to convert to a string.
- * @param {string} defaultValue The default value to return if the value is undefined or null.
+ * @param {string} path The default value to return if the value is undefined or null.
+ * @param {string} tag The tag that contains the missing path.
+ * @param {MissingPathCallback} onMissingPath A callback function to handle missing paths.
  * @returns {string} The value as a string.
  * @example
  * stringify("Hello, World!", "default value"); // "Hello, World!"
@@ -17,8 +21,14 @@ const OBJECT = "object";
  * stringify(0, "default value"); // "0"
  * stringify("", "default value"); // ""
  */
-const stringify = (value: unknown, defaultValue: string): string => {
-  if (value === null || value === undefined) return defaultValue;
+const stringify = (
+  value: unknown,
+  path: string,
+  tag: string,
+  onMissingPath: MissingPathCallback,
+): string => {
+  if (value === null || value === undefined)
+    return onMissingPath(path, tag);
   switch (typeof value) {
     case STRING:
       // @ts-expect-error - We know this is a string
@@ -26,7 +36,7 @@ const stringify = (value: unknown, defaultValue: string): string => {
     case OBJECT:
       return JSON.stringify(value);
     default:
-      return String(value ?? defaultValue);
+      return String(value ?? onMissingPath(path, tag));
   }
 };
 

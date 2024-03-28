@@ -1,10 +1,11 @@
 import getOptionsWithDefaults from "../getOptionsWithDefaults";
 import ReplaceTagsOptions from "../ReplaceTagsOptions";
 import DoubleCurlyBraces from "../styles/DoubleCurlyBraces";
+import TagPattern from "../TagPattern";
 
 describe("getOptionsWithDefaults", () => {
   describe("stateful Regular Expressions", () => {
-    const options: ReplaceTagsOptions = {
+    const options: TagPattern = {
       tagPattern: /<.*?>/g,
       tagStartPattern: /^</,
       tagEndPattern: />$/,
@@ -31,7 +32,7 @@ describe("getOptionsWithDefaults", () => {
   });
 
   describe("non-stateful Regular Expressions", () => {
-    const options: ReplaceTagsOptions = {
+    const options: TagPattern = {
       tagPattern: /<.*?>/g,
       tagStartPattern: /^</,
       tagEndPattern: />$/,
@@ -57,7 +58,7 @@ describe("getOptionsWithDefaults", () => {
 
   describe("global flag", () => {
     it("throws error if tagPattern is not global", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagPattern: /{{.*?}}/,
       };
@@ -66,7 +67,7 @@ describe("getOptionsWithDefaults", () => {
       );
     });
     it("throws error if tagStartPattern is global", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagStartPattern: /^{{/g,
       };
@@ -75,7 +76,7 @@ describe("getOptionsWithDefaults", () => {
       );
     });
     it("throws error if tagEndPattern is global", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagEndPattern: /}}$/g,
       };
@@ -86,7 +87,7 @@ describe("getOptionsWithDefaults", () => {
   });
   describe("starts with ^", () => {
     it("throws error if tagPattern starts with ^", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagPattern: /^{{.*?}}/g,
       };
@@ -95,7 +96,7 @@ describe("getOptionsWithDefaults", () => {
       );
     });
     it("throws error if tagStartPattern does not start with ^", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagStartPattern: /{{/,
       };
@@ -104,7 +105,7 @@ describe("getOptionsWithDefaults", () => {
       );
     });
     it("throws error if tagEndPattern starts with ^", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagEndPattern: /^}}$/,
       };
@@ -115,7 +116,7 @@ describe("getOptionsWithDefaults", () => {
   });
   describe("ends with $", () => {
     it("throws error if tagPattern ends with unescaped $", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagPattern: /{{.*?}}$/g,
       };
@@ -124,14 +125,14 @@ describe("getOptionsWithDefaults", () => {
       );
     });
     it("does not throw error if tagPattern ends with escaped $", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagPattern: /{{.*?}}\$/g,
       };
       expect(() => getOptionsWithDefaults(options)).not.toThrow();
     });
     it("throws error if tagStartPattern ends with with unescaped $", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagStartPattern: /^{{$/,
       };
@@ -140,14 +141,14 @@ describe("getOptionsWithDefaults", () => {
       );
     });
     it("does not throw error if tagStartPattern ends with with escaped $", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagStartPattern: /^{{\$/,
       };
       expect(() => getOptionsWithDefaults(options)).not.toThrow();
     });
     it("throws error if tagEndPattern does not end with $", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagEndPattern: /}}/,
       };
@@ -156,7 +157,7 @@ describe("getOptionsWithDefaults", () => {
       );
     });
     it("throws error if tagEndPattern ends with escaped $", () => {
-      const options: ReplaceTagsOptions = {
+      const options: TagPattern = {
         ...DoubleCurlyBraces,
         tagEndPattern: /}}\$/,
       };

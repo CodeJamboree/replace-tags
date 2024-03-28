@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using square brackets and hyphens (`[-` `-]`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, SquareBracketsWithHyphens);
  * console.log(result); // Output: 'Hello world'
  */
-const SquareBracketsWithHyphens: TagStyle = {
+const SquareBracketsWithHyphens: Tag = {
   name: "Square Brackets With Hyphens",
   openingTag: "[-",
   closingTag: "-]",

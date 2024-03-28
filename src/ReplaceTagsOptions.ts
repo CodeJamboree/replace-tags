@@ -1,33 +1,21 @@
+import MissingPathCallback from "./MissingPathCallback";
+import TagPattern from "./TagPattern";
 /**
  * Represents options for replacing tags.
  * @interface ReplaceTagsOptions
  */
-interface ReplaceTagsOptions {
-  /**
-   * The regular expression pattern for matching tags.
-   * @example /{{\s*?.*?\s*}}/g
-   * @type {RegExp}
-   */
-  tagPattern: RegExp;
-  /**
-   * The regular expression pattern for matching the start of a tag.
-   * @example /{{\s*?/g.
-   * @type {RegExp}
-   */
-  tagStartPattern: RegExp;
-
-  /**
-   * The regular expression pattern for matching the end of a tag.
-   * @example /\s*}}/g.
-   * @type {RegExp}
-   */
-  tagEndPattern: RegExp;
-
+interface ReplaceTagsOptions extends TagPattern {
   /**
    * Whether to cache resolved values.
    * @type {boolean}
    */
   cache?: boolean;
+
+  /**
+   * A callback function to handle missing tags.
+   * @type {MissingPathCallback}
+   */
+  onMissingPath: MissingPathCallback;
 }
 
 export default ReplaceTagsOptions;

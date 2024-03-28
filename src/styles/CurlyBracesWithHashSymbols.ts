@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using curly braces with pound signs (`{#` `#}`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, CurlyBracesWithHashSymbols);
  * console.log(result); // Output: 'Hello world'
  */
-const CurlyBracesWithHashSymbols: TagStyle = {
+const CurlyBracesWithHashSymbols: Tag = {
   name: "Curly Braces With Hash Symbols",
   openingTag: "{#",
   closingTag: "#}",

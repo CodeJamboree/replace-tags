@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using vertical bars (`|` `|`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, VerticalBars);
  * console.log(result); // Output: 'Hello world'
  */
-const VerticalBars: TagStyle = {
+const VerticalBars: Tag = {
   name: "Vertical Bars",
   openingTag: "|",
   closingTag: "|",

@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using parentheses (`(` `)`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, Parentheses);
  * console.log(result); // Output: 'Hello world'
  */
-const Parentheses: TagStyle = {
+const Parentheses: Tag = {
   name: "Parentheses",
   openingTag: "(",
   closingTag: ")",

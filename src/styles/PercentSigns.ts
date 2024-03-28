@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using percent signs (`%{` `}%`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, PercentSigns);
  * console.log(result); // Output: 'Hello world'
  */
-const PercentSigns: TagStyle = {
+const PercentSigns: Tag = {
   name: "Percent Signs",
   openingTag: "%{",
   closingTag: "}%",

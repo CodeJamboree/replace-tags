@@ -1,3 +1,4 @@
+import MissingPathCallback from "./MissingPathCallback";
 import stringify from "./stringify";
 
 /**
@@ -54,8 +55,9 @@ export const set = (key: string, value: unknown): void => {
 
 /**
  * Gets a string from the cache.
- * @param {string} key - The key to retrieve from the cache.
- * @param {string} defaultValue - The default value to return if the value is undefined or null.
+ * @param {string} path - The path to retrieve from the cache.
+ * @param {string} tag - The tag containing the path.
+ * @param {MissingPathCallback} onMissingPath - A callback function to handle missing paths.
  * @returns {string} The value from the cache as a string.
  * @example
  * getString("Key", "default value"); // "default value"
@@ -67,12 +69,13 @@ export const set = (key: string, value: unknown): void => {
  * getString("Key", "default value"); // "default value"
  */
 export const getString = (
-  key: string,
-  defaultValue: string,
+  path: string,
+  tag: string,
+  onMissingPath: MissingPathCallback,
 ): string => {
-  if (stringCache.has(key)) return stringCache.get(key) as string;
-  const value = valueCache.get(key);
-  const text = stringify(value, defaultValue);
-  stringCache.set(key, text);
+  if (stringCache.has(path)) return stringCache.get(path) as string;
+  const value = valueCache.get(path);
+  const text = stringify(value, path, tag, onMissingPath);
+  stringCache.set(path, text);
   return text;
 };

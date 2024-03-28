@@ -1,10 +1,10 @@
 import fs from "fs";
 import path from "path";
 import replaceTags from "../../replaceTags";
-import TagStyle from "../../TagStyle";
+import Tag from "../../Tag";
 
-const runTagStyleTests = (tagStyle: TagStyle) => {
-  const { openingTag, closingTag } = tagStyle;
+const runtagTests = (tag: Tag) => {
+  const { openingTag, closingTag } = tag;
 
   const underscoreKey = "__under_score__";
   const dollarKey = "$$dol$lar$$";
@@ -27,69 +27,63 @@ const runTagStyleTests = (tagStyle: TagStyle) => {
 
   it("replaces root key", () => {
     const text = `${openingTag}key${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values.key);
+    expect(replaceTags(text, values, tag)).toBe(values.key);
   });
   it("replaces emoji key", () => {
     const text = `${openingTag}${emojiKey}${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
-      values[emojiKey],
-    );
+    expect(replaceTags(text, values, tag)).toBe(values[emojiKey]);
   });
   it("replaces underscore key", () => {
     const text = `${openingTag}${underscoreKey}${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
+    expect(replaceTags(text, values, tag)).toBe(
       values[underscoreKey],
     );
   });
   it("replaces dollar key", () => {
     const text = `${openingTag}${dollarKey}${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
-      values[dollarKey],
-    );
+    expect(replaceTags(text, values, tag)).toBe(values[dollarKey]);
   });
   it("replaces multiple tags", () => {
     const text = `${openingTag}key1${closingTag} ${openingTag}key2${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
+    expect(replaceTags(text, values, tag)).toBe(
       `${values.key1} ${values.key2}`,
     );
   });
   it("replaces duplicate tags", () => {
     const text = `${openingTag}key${closingTag} ${openingTag}key${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
+    expect(replaceTags(text, values, tag)).toBe(
       `${values.key} ${values.key}`,
     );
   });
   it("replaces parent child key", () => {
     const text = `${openingTag}parent.child${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
-      values.parent.child,
-    );
+    expect(replaceTags(text, values, tag)).toBe(values.parent.child);
   });
   it("replaces parent with JSON of value", () => {
     const text = `${openingTag}parent${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
+    expect(replaceTags(text, values, tag)).toBe(
       JSON.stringify(values.parent),
     );
   });
   it("replaces array key", () => {
     const text = `${openingTag}array[0]${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values.array[0]);
+    expect(replaceTags(text, values, tag)).toBe(values.array[0]);
   });
   it("replaces root array", () => {
     const text = `${openingTag}[0]${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values[0]);
+    expect(replaceTags(text, values, tag)).toBe(values[0]);
   });
   it("replaces root array as key", () => {
     const text = `${openingTag}0${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values[0]);
+    expect(replaceTags(text, values, tag)).toBe(values[0]);
   });
   it("replaces root key as array", () => {
     const text = `${openingTag}[key]${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(values.key);
+    expect(replaceTags(text, values, tag)).toBe(values.key);
   });
   it("replaces nested array key", () => {
     const text = `${openingTag}nestedArray[0][0]${closingTag}`;
-    expect(replaceTags(text, values, tagStyle)).toBe(
+    expect(replaceTags(text, values, tag)).toBe(
       values.nestedArray[0][0],
     );
   });
@@ -100,6 +94,6 @@ fs.readdirSync(path.join(__dirname, "../"))
   .forEach((file) => {
     const style = require(`../${file}`).default;
     describe(file, () => {
-      runTagStyleTests(style);
+      runtagTests(style);
     });
   });

@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using square brackets and colons (`[:` `:]`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, SquareBracketsWithColons);
  * console.log(result); // Output: 'Hello world'
  */
-const SquareBracketsWithColons: TagStyle = {
+const SquareBracketsWithColons: Tag = {
   name: "Square Brackets With Colons",
   openingTag: "[:",
   closingTag: ":]",

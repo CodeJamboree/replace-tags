@@ -1,5 +1,5 @@
 import DoubleUnderscores from "./DoubleUnderscores";
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using double underscores (`__` `__`).
@@ -10,7 +10,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, Dunders);
  * console.log(result); // Output: 'Hello world'
  */
-const Dunders: TagStyle = {
+const Dunders: Tag = {
   ...DoubleUnderscores,
   name: "Dunders",
 };

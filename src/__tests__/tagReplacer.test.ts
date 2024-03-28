@@ -1,4 +1,5 @@
 import * as cache from "../cache";
+import defaultMissingPathHandler from "../defaultMissingPathHandler";
 import DoubleCurlyBraces from "../styles/DoubleCurlyBraces";
 import tagReplacer from "../tagReplacer";
 
@@ -15,7 +16,11 @@ describe("tagReplacer", () => {
     const values = {
       name: "John Doe",
     };
-    const replacer = tagReplacer(values, tagEdges);
+    const replacer = tagReplacer(
+      values,
+      tagEdges,
+      defaultMissingPathHandler,
+    );
     expect(
       "Name: {{name}}".replace(
         DoubleCurlyBraces.tagPattern,
@@ -28,7 +33,11 @@ describe("tagReplacer", () => {
     const values = {
       name: "John Doe",
     };
-    const replacer = tagReplacer(values, tagEdges);
+    const replacer = tagReplacer(
+      values,
+      tagEdges,
+      defaultMissingPathHandler,
+    );
     expect(
       "Age: {{age}}".replace(DoubleCurlyBraces.tagPattern, replacer),
     ).toBe("Age: {{age}}");
@@ -39,7 +48,11 @@ describe("tagReplacer", () => {
       const values = {
         name: mockName,
       };
-      const replacer = tagReplacer(values, tagEdges);
+      const replacer = tagReplacer(
+        values,
+        tagEdges,
+        defaultMissingPathHandler,
+      );
       expect(
         "Name 1: {{name}}; Name 2: {{ name }}".replace(
           DoubleCurlyBraces.tagPattern,
@@ -56,7 +69,11 @@ describe("tagReplacer", () => {
       const values = {
         user: mockUser,
       };
-      const replacer = tagReplacer(values, tagEdges);
+      const replacer = tagReplacer(
+        values,
+        tagEdges,
+        defaultMissingPathHandler,
+      );
       expect(
         "{{user.first}} {{ user.last }}".replace(
           DoubleCurlyBraces.tagPattern,

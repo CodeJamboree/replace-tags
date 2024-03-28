@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using double square brackets with dollar signs (`[[$` `$]]`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, DoubleSquareBracketsWithDollarSigns);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleSquareBracketsWithDollarSigns: TagStyle = {
+const DoubleSquareBracketsWithDollarSigns: Tag = {
   name: "Double Square Brackets With Dollar Signs",
   openingTag: "[[$",
   closingTag: "$]]",

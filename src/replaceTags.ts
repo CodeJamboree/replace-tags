@@ -12,6 +12,7 @@ const expectedOptionKeys = [
   "name",
   "openingTag",
   "closingTag",
+  "onMissingPath",
 ];
 
 /**
@@ -39,16 +40,24 @@ const replaceTags = (
     });
   }
 
-  const defaultedOptions = getOptionsWithDefaults(options);
-  const pattern = defaultedOptions.tagPattern;
+  const {
+    onMissingPath,
+    tagPattern,
+    tagStartPattern,
+    tagEndPattern,
+  } = getOptionsWithDefaults(options);
+  const pattern = tagPattern;
   const tagEdges = new RegExp(
-    `${defaultedOptions.tagStartPattern.source + "\\s*"}|${"\\s*" + defaultedOptions.tagEndPattern.source}`,
+    `${tagStartPattern.source + "\\s*"}|${"\\s*" + tagEndPattern.source}`,
     "g",
   );
   const keepCache = options?.cache ?? false;
   if (!keepCache) cache.clear();
   try {
-    return text.replace(pattern, tagReplacer(values, tagEdges));
+    return text.replace(
+      pattern,
+      tagReplacer(values, tagEdges, onMissingPath),
+    );
   } finally {
     if (!keepCache) cache.clear();
   }

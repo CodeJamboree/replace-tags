@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using backticks (` `` ` ` `` `).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, Backticks);
  * console.log(result); // Output: 'Hello world'
  */
-const Backticks: TagStyle = {
+const Backticks: Tag = {
   name: "Backticks",
   openingTag: "``",
   closingTag: "``",

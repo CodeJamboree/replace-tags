@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using exclamation marks (`{!` `!}`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, CurlyBracesWithExclamationMarks);
  * console.log(result); // Output: 'Hello world'
  */
-const CurlyBracesWithExclamationMarks: TagStyle = {
+const CurlyBracesWithExclamationMarks: Tag = {
   name: "Curly Braces With Exclamation Marks",
   openingTag: "{!",
   closingTag: "!}",

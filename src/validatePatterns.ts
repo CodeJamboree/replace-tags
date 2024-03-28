@@ -10,6 +10,7 @@ const validatePatterns = ({
   tagEndPattern,
   tagStartPattern,
   tagPattern,
+  onMissingPath,
 }: ReplaceTagsOptions): void => {
   // Global Flag Checks
   checkCondition(
@@ -57,6 +58,10 @@ const validatePatterns = ({
   checkCondition(
     tagEndPattern.source.endsWith("\\$"),
     "tagEndPattern ends with escaped `$`",
+  );
+  checkCondition(
+    typeof onMissingPath !== "function",
+    "onMissingPath is not a function",
   );
 };
 

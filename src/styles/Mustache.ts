@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 import DoubleCurlyBraces from "./DoubleCurlyBraces";
 
 /**
@@ -10,7 +10,7 @@ import DoubleCurlyBraces from "./DoubleCurlyBraces";
  * const result = replaceTags(text, { variable: 'world' }, Mustache);
  * console.log(result); // Output: 'Hello world'
  */
-const Mustache: TagStyle = {
+const Mustache: Tag = {
   ...DoubleCurlyBraces,
   name: "Mustache",
 };

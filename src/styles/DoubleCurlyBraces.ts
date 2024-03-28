@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using double curly braces (`{{` `}}`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, DoubleCurlyBraces);
  * console.log(result); // Output: 'Hello world'
  */
-const DoubleCurlyBraces: TagStyle = {
+const DoubleCurlyBraces: Tag = {
   name: "Double Curly Braces",
   openingTag: "{{",
   closingTag: "}}",

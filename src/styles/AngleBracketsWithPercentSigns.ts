@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using angle brackets with percent signs (`<%` `%>`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, AngleBracketsWithPercentSigns);
  * console.log(result); // Output: 'Hello world'
  */
-const AngleBracketsWithPercentSigns: TagStyle = {
+const AngleBracketsWithPercentSigns: Tag = {
   name: "Angle Brackets With Percent Signs",
   openingTag: "<%",
   closingTag: "%>",

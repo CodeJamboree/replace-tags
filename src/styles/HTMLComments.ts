@@ -1,4 +1,4 @@
-import TagStyle from "../TagStyle";
+import Tag from "../Tag";
 
 /**
  * Options for replacing tags using HTML comments (`<!--` `-->`).
@@ -9,7 +9,7 @@ import TagStyle from "../TagStyle";
  * const result = replaceTags(text, { variable: 'world' }, HTMLComments);
  * console.log(result); // Output: 'Hello world'
  */
-const HTMLComments: TagStyle = {
+const HTMLComments: Tag = {
   name: "HTML Comments",
   openingTag: "<!--",
   closingTag: "--!>",
