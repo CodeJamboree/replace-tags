@@ -6,14 +6,14 @@ describe("replace tags", () => {
     cache.clear();
   });
   describe("cache", () => {
-    it("does not catches the result of the last successful compilation", () => {
+    it("Defaults to avoid caching previous values", () => {
       const text = "Hello {{name}}!";
       const values1 = { name: "John Doe" };
       const values2 = { name: "Jane Smith" };
       expect(replaceTags(text, values1)).toBe("Hello John Doe!");
       expect(replaceTags(text, values2)).toBe("Hello Jane Smith!");
     });
-    it("May catches the result of the last successful compilation", () => {
+    it("Can use values from previous call.", () => {
       const text = "Hello {{name}}!";
       const values1 = { name: "John Doe" };
       const values2 = { name: "Jane Smith" };
@@ -23,6 +23,18 @@ describe("replace tags", () => {
       );
       expect(replaceTags(text, values2, options)).toBe(
         "Hello John Doe!",
+      );
+    });
+    it("Cache can be forced off", () => {
+      const text = "Hello {{name}}!";
+      const values1 = { name: "John Doe" };
+      const values2 = { name: "Jane Smith" };
+      const options = { cache: false };
+      expect(replaceTags(text, values1, options)).toBe(
+        "Hello John Doe!",
+      );
+      expect(replaceTags(text, values2, options)).toBe(
+        "Hello Jane Smith!",
       );
     });
   });

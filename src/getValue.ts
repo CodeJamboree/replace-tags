@@ -1,4 +1,7 @@
 import * as cache from "./cache";
+const UNDEFINED = "undefined";
+const FUNCTION = "function";
+const WHOLE_NUMBER = /^\d+$/;
 
 /**
  * Retrieves the value from the source based on the provided key
@@ -16,30 +19,28 @@ const getValue = (
 ): unknown => {
   if (cache.has(currentPath)) return cache.get(currentPath);
   // Early return if source is not an object
-  if (typeof source !== "object" || source === null) {
+  if (typeof source === UNDEFINED || source === null) {
     cache.set(currentPath, undefined);
     return undefined;
   }
 
   // Check if key is a numeric string once and reuse the result
-  const numericKey = !isNaN(Number(key)) ? Number(key) : null;
+  const numericKey = WHOLE_NUMBER.test(key) ? Number(key) : null;
 
   // We assign `value` to the element at the `numericKey`
   // index if `source` is an array and `key` is a numeric
   // string, otherwise we treat `source` as an object and
   // assign `value` to the property with the name `key`.
-  const value =
+  let value =
     numericKey !== null && Array.isArray(source)
       ? source[numericKey]
       : (source as Record<string, unknown>)[key];
   // If the value is a function, call it with the provided
   // parameters
-  return cache.set(
-    currentPath,
-    typeof value === "function"
-      ? value.call(source, key, currentPath, fullPath)
-      : value,
-  );
+  if (typeof value === FUNCTION)
+    value = value.call(source, key, currentPath, fullPath);
+  cache.set(currentPath, value);
+  return value;
 };
 
 export default getValue;

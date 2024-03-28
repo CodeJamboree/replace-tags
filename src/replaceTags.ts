@@ -25,11 +25,12 @@ const replaceTags = (
     `${defaultedOptions.tagStartPattern.source + "\\s*"}|${"\\s*" + defaultedOptions.tagEndPattern.source}`,
     "g",
   );
-  if (!options?.cache) cache.clear();
+  const keepCache = options?.cache ?? false;
+  if (!keepCache) cache.clear();
   try {
     return text.replace(pattern, tagReplacer(values, tagEdges));
   } finally {
-    if (!options?.cache) cache.clear();
+    if (!keepCache) cache.clear();
   }
 };
 

@@ -1,3 +1,5 @@
+const STRING: "string" = "string";
+const OBJECT: "object" = "object";
 /**
  * Convert value to string
  * @param {unknown} value The value to convert to a string.
@@ -16,15 +18,16 @@
  * stringify("", "default value"); // ""
  */
 const stringify = (value: unknown, defaultValue: string): string => {
-  if (typeof value === "undefined" || value === null)
-    return defaultValue;
-  if (typeof value === "string") {
-    return value;
+  if (value === null || value === undefined) return defaultValue;
+  switch (typeof value) {
+    case STRING:
+      // @ts-expect-error - We know this is a string
+      return value;
+    case OBJECT:
+      return JSON.stringify(value);
+    default:
+      return String(value ?? defaultValue);
   }
-  if (typeof value === "object") {
-    return JSON.stringify(value);
-  }
-  return String(value ?? defaultValue);
 };
 
 export default stringify;

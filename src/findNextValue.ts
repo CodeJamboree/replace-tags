@@ -1,4 +1,4 @@
-import appendPath from "./appendPath";
+import appendPathKey from "./appendPathKey";
 import getArrayValue from "./getArrayValue";
 import getValue from "./getValue";
 import getValueFromIndicies from "./getValueFromIndicies";
@@ -24,12 +24,12 @@ const findNextValue = (
       currentPath,
       fullPath,
     );
-    currentPath = appendPath(currentPath, segment);
+    currentPath = appendPathKey(currentPath, segment);
   } else if (segment.includes("[")) {
     value = getArrayValue(value, segment, currentPath, fullPath);
-    currentPath = appendPath(currentPath, segment);
+    currentPath = appendPathKey(currentPath, segment);
   } else {
-    currentPath = appendPath(currentPath, segment);
+    currentPath = appendPathKey(currentPath, segment);
     value = getValue(value, segment, currentPath, fullPath);
   }
   return {

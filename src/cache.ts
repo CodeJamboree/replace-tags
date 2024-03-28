@@ -40,18 +40,16 @@ export const has = (key: string): boolean => valueCache.has(key);
  * Sets a value in the cache.
  * @param {string} key - The key to store the value under.
  * @param {unknown} value - The value to store in the cache.
- * @returns {unknown} The value stored in the cache.
+ * @returns {void} Nothing.
  * @example
- * cache.set("Key", "Value"); // "Value"
+ * cache.set("Key", "Value");
  * cache.get("Key"); // "Value"
  * cache.has("Key"); // true
- * cache.set("Key", "New Value"); // "New Value"
+ * cache.set("Key", "New Value");
  * cache.get("Key"); // "New Value"
  */
-export const set = (key: string, value: unknown): unknown => {
+export const set = (key: string, value: unknown): void => {
   valueCache.set(key, value);
-  stringCache.delete(key);
-  return value;
 };
 
 /**

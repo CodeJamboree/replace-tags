@@ -3,6 +3,8 @@ import findValueByPath from "./findValueByPath";
 import RegExReplacer from "./RegExReplacer";
 import stringify from "./stringify";
 
+const EMPTY = "";
+
 /**
  *
  * Creates a RegEx replacer function to use the corresponding values and tag style.
@@ -20,11 +22,9 @@ const tagReplacer = (
    * @returns {string} The resolved value if the tag matches a path in the `values` object; otherwise, the original tag.
    */
   const replacer: RegExReplacer = (match: string): string => {
-    const path = match.replace(tagEdges, "");
-    if (cache.has(path))
-      return cache.getString(path, match) as string;
-    const value = findValueByPath(values, path);
-    return stringify(value, match);
+    const path = match.replace(tagEdges, EMPTY);
+    if (!cache.has(path)) findValueByPath(values, path);
+    return cache.getString(path, match) as string;
   };
 
   return replacer;

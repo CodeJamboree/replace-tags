@@ -1,3 +1,5 @@
+// 1,000 = avg 0.292ms
+
 var packageJson = { name: "@codejamboree/replace-tags" };
 var replaceTags;
 var styles;
@@ -47,17 +49,22 @@ var values = {
   },
 };
 
-// values = generateRandomObject(3, 10);
-
-paths = generateDotPaths(10000); //.sort();
+paths = generateDotPaths(100);
 values = createObjectFromDotPaths(paths);
 
-console.log(paths);
-
-// paths = getDotPaths(values).sort(function () {
-//   return Math.random() - 0.5;
-// });
+function compareRandom() {
+  return Math.random() - 0.5;
+}
+paths.sort(compareRandom);
 template = "";
+paths.forEach(function (path) {
+  template += `{{${path}}}\n`;
+});
+paths.sort(compareRandom);
+paths.forEach(function (path) {
+  template += `{{${path}}}\n`;
+});
+paths.sort(compareRandom);
 paths.forEach(function (path) {
   template += `{{${path}}}\n`;
 });
