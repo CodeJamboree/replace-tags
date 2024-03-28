@@ -7,6 +7,7 @@ import { clear } from "./cache";
 import AngleBrackets from "./styles/AngleBrackets";
 import AngleBracketsWithPercentSigns from "./styles/AngleBracketsWithPercentSigns";
 import Backticks from "./styles/Backticks";
+import Chevrons from "./styles/Chevrons";
 import CurlyBraces from "./styles/CurlyBraces";
 import CurlyBracesWithDollarSigns from "./styles/CurlyBracesWithDollarSigns";
 import CurlyBracesWithHashSymbols from "./styles/CurlyBracesWithHashSymbols";
@@ -47,7 +48,6 @@ export const environment = __ENVIRONMENT__;
 export default replaceTags;
 
 // Define style aliases
-export const Chevrons = AngleBrackets;
 export const PercentBrackets = AngleBracketsWithPercentSigns;
 export const Dunders = DoubleUnderscores;
 export const Mustache = DoubleCurlyBraces;
@@ -101,6 +101,7 @@ export {
   AngleBrackets,
   AngleBracketsWithPercentSigns,
   Backticks,
+  Chevrons,
   CurlyBraces,
   CurlyBracesWithDollarSigns,
   CurlyBracesWithHashSymbols,
