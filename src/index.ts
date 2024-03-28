@@ -52,6 +52,45 @@ export const Handlebars = CurlyBraces;
 // Export utility functions
 export const clearCache = clear;
 
+// Export styles
+export const styles = [
+  AngleBrackets,
+  AngleBracketsWithPercentSigns,
+  Backticks,
+  Chevrons,
+  CurlyBraces,
+  CurlyBracesWithDollarSigns,
+  CurlyBracesWithHashSymbols,
+  DollarSignsWithSquareBrackets,
+  DollarSignWithCurlyBraces,
+  DoubleAngle,
+  DoubleAtSigns,
+  DoubleCaretsWithBraces,
+  DoubleColonsWithBraces,
+  DoubleCurlyBraces,
+  DoubleCurlyBracesWithPercentSign,
+  DoubleQuestionMarks,
+  DoubleSquareBrackets,
+  DoubleSquareBracketsWithDollarSigns,
+  DoubleUnderscores,
+  Dunders,
+  ExclamationMarks,
+  Handlebars,
+  HashSymbolsWithCurlyBraces,
+  HTMLComments,
+  Mustache,
+  Parentheses,
+  PercentBrackets,
+  PercentSigns,
+  VerticalBars,
+  Pointy,
+  CurlyBracesWithExclamationMarks,
+  SquareBrackets,
+  SquareBracketsWithColons,
+  SquareBracketsWithHyphens,
+  TripleCurlyBraces,
+];
+
 export {
   replaceTags,
   findValueByPath,
