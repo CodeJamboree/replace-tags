@@ -26,9 +26,9 @@ function handleRunTestsButtonClick() {
   var time = end - start;
   var average = (end - start) / itterations;
 
+  setTotalTime(time);
+  setAverageTime(average);
+
   document.getElementById("results").textContent = results;
-  document.getElementById("time").textContent = time.toLocaleString();
-  document.getElementById("average").textContent =
-    average.toLocaleString();
   document.getElementById("runTestsButton").disabled = false;
 }

@@ -21,6 +21,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+      defer
+    ></script>
     <script
       id="package"
       type="text/javascript"
@@ -40,6 +45,8 @@
     <script src="./getValues.js"></script>
     <script src="./setText.js"></script>
     <script src="./getText.js"></script>
+    <script src="./setTotalTime.js"></script>
+    <script src="./setAverageTime.js"></script>
     <script src="./index.js"></script>
     <script src="./replaceTags.test.js"></script>
   </head>
@@ -164,11 +171,11 @@
           </tr>
           <tr>
             <td>Time</td>
-            <td><span id="time">0</span> ms</td>
+            <td id="time">0</td>
           </tr>
           <tr>
             <td>Average</td>
-            <td><span id="average">0</span> ms</td>
+            <td id="average">0</td>
           </tr>
         </tfoot>
       </table>
