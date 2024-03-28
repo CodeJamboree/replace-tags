@@ -28,6 +28,7 @@ import ExclamationMarks from "./styles/ExclamationMarks";
 import HashSymbolsWithCurlyBraces from "./styles/HashSymbolsWithCurlyBraces";
 import Handlebars from "./styles/Handlebars";
 import HTMLComments from "./styles/HTMLComments";
+import Mustache from "./styles/Mustache";
 import Parentheses from "./styles/Parentheses";
 import PercentSigns from "./styles/PercentSigns";
 import VerticalBars from "./styles/VerticalBars";
@@ -51,7 +52,6 @@ export default replaceTags;
 
 // Define style aliases
 export const PercentBrackets = AngleBracketsWithPercentSigns;
-export const Mustache = DoubleCurlyBraces;
 
 // Export utility functions
 export const clearCache = clear;
@@ -122,6 +122,7 @@ export {
   Handlebars,
   HashSymbolsWithCurlyBraces,
   HTMLComments,
+  Mustache,
   Parentheses,
   PercentSigns,
   VerticalBars,
