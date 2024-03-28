@@ -23,6 +23,7 @@ import DoubleQuestionMarks from "./styles/DoubleQuestionMarks";
 import DoubleSquareBrackets from "./styles/DoubleSquareBrackets";
 import DoubleSquareBracketsWithDollarSigns from "./styles/DoubleSquareBracketsWithDollarSigns";
 import DoubleUnderscores from "./styles/DoubleUnderscores";
+import Dunders from "./styles/Dunders";
 import ExclamationMarks from "./styles/ExclamationMarks";
 import HashSymbolsWithCurlyBraces from "./styles/HashSymbolsWithCurlyBraces";
 import HTMLComments from "./styles/HTMLComments";
@@ -49,7 +50,6 @@ export default replaceTags;
 
 // Define style aliases
 export const PercentBrackets = AngleBracketsWithPercentSigns;
-export const Dunders = DoubleUnderscores;
 export const Mustache = DoubleCurlyBraces;
 export const Handlebars = CurlyBraces;
 
@@ -117,6 +117,7 @@ export {
   DoubleSquareBrackets,
   DoubleSquareBracketsWithDollarSigns,
   DoubleUnderscores,
+  Dunders,
   ExclamationMarks,
   HashSymbolsWithCurlyBraces,
   HTMLComments,
