@@ -16,6 +16,7 @@ function handleRunTestsButtonClick() {
   options.tagPattern = style.tagPattern;
   options.tagStartPattern = style.tagStartPattern;
   options.tagEndPattern = style.tagEndPattern;
+  options.onMissingPath = getOnMissingPath();
   results = "";
 
   var start = performance.now();

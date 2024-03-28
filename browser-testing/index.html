@@ -48,6 +48,8 @@
     <script src="./setTotalTime.js"></script>
     <script src="./setAverageTime.js"></script>
     <script src="./handleJSDelivrResponse.js"></script>
+    <script src="./getOnMissingPath.js"></script>
+    <script src="./setOnMissingPath.js"></script>
     <script src="./index.js"></script>
     <script src="./replaceTags.test.js"></script>
   </head>
@@ -133,7 +135,7 @@
             <td>
               <textarea
                 id="text"
-                style="width: 100%; height: 200px"
+                style="width: 100%; height: 100px"
               ></textarea>
             </td>
           </tr>
@@ -145,7 +147,7 @@
                 contenteditable="true"
                 style="
                   width: 100%;
-                  height: 200px;
+                  height: 100px;
                   overflow: auto;
                   border: 1px solid #ccc;
                   padding: 5px;
@@ -163,6 +165,24 @@
           <tr>
             <td>Caching</td>
             <td><input type="checkbox" id="caching" checked /></td>
+          </tr>
+          <tr>
+            <td>onMissingPath</td>
+            <td>
+              <pre>function onMissingPath(path, tag)</pre>
+              <pre
+                id="onMissingPath"
+                contenteditable="true"
+                style="
+                  width: 100%;
+                  height: 75px;
+                  overflow: auto;
+                  border: 1px solid #ccc;
+                  padding: 5px;
+                  margin: 0;
+                "
+              ></pre>
+            </td>
           </tr>
         </tbody>
         <tfoot>

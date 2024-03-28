@@ -28,6 +28,12 @@ function onDOMContentLoaded() {
     radio.addEventListener("change", handleChangeTemplate);
   });
 
+  setOnMissingPath(`
+console.log('onMissingPath was called with', path, tag);
+
+return 'Missing';
+`);
+
   fetch(
     "https://data.jsdelivr.com/v1/packages/npm/@codejamboree/replace-tags",
   ).then(handleJSDelivrResponse);
