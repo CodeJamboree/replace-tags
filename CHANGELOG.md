@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2024-03-28
+
 ### Added
 
 - `CurlyBraces` ie `{ name }`
