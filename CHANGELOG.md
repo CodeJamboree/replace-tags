@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.2.2] - 2024-03-28
+
 ### Fixed
 
 - Corrected Version number in CDN urls within (README.md)
