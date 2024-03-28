@@ -85,7 +85,3 @@ gh release upload "v$VERSION" "dist/index.min.js"
 
 # Upload the built development file to the release
 gh release upload "v$VERSION" "dist-dev/index.js"
-
-# open the release page in the browser
-gh release view "v$VERSION"
- 
