@@ -14,13 +14,15 @@ module.exports = (env, argv) => {
         chunks: "all",
       },
       minimize: true,
-      minimizer: [new TerserPlugin({
-        terserOptions: {
-          format: {
-            ascii_only: true,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            format: {
+              ascii_only: true,
+            },
           },
-          },
-      })],
+        }),
+      ],
     },
     module: {
       ...config.module,
