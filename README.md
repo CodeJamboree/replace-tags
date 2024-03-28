@@ -21,14 +21,14 @@ yarn add @codejamboree/replace-tags
 Or using a CDN (Content Delivery Network)
 
 - jsDelivr
-  - Production: https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@222.333.444/dist/index.min.js
-  - Development: https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@222.333.444/dist-dev/index.js
+  - Production: https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.2.1/dist/index.min.js
+  - Development: https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.2.1/dist-dev/index.js
 - unpkg
-  - Production: https://unpkg.com/@codejamboree/replace-tags@222.333.444/dist/index.min.js
-  - Development: https://unpkg.com/@codejamboree/replace-tags@222.333.444/dist-dev/index.js
+  - Production: https://unpkg.com/@codejamboree/replace-tags@1.2.1/dist/index.min.js
+  - Development: https://unpkg.com/@codejamboree/replace-tags@1.2.1/dist-dev/index.js
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@222.333.444/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.2.1/dist/index.min.js"></script>
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ console.log(replacedText);
 ### Via CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@222.333.444/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.2.1/dist/index.min.js"></script>
 <script>
   var replaceTags = window["@codejamboree/replace-tags"].replaceTags;
   var text = replaceTags("Hello {{name}}!", { name: "World" });
