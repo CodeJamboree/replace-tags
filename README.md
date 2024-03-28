@@ -18,6 +18,12 @@ Or using yarn:
 yarn add @codejamboree/replace-tags
 ```
 
+To include a script from a CDN (Content Delivery Network), you can use the following markdown syntax:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.1.1/dist/index.min.js"></script>
+```
+
 ## Usage
 
 ```js
@@ -39,6 +45,18 @@ const replacedText = replaceTags(text, values);
 
 console.log(replacedText);
 // Output: Hello John Doe, welcome to example.com!
+```
+
+### Via CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.1.1/dist/index.min.js"></script>
+<script>
+  var replaceTags = window["@codejamboree/replace-tags"].replaceTags;
+  var text = replaceTags("Hello {{name}}!", { name: "World" });
+  console.log(text);
+  // Output: Hello World!
+</script>
 ```
 
 ### Unresolved Tags
