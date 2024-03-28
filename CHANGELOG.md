@@ -9,6 +9,7 @@
 - `Handlebars` alias for `CurlyBraces` ie `{ name }`
 - Tag styles now have `openingTag`, `closingTag` and `name` properties.
 - Guard against unexpected `option` keys.
+- `browser-testing` folder to profile performance in browsers.
 
 ### Changed
 
