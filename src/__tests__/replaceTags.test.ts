@@ -215,6 +215,14 @@ describe("replace tags", () => {
         "Hello {{users.2.name}}!",
       );
     });
+    it('can override the "missing path" handler', () => {
+      const text = "Hello {{name}}!";
+      const values = {};
+      const onMissingPath = jest.fn().mockReturnValue("Missing");
+      expect(replaceTags(text, values, { onMissingPath })).toBe(
+        "Hello Missing!",
+      );
+    });
   });
   describe("invalid text", () => {
     it("handles undefined", () => {
