@@ -18,7 +18,14 @@ Or using yarn:
 yarn add @codejamboree/replace-tags
 ```
 
-To include a script from a CDN (Content Delivery Network), you can use the following markdown syntax:
+Or using a CDN (Content Delivery Network)
+
+- jsDelivr
+  - Production: https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.1.1/dist/index.min.js
+  - Development: https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.1.1/dist-dev/index.js
+- unpkg
+  - Production: https://unpkg.com/@codejamboree/replace-tags@1.1.1/dist/index.min.js
+  - Development: https://unpkg.com/@codejamboree/replace-tags@1.1.1/dist-dev/index.js
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags@1.1.1/dist/index.min.js"></script>
