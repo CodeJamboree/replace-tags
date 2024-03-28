@@ -8,11 +8,11 @@ const expectedOptionKeys = [
   "tagStartPattern",
   "tagEndPattern",
   "cache",
+  "onMissingPath",
   // ignored keys:
   "name",
   "openingTag",
   "closingTag",
-  "onMissingPath",
 ];
 
 /**
