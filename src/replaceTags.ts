@@ -3,6 +3,17 @@ import tagReplacer from "./tagReplacer";
 import getOptionsWithDefaults from "./getOptionsWithDefaults";
 import * as cache from "./cache";
 
+const expectedOptionKeys = [
+  "tagPattern",
+  "tagStartPattern",
+  "tagEndPattern",
+  "cache",
+  // ignored keys:
+  "name",
+  "openingTag",
+  "closingTag",
+];
+
 /**
  * Replaces tags in a text with corresponding values from an object.
  * @param {string} text - The text containing tags to be replaced.
@@ -19,6 +30,15 @@ const replaceTags = (
   if (typeof values === "string") {
     values = JSON.parse(values) as object;
   }
+  if (typeof options === "object" && options !== null) {
+    Object.keys(options).every((key) => {
+      if (!expectedOptionKeys.includes(key)) {
+        throw new Error(`Unexpected option key: ${key}`);
+      }
+      return true;
+    });
+  }
+
   const defaultedOptions = getOptionsWithDefaults(options);
   const pattern = defaultedOptions.tagPattern;
   const tagEdges = new RegExp(

@@ -137,7 +137,7 @@ function onRunTestsButtonClick() {
   );
   var options = {};
 
-  options.caching = document.getElementById("caching").checked;
+  options.cache = document.getElementById("caching").checked;
 
   var tagStyle = document.getElementById("tagStyle");
   var style = styles[parseInt(tagStyle.value)];

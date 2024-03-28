@@ -8,6 +8,7 @@
 - `Mustache` alias for `DoubleCurlyBraces` ie `{{ name }}`
 - `Handlebars` alias for `CurlyBraces` ie `{ name }`
 - Tag styles now have `openingTag`, `closingTag` and `name` properties.
+- Guard against unexpected `option` keys.
 
 ### Fixed
 
