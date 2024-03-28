@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine-html.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/boot.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script
+      id="package"
+      type="text/javascript"
+      src="../dist/index.min.js"
+    ></script>
+    <script src="./generateRandomObject.js"></script>
+    <script src="./getDotPaths.js"></script>
+    <script src="./browser.js"></script>
+  </head>
+  <body>
+    <form>
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>Tag Style</td>
+            <td>
+              <select id="tagStyle"></select>
+            </td>
+          </tr>
+
+          <tr>
+            <td valign="top">Text</td>
+            <td>
+              <textarea
+                id="text"
+                style="width: 100%; height: 200px"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>Values</td>
+            <td valign="top">
+              <pre
+                id="values"
+                contenteditable="true"
+                style="
+                  width: 100%;
+                  height: 200px;
+                  overflow: auto;
+                  border: 1px solid #ccc;
+                  padding: 5px;
+                  margin: 0;
+                "
+              ></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Itterations</td>
+            <td>
+              <select id="itterations"></select>
+            </td>
+          </tr>
+          <tr>
+            <td>Caching</td>
+            <td><input type="checkbox" id="caching" checked /></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>
+              <button id="runTestsButton" type="button">
+                Run Tests
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Results</td>
+            <td>
+              <pre
+                id="results"
+                style="
+                  width: 100%;
+                  height: 200px;
+                  overflow: auto;
+                  border: 1px solid #ccc;
+                  padding: 5px;
+                  margin: 0;
+                "
+              ></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td><span id="time">0</span> ms</td>
+          </tr>
+          <tr>
+            <td>Average</td>
+            <td><span id="average">0</span> ms</td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+  </body>
+</html>
