@@ -10,6 +10,10 @@
 - Tag styles now have `openingTag`, `closingTag` and `name` properties.
 - Guard against unexpected `option` keys.
 
+### Changed
+
+- Performance improvements
+
 ### Fixed
 
 - `Pointy` issues with Unicode, now escaped as `\uD83D\uDC49` and `\uD83D\uDC48`.
