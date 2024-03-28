@@ -1,4 +1,3 @@
-import ReplaceTagsOptions from "../ReplaceTagsOptions";
 import TagStyle from "./TagStyle";
 
 /**
