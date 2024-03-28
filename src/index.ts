@@ -30,6 +30,7 @@ import Handlebars from "./styles/Handlebars";
 import HTMLComments from "./styles/HTMLComments";
 import Mustache from "./styles/Mustache";
 import Parentheses from "./styles/Parentheses";
+import PercentBrackets from "./styles/PercentBrackets";
 import PercentSigns from "./styles/PercentSigns";
 import VerticalBars from "./styles/VerticalBars";
 import Pointy from "./styles/Pointy";
@@ -49,9 +50,6 @@ export const environment = __ENVIRONMENT__;
 
 // Epoxrt main function
 export default replaceTags;
-
-// Define style aliases
-export const PercentBrackets = AngleBracketsWithPercentSigns;
 
 // Export utility functions
 export const clearCache = clear;
@@ -124,6 +122,7 @@ export {
   HTMLComments,
   Mustache,
   Parentheses,
+  PercentBrackets,
   PercentSigns,
   VerticalBars,
   Pointy,
