@@ -11,6 +11,7 @@
 - Guard against unexpected `option` keys.
 - Exported `styles` as an array of all available styles
 - `browser-testing` folder to profile performance in browsers.
+- Option to override missing values with `onMissingPath` callback.
 
 ### Changed
 
