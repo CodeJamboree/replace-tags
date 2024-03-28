@@ -1,7 +1,6 @@
 import * as cache from "./cache";
 import findValueByPath from "./findValueByPath";
 import RegExReplacer from "./RegExReplacer";
-import stringify from "./stringify";
 
 const EMPTY = "";
 
