@@ -66,6 +66,10 @@ console.log(replacedText);
 </script>
 ```
 
+## Configuration Interface
+
+A page is available to [try out replaceTags](https://codejamboree.github.io/replace-tags/test/index.html) by changing various configuration settings and review its performance.
+
 ### Unresolved Tags
 
 If a tags property path cannot be resolved, the tag remains unchanged.
