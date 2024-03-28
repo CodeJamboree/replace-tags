@@ -1,6 +1,6 @@
 {
   "name": "@codejamboree/replace-tags",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Effortlessly replace placeholders with dynamic content using this powerful text manipulation toolkit.",
   "main": "dist/index.min.js",
   "devMain": "dist-dev/index.js",
