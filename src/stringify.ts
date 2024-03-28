@@ -1,5 +1,5 @@
-const STRING: "string" = "string";
-const OBJECT: "object" = "object";
+const STRING = "string";
+const OBJECT = "object";
 /**
  * Convert value to string
  * @param {unknown} value The value to convert to a string.

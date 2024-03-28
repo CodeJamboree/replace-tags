@@ -35,9 +35,13 @@ import SquareBracketsWithColons from "./styles/SquareBracketsWithColons";
 import SquareBracketsWithHyphens from "./styles/SquareBracketsWithHyphens";
 import TripleCurlyBraces from "./styles/TripleCurlyBraces";
 
+// Build Varialbles populated by Webpack DefinePlugin
 // Define version number
-// Populated by Webpack DefinePlugin
 export const version = __VERSION__;
+// Define timestamped build
+export const timestamp = __TIMESTAMP__;
+// Define environment build
+export const environment = __ENVIRONMENT__;
 
 // Epoxrt main function
 export default replaceTags;

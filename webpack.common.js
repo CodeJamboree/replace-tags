@@ -28,6 +28,8 @@ module.exports = (env, argv) => {
     plugins: [
       new webpack.DefinePlugin({
         __VERSION__: JSON.stringify(packageJson.version),
+        __TIMESTAMP__: JSON.stringify(new Date().valueOf()),
+        __ENVIRONMENT__: JSON.stringify(argv.mode),
       }),
     ],
     module: {

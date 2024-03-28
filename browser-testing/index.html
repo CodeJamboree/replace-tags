@@ -24,22 +24,81 @@
     <script
       id="package"
       type="text/javascript"
-      src="../dist/index.min.js"
+      src="../dist-dev/index.js"
     ></script>
     <script src="./generateRandomObject.js"></script>
     <script src="./generateDotPaths.js"></script>
     <script src="./getDotPaths.js"></script>
     <script src="./createObjectFromDotPaths.js"></script>
-    <script src="./browser.js"></script>
+    <script src="./getComplexTemplate.js"></script>
+    <script src="./getInvoiceTemplate.js"></script>
+    <script src="./handleStyleChanged.js"></script>
+    <script src="./handleChangeEnvironment.js"></script>
+    <script src="./handleChangeTemplate.js"></script>
+    <script src="./onDOMContentLoaded.js"></script>
+    <script src="./handleRunTestsButtonClick.js"></script>
+    <script src="./displayPackage.js"></script>
+    <script src="./setValues.js"></script>
+    <script src="./getValues.js"></script>
+    <script src="./setText.js"></script>
+    <script src="./getText.js"></script>
+    <script src="./index.js"></script>
+    <script src="./replaceTags.test.js"></script>
   </head>
   <body>
     <form>
       <table width="100%">
         <tbody>
           <tr>
+            <td>Build</td>
+            <td>
+              <select id="environmentSelect">
+                <option value="../dist-dev/index.js" selected>
+                  Development
+                </option>
+                <option value="../dist/index.min.js">
+                  Production
+                </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Version</td>
+            <td>v<span id="version"></span></td>
+          </tr>
+          <tr>
+            <td>Timestamp</td>
+            <td>
+              <span id="timestamp"></span>
+            </td>
+          </tr>
+
+          <tr>
             <td>Tag Style</td>
             <td>
               <select id="tagStyle"></select>
+            </td>
+          </tr>
+          <tr>
+            <td>Template</td>
+            <td>
+              <label>
+                <input
+                  type="radio"
+                  name="template"
+                  value="invoice"
+                  checked
+                />
+                Invoice
+              </label>
+              <label>
+                <input type="radio" name="template" value="complex" />
+                Complex
+              </label>
+              <label>
+                <input type="radio" name="template" value="custom" />
+                Custom
+              </label>
             </td>
           </tr>
 
