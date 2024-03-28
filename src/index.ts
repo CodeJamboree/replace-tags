@@ -26,6 +26,7 @@ import DoubleUnderscores from "./styles/DoubleUnderscores";
 import Dunders from "./styles/Dunders";
 import ExclamationMarks from "./styles/ExclamationMarks";
 import HashSymbolsWithCurlyBraces from "./styles/HashSymbolsWithCurlyBraces";
+import Handlebars from "./styles/Handlebars";
 import HTMLComments from "./styles/HTMLComments";
 import Parentheses from "./styles/Parentheses";
 import PercentSigns from "./styles/PercentSigns";
@@ -51,7 +52,6 @@ export default replaceTags;
 // Define style aliases
 export const PercentBrackets = AngleBracketsWithPercentSigns;
 export const Mustache = DoubleCurlyBraces;
-export const Handlebars = CurlyBraces;
 
 // Export utility functions
 export const clearCache = clear;
@@ -119,6 +119,7 @@ export {
   DoubleUnderscores,
   Dunders,
   ExclamationMarks,
+  Handlebars,
   HashSymbolsWithCurlyBraces,
   HTMLComments,
   Parentheses,
