@@ -681,9 +681,9 @@ var TripleCurlyBraces_1 = __importDefault(__webpack_require__(/*! ./styles/Tripl
 exports.TripleCurlyBraces = TripleCurlyBraces_1.default;
 // Build Varialbles populated by Webpack DefinePlugin
 // Define version number
-exports.version = "1.2.1";
+exports.version = "1.2.2";
 // Define timestamped build
-exports.timestamp = 1711654117696;
+exports.timestamp = 1711654706011;
 // Define environment build
 exports.environment = "development";
 // Epoxrt main function
