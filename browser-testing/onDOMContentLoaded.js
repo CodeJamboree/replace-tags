@@ -5,8 +5,8 @@ function onDOMContentLoaded() {
 
   displayPackage();
   document
-    .getElementById("environmentSelect")
-    .addEventListener("change", handleChangeEnvironment);
+    .getElementById("loadButton")
+    .addEventListener("click", handleChangeEnvironment);
 
   // Setup itterations
   var itterations = document.getElementById("itterations");
@@ -27,4 +27,8 @@ function onDOMContentLoaded() {
   templateRadios.forEach(function (radio) {
     radio.addEventListener("change", handleChangeTemplate);
   });
+
+  fetch(
+    "https://data.jsdelivr.com/v1/packages/npm/@codejamboree/replace-tags",
+  ).then(handleJSDelivrResponse);
 }

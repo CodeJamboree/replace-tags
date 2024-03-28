@@ -47,6 +47,7 @@
     <script src="./getText.js"></script>
     <script src="./setTotalTime.js"></script>
     <script src="./setAverageTime.js"></script>
+    <script src="./handleJSDelivrResponse.js"></script>
     <script src="./index.js"></script>
     <script src="./replaceTags.test.js"></script>
   </head>
@@ -57,14 +58,25 @@
           <tr>
             <td>Build</td>
             <td>
-              <select id="environmentSelect">
-                <option value="../dist-dev/index.js" selected>
-                  Development
-                </option>
-                <option value="../dist/index.min.js">
-                  Production
+              CDN:
+              <select id="cdnSource">
+                <option value="local">None</option>
+                <option
+                  value="https://cdn.jsdelivr.net/npm/@codejamboree/replace-tags"
+                >
+                  jsDelivr
                 </option>
               </select>
+              <select id="cdnVersion">
+                <option value="latest">Latest</option>
+              </select>
+              <select id="cdnEnvironment">
+                <option value="/dist-dev/index.js" selected>
+                  Development
+                </option>
+                <option value="/dist/index.min.js">Production</option>
+              </select>
+              <button id="loadButton" type="button">Load</button>
             </td>
           </tr>
           <tr>
@@ -76,6 +88,10 @@
             <td>
               <span id="timestamp"></span>
             </td>
+          </tr>
+          <tr>
+            <td>Environment</td>
+            <td id="environment"></td>
           </tr>
 
           <tr>
