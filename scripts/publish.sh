@@ -7,7 +7,7 @@ set -e
 if git diff-index --quiet HEAD --; then
     echo "No uncommitted changes found."
 else
-    echo "Error: There are uncommitted changes in the repository."
+    echo "Will not publish while there are uncommitted changes in the repository."
     exit 1
 fi
 

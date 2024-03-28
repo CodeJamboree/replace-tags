@@ -9,7 +9,7 @@ set -e
 
 # Check if there are any uncommitted changes
 if ! git diff-index --quiet HEAD --; then
-    echo "Error: There are uncommitted changes in the repository."
+    echo "Update Changelog Failed. There are uncommitted changes in the repository."
     exit 1
 fi
 
