@@ -1,4 +1,4 @@
-import ReplaceTagsOptions from "../ReplaceTagsOptions";
+import ReplaceTagsOptions from "./ReplaceTagsOptions";
 
 interface TagStyle extends ReplaceTagsOptions {
   name: string;

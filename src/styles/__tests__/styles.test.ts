@@ -1,5 +1,7 @@
+import fs from "fs";
+import path from "path";
 import replaceTags from "../../replaceTags";
-import TagStyle from "../TagStyle";
+import TagStyle from "../../TagStyle";
 
 const runTagStyleTests = (tagStyle: TagStyle) => {
   const { openingTag, closingTag } = tagStyle;
@@ -93,4 +95,11 @@ const runTagStyleTests = (tagStyle: TagStyle) => {
   });
 };
 
-export default runTagStyleTests;
+fs.readdirSync(path.join(__dirname, "../"))
+  .filter((file) => file.endsWith(".ts"))
+  .forEach((file) => {
+    const style = require(`../${file}`).default;
+    describe(file, () => {
+      runTagStyleTests(style);
+    });
+  });

@@ -1,4 +1,4 @@
-import TagStyle from "./TagStyle";
+import TagStyle from "../TagStyle";
 
 /**
  * Options for replacing tags using hash symbols and curly braces (`#{` `}#`).
