@@ -211,6 +211,7 @@ Replaces tags in the provided text with values from the values object.
   - `tagStartPattern` (optional): A regular expression pattern to find the start of a tag. Default is DoubleCurlyBraces.tagStartPattern.
   - `tagEndPattern` (optional): A regular expression pattern to find the end of a tag. Default is DoubleCurlyBraces.tagEndPattern.
   - `cache` (optional): Flag indicating if values are to be cached for subsequent calls. Default is false.
+  - `onMissingPath` (optional): A callback to resolve values for paths that found nothing. Default is to retain the tag. `(path, tag) => tag`
 
 Returns the modified text string with tags replaced.
 
@@ -219,6 +220,27 @@ Returns the modified text string with tags replaced.
 - `0` The same as `[0]`
 - `users.0.name` The same as `users[0].name`
 - `user[name]` The same as `users.name`
+
+## Missing Values
+
+If a value is not found for a given tag, the tag will remain in its original form. This behavior can be overridden to replace it with empty text, throw an error, or other custom logic by setting the `onMissingPath` callback. It receives both the `path` and `tag` that was unable to be resolved. The returned value is used in replacing the tag in the original template.
+
+```js
+const { replaceTags } = require("@codejamboree/replace-tags");
+const values = {};
+const template = 'Hello {{ this.tag.is.missing }}!';
+const onMissingPath = function(path, tag) {
+  console.log(path);
+  console.log(tag);
+  return "Unknown";
+}
+const options = { onMissingPath };
+
+console.log(replaceTags(template, values, options));
+// Output: this.tag.is.missing
+// Output: {{ this.tag.is.missing }}
+// Output: Hello Unknown!
+```
 
 ## Object Values
 
