@@ -228,12 +228,12 @@ If a value is not found for a given tag, the tag will remain in its original for
 ```js
 const { replaceTags } = require("@codejamboree/replace-tags");
 const values = {};
-const template = 'Hello {{ this.tag.is.missing }}!';
-const onMissingPath = function(path, tag) {
+const template = "Hello {{ this.tag.is.missing }}!";
+const onMissingPath = function (path, tag) {
   console.log(path);
   console.log(tag);
   return "Unknown";
-}
+};
 const options = { onMissingPath };
 
 console.log(replaceTags(template, values, options));
